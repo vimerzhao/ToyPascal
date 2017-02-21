@@ -5,12 +5,8 @@ package wci.frontend;
  *
  * <p>A language-independent framework class.  This abstract scanner class
  * will be implemented by language-specific subclasses.</p>
- *
- * <p>Copyright (c) 2009 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
  */
-public abstract class Scanner
-{
+public abstract class Scanner {
     protected Source source;     // source
     private Token currentToken;  // current token
 
@@ -18,16 +14,14 @@ public abstract class Scanner
      * Constructor
      * @param source the source to be used with this scanner.
      */
-    public Scanner(Source source)
-    {
+    public Scanner(Source source) {
         this.source = source;
     }
 
     /**
      * @return the current token.
      */
-    public Token currentToken()
-    {
+    public Token currentToken() {
         return currentToken;
     }
 
@@ -36,9 +30,7 @@ public abstract class Scanner
      * @return the next token.
      * @throws Exception if an error occurred.
      */
-    public Token nextToken()
-        throws Exception
-    {
+    public Token nextToken() throws Exception {
         currentToken = extractToken();
         return currentToken;
     }
@@ -49,17 +41,14 @@ public abstract class Scanner
      * @return the next token.
      * @throws Exception if an error occurred.
      */
-    protected abstract Token extractToken()
-        throws Exception;
+    protected abstract Token extractToken() throws Exception;
 
     /**
      * Call the source's currentChar() method.
      * @return the current character from the source.
      * @throws Exception if an error occurred.
      */
-    public char currentChar()
-        throws Exception
-    {
+    public char currentChar() throws Exception {
         return source.currentChar();
     }
 
@@ -68,9 +57,7 @@ public abstract class Scanner
      * @return the next character from the source.
      * @throws Exception if an error occurred.
      */
-    public char nextChar()
-        throws Exception
-    {
+    public char nextChar() throws Exception {
         return source.nextChar();
     }
 }

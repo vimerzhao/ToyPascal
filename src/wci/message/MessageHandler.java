@@ -7,29 +7,23 @@ import java.util.ArrayList;
  *
  * <p>A helper class to which message producer classes delegate the task of
  * maintaining and notifying listeners.</p>
- *
- * <p>Copyright (c) 2009 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
  */
-public class MessageHandler
-{
+public class MessageHandler {
     private Message message;                       // message
     private ArrayList<MessageListener> listeners;  // listener list
 
     /**
      * Constructor.
      */
-    public MessageHandler()
-    {
-        this.listeners = new ArrayList<MessageListener>();
+    public MessageHandler() {
+        this.listeners = new ArrayList<>();
     }
 
     /**
      * Add a listener to the listener list.
      * @param listener the listener to add.
      */
-    public void addListener(MessageListener listener)
-    {
+    public void addListener(MessageListener listener) {
         listeners.add(listener);
     }
 
@@ -37,8 +31,7 @@ public class MessageHandler
      * Remove a listener from the listener list.
      * @param listener the listener to remove.
      */
-    public void removeListener(MessageListener listener)
-    {
+    public void removeListener(MessageListener listener) {
         listeners.remove(listener);
     }
 
@@ -46,8 +39,7 @@ public class MessageHandler
      * Notify listeners after setting the message.
      * @param message the message to set.
      */
-    public void sendMessage(Message message)
-    {
+    public void sendMessage(Message message) {
         this.message = message;
         notifyListeners();
     }
@@ -56,8 +48,7 @@ public class MessageHandler
      * Notify each listener in the listener list by calling the listener's
      * messageReceived() method.
      */
-    private void notifyListeners()
-    {
+    private void notifyListeners() {
         for (MessageListener listener : listeners) {
             listener.messageReceived(message);
         }

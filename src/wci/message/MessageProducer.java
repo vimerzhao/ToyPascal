@@ -4,12 +4,8 @@ package wci.message;
  * <h1>MessageProducer</h1>
  *
  * <p>All classes that produce messages must implement this interface.</p>
- *
- * <p>Copyright (c) 2009 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
  */
-public interface MessageProducer
-{
+public interface MessageProducer {
     /**
      * Add a listener to the listener list.
      * @param listener the listener to add.

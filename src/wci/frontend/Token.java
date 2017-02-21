@@ -4,12 +4,8 @@ package wci.frontend;
  * <h1>Token</h1>
  *
  * <p>The framework class that represents a token returned by the scanner.</p>
- *
- * <p>Copyright (c) 2009 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
  */
-public class Token
-{
+public class Token {
     protected TokenType type;  // language-specific token type
     protected String text;     // token text
     protected Object value;    // token value
@@ -22,9 +18,7 @@ public class Token
      * @param source the source from where to fetch the token's characters.
      * @throws Exception if an error occurred.
      */
-    public Token(Source source)
-        throws Exception
-    {
+    public Token(Source source) throws Exception {
         this.source = source;
         this.lineNum = source.getLineNum();
         this.position = source.getPosition();
@@ -36,8 +30,7 @@ public class Token
      * Getter
      * @return the token type
      */
-    public TokenType getType()
-    {
+    public TokenType getType() {
         return type;
     }
 
@@ -45,8 +38,7 @@ public class Token
      * Getter.
      * @return the token text.
      */
-    public String getText()
-    {
+    public String getText() {
         return text;
     }
 
@@ -54,8 +46,7 @@ public class Token
      * Getter.
      * @return the token value.
      */
-    public Object getValue()
-    {
+    public Object getValue() {
         return value;
     }
 
@@ -63,8 +54,7 @@ public class Token
      * Getter.
      * @return the source line number.
      */
-    public int getLineNumber()
-    {
+    public int getLineNumber() {
         return lineNum;
     }
 
@@ -72,8 +62,7 @@ public class Token
      * Getter.
      * @return the position.
      */
-    public int getPosition()
-    {
+    public int getPosition() {
         return position;
     }
 
@@ -84,9 +73,7 @@ public class Token
      * will be one beyond the last token character.
      * @throws Exception if an error occurred.
      */
-    protected void extract()
-        throws Exception
-    {
+    protected void extract() throws Exception {
         text = Character.toString(currentChar());
         value = null;
 
@@ -98,9 +85,7 @@ public class Token
      * @return the current character from the source.
      * @throws Exception if an error occurred.
      */
-    protected char currentChar()
-        throws Exception
-    {
+    protected char currentChar() throws Exception {
         return source.currentChar();
     }
 
@@ -109,9 +94,7 @@ public class Token
      * @return the next character from the source after moving forward.
      * @throws Exception if an error occurred.
      */
-    protected char nextChar()
-        throws Exception
-    {
+    protected char nextChar() throws Exception {
         return source.nextChar();
     }
 
@@ -120,9 +103,7 @@ public class Token
      * @return the next character from the source without moving forward.
      * @throws Exception if an error occurred.
      */
-    protected char peekChar()
-        throws Exception
-    {
+    protected char peekChar() throws Exception {
         return source.peekChar();
     }
 }
