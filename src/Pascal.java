@@ -5,9 +5,7 @@ import wci.frontend.*;
 import wci.intermediate.*;
 import wci.backend.*;
 import wci.message.*;
-
-import static wci.frontend.pascal.PascalTokenType.STRING;
-import static wci.message.MessageType.*;
+import wci.util.CrossReferencer;
 
 /**
  * <h1>Pascal</h1>
@@ -16,11 +14,11 @@ import static wci.message.MessageType.*;
  */
 public class Pascal
 {
-    private Parser parser;    // language-independent parser
-    private Source source;    // language-independent scanner
-    private ICode iCode;      // generated intermediate code
-    private SymTab symTab;    // generated symbol table
-    private Backend backend;  // backend
+    private Parser parser;              // language-independent parser
+    private Source source;              // language-independent scanner
+    private ICode iCode;                // generated intermediate code
+    private SymTabStack symTabStack;    // symbol table stack
+    private Backend backend;            // backend
 
     /**
      * Compile or interpret a Pascal source program.
@@ -46,9 +44,13 @@ public class Pascal
             source.close();
 
             iCode = parser.getICode();
-            symTab = parser.getSymTab();
+            symTabStack = parser.getSymTabStack();
 
-            backend.process(iCode, symTab);
+            if (xref) {
+                CrossReferencer crossReferencer = new CrossReferencer();
+                crossReferencer.print(symTabStack);
+            }
+            backend.process(iCode, symTabStack);
         } catch (Exception ex) {
             System.out.println("***** Internal translator error. *****");
             ex.printStackTrace();
@@ -75,7 +77,6 @@ public class Pascal
 
             int i = 0;
             String flags = "";
-
             // Flags.
             while ((++i < args.length) && (args[i].charAt(0) == '-')) {
                 flags += args[i].substring(1);
@@ -126,9 +127,6 @@ public class Pascal
         "\n%,20d source lines." +
         "\n%,20d syntax errors." +
         "\n%,20.2f seconds total parsing time.\n";
-    private static final String TOKEN_FORMAT = ">>> %-15s line=%03d, pos=%2d, text=\"%s\"";
-    private static final String VALUE_FORMAT = ">>>                     value=%s";
-    private static final int PREFIX_WIDTH = 5;
 
     /**
      * Listener for parser messages.
@@ -142,49 +140,6 @@ public class Pascal
             MessageType type = message.getType();
 
             switch (type) {
-                case TOKEN: {
-                    Object[] body = (Object[]) message.getBody();
-                    int line = (Integer) body[0];
-                    int position = (Integer) body[1];
-                    TokenType tokenType = (TokenType) body[2];
-                    String tokenText = (String) body[3];
-                    Object tokenValue = body[4];
-
-                    System.out.println(String.format(TOKEN_FORMAT, tokenType, line, position, tokenText));
-                    if (tokenValue != null) {
-                        if (tokenType == STRING) {
-                            tokenValue = "\"" + tokenValue + "\"";
-                        }
-                        System.out.println(String.format(VALUE_FORMAT, tokenValue));
-                    }
-                    break;
-                }
-                case SYNTAX_ERROR: {
-                    Object[] body = (Object[]) message.getBody();
-                    int lineNumber = (Integer) body[0];
-                    int position = (Integer) body[1];
-                    String tokenText = (String) body[2];
-                    String errorMessage = (String) body[3];
-
-                    int spaceCount = PREFIX_WIDTH + position;
-                    StringBuilder flagBuffer = new StringBuilder();
-
-                    // Space up to the error position.
-                    for (int i = 1; i < spaceCount; ++i) {
-                        flagBuffer.append(' ');
-                    }
-
-                    // A pointer to the error followed by the error message.
-                    flagBuffer.append("^\n***").append(errorMessage);
-
-                    // Text, if any, of the bad token.
-                    if (tokenText != null) {
-                        flagBuffer.append(" [at \"").append(tokenText).append("\"]");
-                    }
-
-                    System.out.println(flagBuffer.toString());
-                    break;
-                }
                 case PARSER_SUMMARY: {
                     Number body[] = (Number[]) message.getBody();
                     int statementCount = (Integer) body[0];
