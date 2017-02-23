@@ -1,6 +1,9 @@
 package wci.frontend.pascal;
 
 import wci.frontend.*;
+import wci.frontend.pascal.parsers.StatementParser;
+import wci.intermediate.ICodeFactory;
+import wci.intermediate.ICodeNode;
 import wci.intermediate.SymTabEntry;
 import wci.message.Message;
 
@@ -22,42 +25,50 @@ public class PascalParserTD extends Parser {
         super(scanner);
     }
 
+    /**
+     * Constructor for subclass.
+     * @param parent the parent parser.
+     */
+    public PascalParserTD(PascalParserTD parent) {
+        super(parent.getScanner());
+    }
+
     protected static PascalErrorHandler errorHandler = new PascalErrorHandler();
 
     /**
-     * Parse a Pascal source program and generate the symbol table
+     * Parse a Pascal source program and generate the symbol table and the intermediate code.
      * and the intermediate code.
+     * @throws Exception if an error occurred.
      */
     @Override
     public void parse() throws Exception {
-        Token token;
         long startTime = System.currentTimeMillis();
+        iCode = ICodeFactory.createICode();
 
         try {
-            // Loop over each token until the end of file.
-            while (!((token = nextToken()) instanceof EofToken)) {
-                TokenType tokenType = token.getType();
+            Token token = nextToken();
+            ICodeNode rootNode = null;
+            // Look for the BEGIN token to parse a compound statement.
+            if (token.getType() == BEGIN) {
+                StatementParser statementParser = new StatementParser(this);
+                rootNode = statementParser.parse(token);
+                token = currentToken();
+            } else {
+                errorHandler.flag(token, UNEXPECTED_TOKEN, this);
+            }
+            // Look for final period
+            if (token.getType() != DOT) {
+                errorHandler.flag(token, MISSING_PERIOD, this);
+            }
+            token = currentToken();
 
-                // Cross reference only the identifiers.
-                if (tokenType == IDENTIFIER) {
-                    String name = token.getText().toLowerCase();
-
-                    // If it's not already in the symbol table,
-                    // create and enter a new entry for the identifier.
-                    SymTabEntry entry = symTabStack.lookup(name);
-                    if (entry == null) {
-                        entry = symTabStack.enterLocal(name);
-                    }
-
-                    // Append the current line number to the entry.
-                    entry.appendLineNumber(token.getLineNumber());
-                } else if (tokenType == ERROR) {
-                    errorHandler.flag(token, (PascalErrorCode) token.getValue(), this);
-                }
+            // Set the parse tree root node.
+            if (rootNode != null) {
+                iCode.setRoot(rootNode);
             }
 
             // Send the parser summary message.
-            float elapsedTime = (System.currentTimeMillis() - startTime)/1000f;
+            float elapsedTime = (System.currentTimeMillis() - startTime) / 1000f;
             sendMessage(new Message(PARSER_SUMMARY,
                     new Number[] {token.getLineNumber(), getErrorCount(), elapsedTime}));
         } catch (java.io.IOException ex) {
