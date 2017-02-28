@@ -31,6 +31,10 @@ public class ExpressionParser extends StatementParser {
         super(parent);
     }
 
+    // Synchronization set for starting an expression.
+    static final EnumSet<PascalTokenType> EXPR_START_SET =
+            EnumSet.of(PLUS, MINUS, IDENTIFIER, INTEGER, REAL, STRING, PascalTokenType.NOT, LEFT_PAREN);
+
     /**
      * Parse an expression.
      * @param token the initial token.

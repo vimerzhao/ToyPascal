@@ -7,6 +7,8 @@ import wci.intermediate.ICodeNode;
 import wci.intermediate.SymTabEntry;
 import wci.message.Message;
 
+import java.util.EnumSet;
+
 import static wci.frontend.pascal.PascalTokenType.*;
 import static wci.frontend.pascal.PascalErrorCode.*;
 import static wci.message.MessageType.*;
@@ -83,5 +85,29 @@ public class PascalParserTD extends Parser {
     @Override
     public int getErrorCount() {
         return errorHandler.getErrorCount();
+    }
+
+    /**
+     * Synchronize the parser.
+     * @param syncSet the set of token types for synchronizing the parser.
+     * @return the token where the parser has synchronized.
+     * @throws Exception if an error occurred.
+     */
+    public Token synchronize(EnumSet syncSet) throws Exception {
+        Token token = currentToken();
+
+        // If the current token is not in the synchronization set,
+        // the it is unexpected and the parser must recover.
+        if (!syncSet.contains(token.getType())) {
+            // Flag the unexpected token.
+            errorHandler.flag(token, UNEXPECTED_TOKEN, this);
+
+            // Recover by skipping tokens that are not in the synchronization set.
+            do {
+                token = nextToken();
+            } while (!(token instanceof  EofToken) && !syncSet.contains(token.getType()));
+        }
+
+        return token;
     }
 }

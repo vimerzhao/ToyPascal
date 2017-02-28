@@ -3,9 +3,12 @@ package wci.frontend.pascal.parsers;
 import wci.frontend.Token;
 import wci.frontend.pascal.PascalErrorCode;
 import wci.frontend.pascal.PascalParserTD;
+import wci.frontend.pascal.PascalTokenType;
 import wci.intermediate.ICodeFactory;
 import wci.intermediate.ICodeNode;
 import wci.intermediate.SymTabEntry;
+
+import java.util.EnumSet;
 
 import static wci.frontend.pascal.PascalErrorCode.MISSING_COLON_EQUALS;
 import static wci.frontend.pascal.PascalTokenType.COLON_EQUALS;
@@ -27,6 +30,13 @@ public class AssignmentStatementParser extends StatementParser {
         super(parent);
     }
 
+    // Synchronization set for the := token.
+    private static final EnumSet<PascalTokenType> COLON_EQUALS_SET =
+            ExpressionParser.EXPR_START_SET.clone();
+    static {
+        COLON_EQUALS_SET.add(COLON_EQUALS);
+        COLON_EQUALS_SET.addAll(StatementParser.STMT_FOLLOW_SET);
+    }
     /**
      * Parse an assignment statement.
      * @param token the initial token.
@@ -55,7 +65,8 @@ public class AssignmentStatementParser extends StatementParser {
         // The ASSIGN node adopts the variable node as its first child.
         assignNode.addChild(variableNode);
 
-        // Look for the := token.
+        // Synchronization on the := token.
+        token = synchronize(COLON_EQUALS_SET);
         if (token.getType() == COLON_EQUALS) {
             token = nextToken();    // consume the :=
         } else {
