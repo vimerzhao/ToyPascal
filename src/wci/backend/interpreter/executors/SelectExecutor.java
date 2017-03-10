@@ -1,7 +1,6 @@
 package wci.backend.interpreter.executors;
 
 import wci.backend.interpreter.Executor;
-import wci.intermediate.ICode;
 import wci.intermediate.ICodeNode;
 
 import java.util.ArrayList;

@@ -1,8 +1,6 @@
 package wci.intermediate.symtabimpl;
 
-import wci.intermediate.SymTab;
-import wci.intermediate.SymTabEntry;
-import wci.intermediate.SymTabKey;
+import wci.intermediate.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,9 +10,11 @@ import java.util.HashMap;
  *
  * <p>An implementation of a symbol table entry.</p>
  */
-public class SymTabEntryImpl extends HashMap<SymTabKey, Object> implements SymTabEntry{
+public class SymTabEntryImpl extends HashMap<SymTabKey, Object> implements SymTabEntry {
     private String name;                    // entry name
     private SymTab symTab;                  // parent symbol table
+    private Definition definition;           // how the identifier is defined
+    private TypeSpec typeSpec;               // type specification
     private ArrayList<Integer> lineNumbers; // source line numbers
 
     /**
@@ -44,6 +44,39 @@ public class SymTabEntryImpl extends HashMap<SymTabKey, Object> implements SymTa
     @Override
     public SymTab getSymTab() {
         return symTab;
+    }
+
+    /**
+     * Setter.
+     * @param typeSpec the type specification to set.
+     */
+    public void setTypeSpec(TypeSpec typeSpec)
+    {
+        this.typeSpec = typeSpec;
+    }
+
+    /**
+     * Getter.
+     * @return the type specification.
+     */
+    public TypeSpec getTypeSpec() {
+        return typeSpec;
+    }
+
+    /**
+     * Setter.
+     * @param definition the definition to set.
+     */
+    public void setDefinition(Definition definition) {
+        this.definition = definition;
+    }
+
+    /**
+     * Getter.
+     * @return the definition.
+     */
+    public Definition getDefinition() {
+        return definition;
     }
 
     /**
@@ -79,4 +112,5 @@ public class SymTabEntryImpl extends HashMap<SymTabKey, Object> implements SymTa
     public Object getAttribute(SymTabKey key) {
         return get(key);
     }
+
 }

@@ -1,16 +1,22 @@
 package wci.frontend.pascal;
 
 import wci.frontend.*;
+import wci.frontend.pascal.parsers.BlockParser;
 import wci.frontend.pascal.parsers.StatementParser;
+import wci.intermediate.ICode;
 import wci.intermediate.ICodeFactory;
 import wci.intermediate.ICodeNode;
 import wci.intermediate.SymTabEntry;
+import wci.intermediate.symtabimpl.DefinitionImpl;
+import wci.intermediate.symtabimpl.Predefined;
 import wci.message.Message;
 
 import java.util.EnumSet;
 
 import static wci.frontend.pascal.PascalTokenType.*;
 import static wci.frontend.pascal.PascalErrorCode.*;
+import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_ICODE;
+import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_SYMTAB;
 import static wci.message.MessageType.*;
 
 /**
@@ -19,6 +25,9 @@ import static wci.message.MessageType.*;
  * <p>The top-down Pascal parser.</p>
  */
 public class PascalParserTD extends Parser {
+    protected static PascalErrorHandler errorHandler = new PascalErrorHandler();
+    private SymTabEntry routineId;  // name of the routine being parsed
+
     /**
      * Constructor.
      * @param scanner the scanner to be used with this parser.
@@ -35,7 +44,6 @@ public class PascalParserTD extends Parser {
         super(parent.getScanner());
     }
 
-    protected static PascalErrorHandler errorHandler = new PascalErrorHandler();
 
     /**
      * Parse a Pascal source program and generate the symbol table and the intermediate code.
@@ -45,29 +53,38 @@ public class PascalParserTD extends Parser {
     @Override
     public void parse() throws Exception {
         long startTime = System.currentTimeMillis();
-        iCode = ICodeFactory.createICode();
+
+        ICode iCode = ICodeFactory.createICode();
+        Predefined.initialize(symTabStack);
+
+        // Create a dummy program identifier symbol table entry.
+        routineId = symTabStack.enterLocal("DummyProgramName".toLowerCase());
+        routineId.setDefinition(DefinitionImpl.PROGRAM);
+        symTabStack.setProgramId(routineId);
+
+        // Push a new symbol table onto the symbol table stack and
+        // set the routine's symbol table and intermediate code.
+        routineId.setAttribute(ROUTINE_SYMTAB, symTabStack.push());
+        routineId.setAttribute(ROUTINE_ICODE, iCode);
+
+        BlockParser blockParser = new BlockParser(this);
 
         try {
             Token token = nextToken();
-            ICodeNode rootNode = null;
-            // Look for the BEGIN token to parse a compound statement.
-            if (token.getType() == BEGIN) {
-                StatementParser statementParser = new StatementParser(this);
-                rootNode = statementParser.parse(token);
-                token = currentToken();
-            } else {
-                errorHandler.flag(token, UNEXPECTED_TOKEN, this);
-            }
-            // Look for final period
-            if (token.getType() != DOT) {
+
+            // Parse a block
+            ICodeNode rootNode = blockParser.parse(token, routineId);
+            iCode.setRoot(rootNode);
+            symTabStack.pop();
+
+            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            token = currentToken();//Why need ? !!!!!!!!!!!!!!!
+            // !!!!!!!!!!!!!!!!!!!
+
+            if (token.getType() != DOT) {// Look for final period
                 errorHandler.flag(token, MISSING_PERIOD, this);
             }
             token = currentToken();
-
-            // Set the parse tree root node.
-            if (rootNode != null) {
-                iCode.setRoot(rootNode);
-            }
 
             // Send the parser summary message.
             float elapsedTime = (System.currentTimeMillis() - startTime) / 1000f;
@@ -85,6 +102,14 @@ public class PascalParserTD extends Parser {
     @Override
     public int getErrorCount() {
         return errorHandler.getErrorCount();
+    }
+
+    /**
+     * Getter.
+     * @return the routine identifier's symbol table entry.
+     */
+    public SymTabEntry getRoutineId() {
+        return routineId;
     }
 
     /**

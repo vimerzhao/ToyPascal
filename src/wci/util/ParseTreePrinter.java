@@ -1,9 +1,6 @@
 package wci.util;
 
-import wci.intermediate.ICode;
-import wci.intermediate.ICodeKey;
-import wci.intermediate.ICodeNode;
-import wci.intermediate.SymTabEntry;
+import wci.intermediate.*;
 import wci.intermediate.icodeimpl.ICodeNodeImpl;
 
 import java.io.PrintStream;
@@ -11,6 +8,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+
+import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_ICODE;
+import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_ROUTINES;
 
 /**
  * <h1>ParseTreePrinter</h1>
@@ -45,13 +45,38 @@ public class ParseTreePrinter {
 
     /**
      * Print the intermediate code as a parse tree.
-     * @param iCode the intermediate code.
+     * @param symTabStack the symbol table stack.
      */
-    public void print(ICode iCode) {
+    public void print(SymTabStack symTabStack) {
         ps.println("\n===== INTERMEDIATE CODE =====\n");
 
-        printNode((ICodeNodeImpl) iCode.getRoot());
-        printLine();
+        SymTabEntry programId = symTabStack.getProgramId();
+        printRoutine(programId);
+    }
+
+    /**
+     * Print the parse tree for a routine.
+     * @param routineId the routine identifier's symbol table entry.
+     */
+    private void printRoutine(SymTabEntry routineId) {
+        Definition definition = routineId.getDefinition();
+        System.out.println("\n*** " + definition.toString() + " " + routineId.getName() + " ***\n");
+
+        // Print the intermediate code in the routine's symbol table entry.
+        ICode iCode = (ICode) routineId.getAttribute(ROUTINE_ICODE);
+
+        if (iCode.getRoot() != null) {
+            printNode((ICodeNodeImpl) iCode.getRoot());
+        }
+
+        // Print any procedures and functions defined in the routine.
+        ArrayList<SymTabEntry> routineIds = (ArrayList<SymTabEntry>) routineId.getAttribute(ROUTINE_ROUTINES);
+        if (routineIds != null) {
+            for (SymTabEntry rtnId : routineIds) {
+                printRoutine(rtnId);
+            }
+        }
+
     }
 
     /**

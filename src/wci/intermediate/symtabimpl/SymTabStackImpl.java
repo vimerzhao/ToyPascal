@@ -13,6 +13,8 @@ import java.util.ArrayList;
  * <p>An implementation of the symbol table stack.</p>
  */
 public class SymTabStackImpl extends ArrayList<SymTab> implements SymTabStack {
+    private SymTabEntry programId;  // entry for the main program id
+
     private int currentNestingLevel;    // current scope nesting level
 
     /**
@@ -68,6 +70,67 @@ public class SymTabStackImpl extends ArrayList<SymTab> implements SymTabStack {
      */
     @Override
     public SymTabEntry lookup(String name) {
-        return lookupLocal(name);
+        SymTabEntry foundEntry = null;
+
+        // Search the current and enclosing scopes.
+        for (int i = currentNestingLevel; (i >= 0) && (foundEntry == null); --i) {
+            foundEntry = get(i).lookup(name);
+        }
+
+        return foundEntry;
+    }
+
+    /**
+     * Setter.
+     * @param id the symbol table entry for the main program identifier.
+     */
+    @Override
+    public void setProgramId(SymTabEntry id) {
+        this.programId = id;
+    }
+
+    /**
+     * Getter.
+     * @return the symbol table entry for the main program identifier.
+     */
+    @Override
+    public SymTabEntry getProgramId() {
+        return programId;
+    }
+
+    /**
+     * Push a new symbol table onto the symbol table stack.
+     * @return the pushed symbol table.
+     */
+    @Override
+    public SymTab push() {
+        SymTab symTab = SymTabFactory.createSymTab(++currentNestingLevel);
+        add(symTab);
+
+        return symTab;
+    }
+
+    /**
+     * Push a symbol table onto the symbol table stack.
+     * @param symTab the symbol table to push.
+     * @return the pushed symbol table.
+     */
+    public SymTab push(SymTab symTab) {
+        ++currentNestingLevel;
+        add(symTab);
+
+        return symTab;
+    }
+
+    /**
+     * Pop a symbol table off the symbol table stack.
+     * @return the popped symbol table.
+     */
+    @Override
+    public SymTab pop() {
+        SymTab symTab = get(currentNestingLevel);
+        remove(currentNestingLevel--);
+
+        return symTab;
     }
 }

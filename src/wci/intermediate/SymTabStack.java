@@ -37,4 +37,37 @@ public interface SymTabStack {
      * @return the entry, or null if it does not exist.
      */
     public SymTabEntry lookup(String name);
+
+    // add 2017-3-4
+
+    /**
+     * Setter
+     * @param entry the symbol table entry for the main program identifier.
+     */
+    public void setProgramId(SymTabEntry entry);
+
+    /**
+     * Getter.
+     * @return the symbol table entry for the main program identifier.
+     */
+    public SymTabEntry getProgramId();
+
+    /**
+     * Push a new symbol table onto the stack.
+     * @return the pushed symbol table.
+     */
+    public SymTab push();
+
+    /**
+     * Push a symbol table onto the stack.
+     * @param symTab the symbol table to push.
+     * @return the pushed symbol table.
+     */
+    public SymTab push(SymTab symTab);
+
+    /**
+     * Pop a symbol table off the stack.
+     * @return the popped symbol table.
+     */
+    public SymTab pop();
 }
