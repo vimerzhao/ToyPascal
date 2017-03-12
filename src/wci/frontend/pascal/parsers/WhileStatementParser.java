@@ -5,10 +5,14 @@ import wci.frontend.pascal.PascalParserTD;
 import wci.frontend.pascal.PascalTokenType;
 import wci.intermediate.ICodeFactory;
 import wci.intermediate.ICodeNode;
+import wci.intermediate.TypeSpec;
 import wci.intermediate.icodeimpl.ICodeNodeTypeImpl;
+import wci.intermediate.symtabimpl.Predefined;
+import wci.intermediate.typeimpl.TypeChecker;
 
 import java.util.EnumSet;
 
+import static wci.frontend.pascal.PascalErrorCode.INCOMPATIBLE_TYPES;
 import static wci.frontend.pascal.PascalErrorCode.MISSING_DO;
 import static wci.frontend.pascal.PascalTokenType.DO;
 import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.LOOP;
@@ -55,7 +59,14 @@ public class WhileStatementParser extends StatementParser {
         // Parse the expression.
         // The NOT node adopts the expression subtree as its only child.
         ExpressionParser expressionParser = new ExpressionParser(this);
-        notNode.addChild(expressionParser.parse(token));
+        ICodeNode exprNode = expressionParser.parse(token);
+        notNode.addChild(exprNode);
+
+        // Type check: The test expression must be boolean.
+        TypeSpec exprType = exprNode != null ? exprNode.getTypeSpec() : Predefined.undefinedType;
+        if (!TypeChecker.isBoolean(exprType)) {
+            errorHandler.flag(token, INCOMPATIBLE_TYPES, this);
+        }
 
         // Synchronize at the DO.
         token = synchronize(DO_SET);

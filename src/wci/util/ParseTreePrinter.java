@@ -171,7 +171,26 @@ public class ParseTreePrinter {
      * Print a parse tree node's type specification.
      * @param node
      */
-    private void printTypeSpec(ICodeNodeImpl node) {}
+    private void printTypeSpec(ICodeNodeImpl node) {
+        TypeSpec typeSpec = node.getTypeSpec();
+        if (typeSpec != null) {
+            String saveMargin = indentation;
+            indentation += indent;
+
+            String typeName;
+            SymTabEntry typeId = typeSpec.getIdentifier();
+
+            // Named type: Print the type identifier's name.
+            if (typeId != null) {
+                typeName = typeId.getName();
+            } else {// Unnamed type: Print an artificial type identifier name.
+                int code = typeSpec.hashCode() + typeSpec.getForm().hashCode();
+                typeName = "$anon_" + Integer.toHexString(code);
+            }
+            printAttribute("TYPE_ID", typeName);
+            indentation = saveMargin;
+        }
+    }
 
     /**
      * Append text to the output line.

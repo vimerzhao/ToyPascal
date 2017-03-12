@@ -1,9 +1,6 @@
 package wci.intermediate.icodeimpl;
 
-import wci.intermediate.ICodeFactory;
-import wci.intermediate.ICodeKey;
-import wci.intermediate.ICodeNode;
-import wci.intermediate.ICodeNodeType;
+import wci.intermediate.*;
 
 import java.util.*;
 
@@ -16,6 +13,7 @@ public class ICodeNodeImpl extends HashMap<ICodeKey, Object> implements ICodeNod
     private ICodeNodeType type;             // node type
     private ICodeNode parent;               // parent node
     private ArrayList<ICodeNode> children;  // children array list
+    private TypeSpec typeSpec;              // data type specification
 
     /**
      * Constructor.
@@ -107,6 +105,16 @@ public class ICodeNodeImpl extends HashMap<ICodeKey, Object> implements ICodeNod
         }
 
         return copy;
+    }
+
+    @Override
+    public void setTypeSpec(TypeSpec typeSpec) {
+        this.typeSpec = typeSpec;
+    }
+
+    @Override
+    public TypeSpec getTypeSpec() {
+        return typeSpec;
     }
 
     @Override

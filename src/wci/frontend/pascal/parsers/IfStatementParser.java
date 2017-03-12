@@ -3,12 +3,17 @@ package wci.frontend.pascal.parsers;
 import wci.frontend.Token;
 import wci.frontend.pascal.PascalParserTD;
 import wci.frontend.pascal.PascalTokenType;
+import wci.intermediate.ICode;
 import wci.intermediate.ICodeFactory;
 import wci.intermediate.ICodeNode;
+import wci.intermediate.TypeSpec;
 import wci.intermediate.icodeimpl.ICodeNodeTypeImpl;
+import wci.intermediate.symtabimpl.Predefined;
+import wci.intermediate.typeimpl.TypeChecker;
 
 import java.util.EnumSet;
 
+import static wci.frontend.pascal.PascalErrorCode.INCOMPATIBLE_TYPES;
 import static wci.frontend.pascal.PascalErrorCode.MISSING_THEN;
 import static wci.frontend.pascal.PascalTokenType.ELSE;
 import static wci.frontend.pascal.PascalTokenType.THEN;
@@ -47,7 +52,14 @@ public class IfStatementParser extends StatementParser {
         // Parse the expression.
         // The IF node adopts the expression subtree as its first child.
         ExpressionParser expressionParser = new ExpressionParser(this);
-        ifNode.addChild(expressionParser.parse(token));
+        ICodeNode exprNode = expressionParser.parse(token);
+        ifNode.addChild(exprNode);
+
+        // Type check: The expression type must be boolean.
+        TypeSpec exprType = exprNode != null ? exprNode.getTypeSpec() : Predefined.undefinedType;
+        if (!TypeChecker.isBoolean(exprType)) {
+            errorHandler.flag(token, INCOMPATIBLE_TYPES, this);
+        }
 
         // Synchronize at the THEN.
         token = synchronize(THEN_SET);
