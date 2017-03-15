@@ -43,7 +43,7 @@ public class RecordTypeParser extends TypeSpecificationParser {
         // Parse the field declarations.
         VariableDeclarationsParser variableDeclarationsParser = new VariableDeclarationsParser(this);
         variableDeclarationsParser.setDefinition(FIELD);
-        variableDeclarationsParser.parse(token);
+        variableDeclarationsParser.parse(token, null);
 
         // Pop off the record's symbol table.
         symTabStack.pop();

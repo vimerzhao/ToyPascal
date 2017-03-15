@@ -6,6 +6,7 @@ import wci.frontend.pascal.PascalParserTD;
 import wci.frontend.pascal.PascalTokenType;
 import wci.intermediate.*;
 import wci.intermediate.icodeimpl.ICodeNodeTypeImpl;
+import wci.intermediate.symtabimpl.DefinitionImpl;
 import wci.intermediate.symtabimpl.Predefined;
 import wci.intermediate.typeimpl.TypeChecker;
 import wci.intermediate.typeimpl.TypeFormImpl;
@@ -68,7 +69,10 @@ public class VariableParser extends StatementParser {
     public ICodeNode parse(Token token, SymTabEntry variableId) throws Exception {
         // Check how the variable is defined.
         Definition defnCode = variableId.getDefinition();
-        if ((defnCode != VARIABLE) && (defnCode != VALUE_PARM) && (defnCode != VAR_PARM)) {
+         if (! ( (defnCode == VARIABLE)
+                 || (defnCode == VALUE_PARM)
+                 || (defnCode == VAR_PARM)
+                 || (isFunctionTarget && (defnCode == DefinitionImpl.FUNCTION)))) {
             errorHandler.flag(token, INVALID_IDENTIFIER_USAGE, this);
         }
         variableId.appendLineNumber(token.getLineNumber());
@@ -77,19 +81,22 @@ public class VariableParser extends StatementParser {
         variableNode.setAttribute(ID, variableId);
 
         token = nextToken();    // consume the identifier
-
-        // Parse array subscripts or record fields.
         TypeSpec variableType = variableId.getTypeSpec();
-        while (SUBSCRIPT_FIELD_START_SET.contains(token.getType())) {
-            ICodeNode subFldNode = token.getType() == LEFT_BRACKET
-                                        ? parseSubscripts(variableType)
-                                        : parseField(variableType);
-            token = currentToken();
 
-            // Update variable's type.
-            // The variable node adopts the SUBSCRIPTS or FIELD node.
-            variableType = subFldNode.getTypeSpec();
-            variableNode.addChild(subFldNode);
+        if (!isFunctionTarget) {
+            // Parse array subscripts or record fields.
+
+            while (SUBSCRIPT_FIELD_START_SET.contains(token.getType())) {
+                ICodeNode subFldNode = token.getType() == LEFT_BRACKET
+                        ? parseSubscripts(variableType)
+                        : parseField(variableType);
+                token = currentToken();
+
+                // Update variable's type.
+                // The variable node adopts the SUBSCRIPTS or FIELD node.
+                variableType = subFldNode.getTypeSpec();
+                variableNode.addChild(subFldNode);
+            }
         }
 
         variableNode.setTypeSpec(variableType);
@@ -186,5 +193,18 @@ public class VariableParser extends StatementParser {
 
         fieldNode.setTypeSpec(variableType);
         return fieldNode;
+    }
+
+    private boolean isFunctionTarget = false;
+
+    /**
+     * Parse a function name as the target of an assignment statement.
+     * @param token
+     * @return the root node of the generated parse tree.
+     * @throws Exception
+     */
+    public ICodeNode parseFunctionNameTarget(Token token) throws Exception {
+        isFunctionTarget = true;
+        return parse(token);
     }
 }

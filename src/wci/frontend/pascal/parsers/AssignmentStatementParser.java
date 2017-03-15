@@ -53,7 +53,10 @@ public class AssignmentStatementParser extends StatementParser {
 
         // Parse the target variable.
         VariableParser variableParser = new VariableParser(this);
-        ICodeNode targetNode = variableParser.parse(token);
+        ICodeNode targetNode = isFunctionTarget
+                                ? variableParser.parseFunctionNameTarget(token)
+                                : variableParser.parse(token);
+
         TypeSpec targetType = targetNode != null  ? targetNode.getTypeSpec()
                                                 : Predefined.undefinedType;
 
@@ -80,6 +83,18 @@ public class AssignmentStatementParser extends StatementParser {
         }
         assignNode.setTypeSpec(targetType);
         return assignNode;
+    }
 
+    private boolean isFunctionTarget = false;
+
+    /**
+     * Parse an assignment to a function name.
+     * @param token
+     * @return
+     * @throws Exception
+     */
+    public ICodeNode parseFunctionNameAssignment(Token token) throws Exception {
+        isFunctionTarget = true;
+        return  parse(token);
     }
 }

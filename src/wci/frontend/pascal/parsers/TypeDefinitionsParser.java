@@ -53,16 +53,13 @@ public class TypeDefinitionsParser extends DeclarationsParser {
      * @throws Exception if an error occurred.
      */
     @Override
-    public void parse(Token token) throws Exception {
+    public SymTabEntry parse(Token token, SymTabEntry parentId) throws Exception {
         token = synchronize(IDENTIFIER_SET);
 
         // Loop to parse a sequence of type definitions separated by semicolons.
         while (token.getType() == IDENTIFIER) {
             String name= token.getText().toLowerCase();
             SymTabEntry typeId = symTabStack.lookupLocal(name);
-            if ("rec1".equals(name)) {
-                System.out.println("A");
-            }
             // Enter the new identifier into the symbol table but don;s set how it's defined yet.
             if (typeId == null) {
                 typeId = symTabStack.enterLocal(name);
@@ -116,5 +113,6 @@ public class TypeDefinitionsParser extends DeclarationsParser {
 
             token = synchronize(IDENTIFIER_SET);
         }
+        return null;
     }
 }

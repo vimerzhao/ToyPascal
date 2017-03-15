@@ -56,7 +56,7 @@ public class ConstantDefinitionsParser extends DeclarationsParser {
      * @throws Exception if an error occurred.
      */
     @Override
-    public void parse(Token token) throws Exception {
+    public SymTabEntry parse(Token token, SymTabEntry parentId) throws Exception {
         token = synchronize(IDENTIFIER_SET);
 
         // Loop to parse a sequence of constant definitions  separated by semicolons.
@@ -115,6 +115,7 @@ public class ConstantDefinitionsParser extends DeclarationsParser {
 
             token = synchronize(IDENTIFIER_SET);
         }
+        return null;
     }
 
     /**

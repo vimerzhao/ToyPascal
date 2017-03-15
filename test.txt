@@ -1,69 +1,61 @@
+PROGRAM RoutineErrors (input, output);
+
 CONST
-    Seven =  7;
-    Ten   = 10;
+    five = 5;
 
 TYPE
-    range1 = 0..ten;
-    range2 = 'a'..'q';
-    range3 = range1;
-
-    enum1 = (a, b, c, d, e);
-    enum2 = enum1;
-
-    range4 = b..d;
-
-    arr1 = ARRAY [range1] OF real;
-    arr2 = ARRAY [(alpha, beta, gamma)] OF range2;
-    arr3 = ARRAY [enum2] OF arr1;
-    arr4 = ARRAY [range3] OF (foo, bar, baz);
-    arr5 = ARRAY [range1] OF ARRAY[range2] OF ARRAY[c..e] OF enum2;
-    arr6 = ARRAY [range1, range2, c..e] OF enum2;
-
-    rec7 = RECORD
-               i : integer;
-               r : real;
-               b1, b2 : boolean;
-               c : char
-           END;
-
-    arr8 = ARRAY [range2] OF RECORD
-                                 fldi  : integer;
-                                 fldr : rec7;
-                                 flda : ARRAY[range4] OF range2;
-                             END;
+    enum = (alpha, beta, gamma);
+    arr = ARRAY [1..five] OF real;
 
 VAR
-    var1 : arr1;  var5 : arr5;
-    var2 : arr2;  var6 : arr6;
-    var3 : arr3;  var7 : rec7;
-    var4 : arr4;  var8 : arr8;
+    e, k : enum;
+    i, m : integer;
+    a : arr;
+    v, y : real;
+    t : boolean;
 
-    var9 : RECORD
-               b   : boolean;
-               rec : RECORD
-                         fld1 : arr1;
-                         fldb : boolean;
-                         fldr : real;
-                         fld6 : arr6;
-                         flda : ARRAY [enum1, range1] OF arr8;
-                     END;
-               a : ARRAY [1..5] OF boolean;
-           END;
+PROCEDURE proc(j : integer; VAR x, y, z : real;
+               VAR p : (alpha, beta, gamma); ch : char);
 
-BEGIN
-    var2[a] := 3.14;
-    var1[var7.i] := var9.rec.flda['e', ten]['q'].fldr;
+    VAR
+        i : integer;
 
-    IF var9.rec.fldr THEN var2[beta] := seven;
-
-    CASE var5[seven, 'm', d]  OF
-        foo:      var3[e] := 12;
-        bar, baz: var3[b] := var1.rec.fldb;
+    BEGIN
+        i := 7*k;
+        x := func(x);
     END;
 
-    REPEAT
-        var7[3] := a;
-    UNTIL var6[3, 'a', c] + var5[4]['f', d];
+FUNCTION forwarded(m : integer; VAR t : real) : 1..10; forward;
 
-    var9.rec.flda[b][0, 'm', foo].flda[d] := 'p';
-END.
+FUNCTION func(VAR x : real; i : real; n : integer) : arr;
+
+    VAR
+        z : real;
+        p, q : boolean;
+
+    PROCEDURE nested(VAR n, m : integer);
+
+        VAR
+            a, b, c : integer;
+
+        BEGIN {nested}
+            p := forwarded(9, 2.0);
+        END {nested};
+
+    BEGIN {func}
+        x := i*z - func(v, -3.15159, five) + n/m;
+        func := x;
+    END {func};
+
+FUNCTION forwarded(b : boolean) : real;
+
+    VAR
+        n : integer;
+
+    BEGIN
+        forwarded := true;
+    END;
+
+BEGIN {RoutinesTest}
+    proc(i, -7 + m, a[m], v, y, a, t, 'r');
+END {RoutinesTest}.
