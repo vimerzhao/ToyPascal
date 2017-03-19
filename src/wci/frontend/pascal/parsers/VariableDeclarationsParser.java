@@ -76,9 +76,6 @@ public class VariableDeclarationsParser extends DeclarationsParser {
 
         // Loop to parse a sequence of variable declarations separated by semicolons.
         while (token.getType() == IDENTIFIER) {
-            if (token.getText().equals("number")) {
-                System.out.println("test");
-            }
             // Parse the identifier sublist and its type specification.
             parseIdentifierSublist(token, IDENTIFIER_FOLLOW_SET, COMMA_SET);
             token = currentToken();

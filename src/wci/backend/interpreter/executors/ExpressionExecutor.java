@@ -1,19 +1,30 @@
 package wci.backend.interpreter.executors;
 
+import wci.backend.BackendFactory;
+import wci.backend.interpreter.ActivationRecord;
+import wci.backend.interpreter.Cell;
 import wci.backend.interpreter.Executor;
-import wci.intermediate.ICodeNode;
-import wci.intermediate.SymTabEntry;
+import wci.intermediate.*;
 import wci.intermediate.icodeimpl.ICodeNodeTypeImpl;
+import wci.intermediate.symtabimpl.Predefined;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.List;
 
 import static wci.backend.interpreter.RuntimeErrorCode.DIVISION_BY_ZERO;
+import static wci.backend.interpreter.RuntimeErrorCode.UNINITIALIZED_VALUE;
 import static wci.intermediate.icodeimpl.ICodeKeyImpl.ID;
 import static wci.intermediate.icodeimpl.ICodeKeyImpl.VALUE;
 import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.*;
+import static wci.intermediate.symtabimpl.RoutineCodeImpl.DECLARED;
 import static wci.intermediate.symtabimpl.SymTabKeyImpl.DATA_VALUE;
+import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_CODE;
+import static wci.intermediate.typeimpl.TypeFormImpl.SUBRANGE;
+import static wci.intermediate.typeimpl.TypekeyImpl.ARRAY_ELEMENT_TYPE;
+import static wci.intermediate.typeimpl.TypekeyImpl.ARRAY_INDEX_TYPE;
+import static wci.intermediate.typeimpl.TypekeyImpl.SUBRANGE_MIN_VALUE;
 
 /**
  * <h1>ExpressionExecutor</h1>
@@ -40,13 +51,13 @@ public class ExpressionExecutor extends StatementExecutor {
         ICodeNodeTypeImpl nodeType = (ICodeNodeTypeImpl) node.getType();
         switch (nodeType) {
             case VARIABLE: {
-                // Get the variable's symbol table entry and return its value.
-                SymTabEntry entry = (SymTabEntry) node.getAttribute(ID);
-                return entry.getAttribute(DATA_VALUE);
+                return executeValue(node);
             }
             case INTEGER_CONSTANT: {
-                // Return the integer value.
-                return (Integer)node.getAttribute(VALUE);
+                TypeSpec type = node.getTypeSpec();
+                Integer value = (Integer) node.getAttribute(VALUE);
+
+                return type == Predefined.booleanType ? value == 1 : value;
             }
             case REAL_CONSTANT: {
                 // Return the float value
@@ -78,6 +89,23 @@ public class ExpressionExecutor extends StatementExecutor {
                 boolean value = (Boolean) execute(expressionNode);
                 return !value;
             }
+            case CALL: {
+                SymTabEntry functionId = (SymTabEntry) node.getAttribute(ID);
+                RoutineCode routineCode = (RoutineCode) functionId.getAttribute(ROUTINE_CODE);
+                CallExecutor callExecutor = new CallExecutor(this);
+                Object value = callExecutor.execute(node);
+
+                if (routineCode == DECLARED) {
+                    String functionName = functionId.getName();
+                    int nestingLevel = functionId.getSymTab().getNestingLevel();
+                    ActivationRecord ar = runtimeStack.getTopmost(nestingLevel);
+                    Cell functionValueCell = ar.getCell(functionName);
+                    value = functionValueCell.getValue();
+
+                    sendFetchMessage(node, functionId.getName(), value);
+                }
+                return value;
+            }
             default: {
                 // Must be a binary operator.
                 return executeBinaryOperator(node, nodeType);
@@ -105,7 +133,23 @@ public class ExpressionExecutor extends StatementExecutor {
         Object operand1 = execute(operandNode1);
         Object operand2 = execute(operandNode2);
 
-        boolean integerMode = (operand1 instanceof Integer) && (operand2 instanceof Integer);
+        boolean integerMode = false;
+        boolean characterMode =false;
+        boolean stringMode = false;
+
+        if ((operand1 instanceof Integer) && (operand2 instanceof Integer)) {
+             integerMode = true;
+         } else if ( ( (operand1 instanceof Character)
+                || ( (operand1 instanceof String)
+                && (((String) operand1).length() == 1) ))
+                && ( (operand2 instanceof Character)
+                || ( (operand2 instanceof String)
+                && (((String) operand2).length() == 1)))) {
+             characterMode = true;
+         } else if ((operand1 instanceof String) && (operand2 instanceof String)) {
+             stringMode = true;
+         }
+
 
         // Arithmetic operators
         if (ARITH_OP.contains(nodeType)) {
@@ -218,6 +262,31 @@ public class ExpressionExecutor extends StatementExecutor {
                     return value1 >= value2;
                 }
             }
+        } else if (characterMode) {
+            int value1 = operand1 instanceof Character ? (Character) operand1 : ((String) operand1).charAt(0);
+            int value2 = operand2 instanceof Character ? (Character) operand2 : ((String) operand2).charAt(0);
+            switch (nodeType) {
+                 case EQ: return value1 == value2;
+                 case NE: return value1 != value2;
+                 case LT: return value1 <  value2;
+                 case LE: return value1 <= value2;
+                 case GT: return value1 >  value2;
+                 case GE: return value1 >= value2;
+            }
+        } else if (stringMode) {
+             String value1 = (String) operand1;
+             String value2 = (String) operand2;
+
+             // String operands.
+             int comp = value1.compareTo(value2);
+             switch (nodeType) {
+                 case EQ: return comp == 0;
+                 case NE: return comp != 0;
+                 case LT: return comp <  0;
+                 case LE: return comp <= 0;
+                 case GT: return comp >  0;
+                 case GE: return comp >= 0;
+             }
         } else {
             // Relational operators for others
             float value1 = operand1 instanceof Integer
@@ -248,5 +317,78 @@ public class ExpressionExecutor extends StatementExecutor {
             }
         }
         return 0;   // should never get here
+    }
+
+    /**
+     * Return a variable's value.
+     * @param node
+     * @return
+     */
+    private Object executeValue(ICodeNode node) {
+        SymTabEntry variableId = (SymTabEntry) node.getAttribute(ID);
+        String variableName = variableId.getName();
+        TypeSpec variableType = variableId.getTypeSpec();
+
+        Cell variableCell = executeVariable(node);
+        Object value = variableCell.getValue();
+
+        if (value != null) {
+            value = toJava(variableType, value);
+        } else {
+            errorHandler.flag(node, UNINITIALIZED_VALUE, this);
+            value = BackendFactory.defaultValue(variableType);
+            variableCell.setValue(value);
+        }
+        sendFetchMessage(node, variableName, value);
+        return value;
+    }
+
+    /**
+     * Execute a variable and return the reference to its cell.
+     * @param node
+     * @return
+     */
+    public Cell executeVariable(ICodeNode node) {
+        SymTabEntry variableId = (SymTabEntry) node.getAttribute(ID);
+        String variableName = variableId.getName();
+        TypeSpec variableType = variableId.getTypeSpec();
+        int nestingLevel = variableId.getSymTab().getNestingLevel();
+
+        ActivationRecord ar = runtimeStack.getTopmost(nestingLevel);
+        Cell variableCell = ar.getCell(variableName);
+
+        ArrayList<ICodeNode> modifiers = node.getChildren();
+
+        if (variableCell.getValue() instanceof Cell) {
+            variableCell = (Cell) variableCell.getValue();
+        }
+
+        for (ICodeNode modifier : modifiers) {
+            ICodeNodeType nodeType = modifier.getType();
+
+            if (nodeType == SUBSCRIPTS) {
+                ArrayList<ICodeNode> subscripts = modifier.getChildren();
+
+                for (ICodeNode subscript : subscripts) {
+                    TypeSpec indextType = (TypeSpec) variableType.getAttribute(ARRAY_INDEX_TYPE);
+                    int minIndex = indextType.getForm() == SUBRANGE ? (Integer) indextType.getAttribute(SUBRANGE_MIN_VALUE) : 0;
+                    int value = (Integer) execute(subscript);
+                    value = (Integer) checkRange(node, indextType, value);
+
+                    int index = value - minIndex;
+                    variableCell = ((Cell[]) variableCell.getValue())[index];
+                    variableType = (TypeSpec) variableType.getAttribute(ARRAY_ELEMENT_TYPE);
+
+                }
+            } else if (nodeType == FIELD) {
+                SymTabEntry fieldId = (SymTabEntry) modifier.getAttribute(ID);
+                String fieldName = fieldId.getName();
+
+                HashMap<String, Cell> map = (HashMap<String, Cell>) variableCell.getValue();
+                variableCell = map.get(fieldName);
+                variableType = fieldId.getTypeSpec();
+            }
+        }
+        return variableCell;
     }
 }

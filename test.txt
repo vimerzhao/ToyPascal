@@ -1,61 +1,42 @@
-PROGRAM RoutineErrors (input, output);
+PROGRAM newton;
 
 CONST
-    five = 5;
-
-TYPE
-    enum = (alpha, beta, gamma);
-    arr = ARRAY [1..five] OF real;
+    epsilon = 1e-6;
 
 VAR
-    e, k : enum;
-    i, m : integer;
-    a : arr;
-    v, y : real;
-    t : boolean;
+    number : integer;
 
-PROCEDURE proc(j : integer; VAR x, y, z : real;
-               VAR p : (alpha, beta, gamma); ch : char);
-
+FUNCTION root(x : real) : real;
     VAR
-        i : integer;
+        r : real;
 
     BEGIN
-        i := 7*k;
-        x := func(x);
+        r := 1;
+        REPEAT
+            r := (x/r + r)/2;
+        UNTIL abs(x/sqr(r) - 1) < epsilon;
+        root := r;
     END;
 
-FUNCTION forwarded(m : integer; VAR t : real) : 1..10; forward;
-
-FUNCTION func(VAR x : real; i : real; n : integer) : arr;
-
-    VAR
-        z : real;
-        p, q : boolean;
-
-    PROCEDURE nested(VAR n, m : integer);
-
-        VAR
-            a, b, c : integer;
-
-        BEGIN {nested}
-            p := forwarded(9, 2.0);
-        END {nested};
-
-    BEGIN {func}
-        x := i*z - func(v, -3.15159, five) + n/m;
-        func := x;
-    END {func};
-
-FUNCTION forwarded(b : boolean) : real;
-
-    VAR
-        n : integer;
-
+PROCEDURE print(n : integer; root : real);
     BEGIN
-        forwarded := true;
+        writeln('The square root of ', number:4, ' is ', root:8:4);
     END;
 
-BEGIN {RoutinesTest}
-    proc(i, -7 + m, a[m], v, y, a, t, 'r');
-END {RoutinesTest}.
+BEGIN
+    REPEAT
+        writeln;
+        write('Enter new number (0 to quit): ');
+        read(number);
+
+        IF number = 0 THEN BEGIN
+            print(number, 0.0);
+        END
+        ELSE IF number < 0 THEN BEGIN
+            writeln('*** ERROR:  number < 0');
+        END
+        ELSE BEGIN
+            print(number, root(number));
+        END
+    UNTIL number = 0
+END.
