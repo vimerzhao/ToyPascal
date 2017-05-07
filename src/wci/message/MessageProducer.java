@@ -8,7 +8,7 @@ package wci.message;
 public interface MessageProducer {
     /**
      * Add a listener to the listener list.
-     * @param listener the listener to add.
+     * @param listener the listener to addimpl.
      */
     public void addMessageListener(MessageListener listener);
 

@@ -38,7 +38,7 @@ public interface SymTabStack {
      */
     public SymTabEntry lookup(String name);
 
-    // add 2017-3-4
+    // addimpl 2017-3-4
 
     /**
      * Setter

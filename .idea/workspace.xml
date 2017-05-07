@@ -2,7 +2,82 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b0bcd18-8558-4ebf-8523-9ff242b9203a" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/AddFrame$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/AddFrame$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/AddFrame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/ChooseButtonListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/ConfirmButtonListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditDocumentListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditPane$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditPane.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame$10.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame$11.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame$12.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame$13.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame$14.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame$15.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame$16.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame$6.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame$7.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame$8.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame$9.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/EditorFrame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/FileChooser.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/IFrameListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/SpaceChooser.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/SpaceFrame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/SyntaxFormatter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/TabListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/commons/AddInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/commons/EditFile.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/commons/WorkSpace.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/exception/FileException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/handler/add/AddFileHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/handler/add/AddFolderHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/handler/add/AddHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/tree/ProjectTreeModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/tree/ProjectTreeNode.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/tree/ProjectTreeSelectionListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/tree/TreeCreator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/tree/TreeCreatorImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/util/FileUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/util/ImageUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/AddFrame.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/EditFrame.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/EditorFrame.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/SpaceFrame.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/commons/AddInfo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/commons/EditFile.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/commons/WorkSpace.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/exception/FileException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/handler/add/AddFileHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/handler/add/AddFolderHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/handler/add/AddHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/listener/EditDocumentListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/listener/IFrameListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/listener/TabListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/tree/ProjectTreeModel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/tree/ProjectTreeNode.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/tree/ProjectTreeSelectionListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/tree/TreeCreator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/tree/TreeCreatorImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/util/FileUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/wci/ide/util/ImageUtil.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/PascalIDE.class" afterPath="$PROJECT_DIR$/out/production/ToyPascal/wci/ide/PascalIDE.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/backend/Backend.java" afterPath="$PROJECT_DIR$/src/wci/backend/Backend.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/backend/interpreter/debuggerimpl/CommandProcessor.java" afterPath="$PROJECT_DIR$/src/wci/backend/interpreter/debuggerimpl/CommandProcessor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/Parser.java" afterPath="$PROJECT_DIR$/src/wci/frontend/Parser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/Source.java" afterPath="$PROJECT_DIR$/src/wci/frontend/Source.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/ide/PascalIDE.java" afterPath="$PROJECT_DIR$/src/wci/ide/PascalIDE.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/SymTabStack.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/SymTabStack.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/message/MessageHandler.java" afterPath="$PROJECT_DIR$/src/wci/message/MessageHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/message/MessageProducer.java" afterPath="$PROJECT_DIR$/src/wci/message/MessageProducer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,38 +95,32 @@
     <favorites_list name="ToyPascal" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="EditorFrame.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/wci/ide/EditorFrame.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="IDEFrame.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/wci/ide/IDEFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="203" column="41" lean-forward="false" selection-start-line="203" selection-start-column="41" selection-end-line="203" selection-end-column="41" />
+            <state relative-caret-position="184">
+              <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="class#3072:3218" expanded="false" />
-                <element signature="class#3250:3423" expanded="false" />
-                <element signature="class#3455:3601" expanded="false" />
-                <element signature="class#3632:3777" expanded="false" />
-                <element signature="class#3810:3957" expanded="false" />
-                <element signature="class#3991:4103" expanded="false" />
-                <element signature="class#4136:4248" expanded="false" />
-                <element signature="class#4279:4423" expanded="false" />
-                <element signature="class#4456:4604" expanded="false" />
-                <element signature="class#4642:4800" expanded="false" />
-                <element signature="class#4832:4978" expanded="false" />
-                <element signature="class#5008:5154" expanded="false" />
-                <element signature="class#5186:5337" expanded="false" />
+                <element signature="e#1993#1994#0" expanded="true" />
+                <element signature="e#2029#2030#0" expanded="true" />
+                <element signature="e#2066#2067#0" expanded="true" />
+                <element signature="e#2102#2103#0" expanded="true" />
+                <element signature="e#4731#4732#0" expanded="true" />
+                <element signature="e#4769#4770#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IFrameListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/wci/ide/IFrameListener.java">
+      <file leaf-file-name="FileBrowserPane.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/FileBrowserPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-              <folding />
+            <state relative-caret-position="390">
+              <caret line="26" column="54" lean-forward="false" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,6 +161,7 @@
       <find>cha</find>
       <find>main</find>
       <find>test</find>
+      <find>showOpenDia</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -105,38 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/memoryimpl/RuntimeStackImpl.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/executors/ExpressionExecutor.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/executors/CallExecutor.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/executors/CallDeclaredExecutor.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/executors/CallStandardExecutor.java" />
-        <option value="$PROJECT_DIR$/src/wci/frontend/Scanner.java" />
-        <option value="$PROJECT_DIR$/src/wci/frontend/Source.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/executors/AssignmentExecutor.java" />
-        <option value="$PROJECT_DIR$/test.txt" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/executors/StatementExecutor.java" />
-        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/VariableDeclarationsParser.java" />
-        <option value="$PROJECT_DIR$/doc/pascal/syntax.ebnf" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/doc/pascal/examples/assignment.pas" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/Debugger.java" />
-        <option value="$PROJECT_DIR$/src/Pascal.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/DebuggerType.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/Executor.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/debuggerimpl/NameValuePair.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/debuggerimpl/CellTypePair.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/debuggerimpl/CommandProcessor.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/BackendFactory.java" />
-        <option value="$PROJECT_DIR$/doc/pascal/examples/test.pas" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/debuggerimpl/CommandLineDebugger.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/IDEControl.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/IDEFrame.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/commons/WorkSpace.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/handler/add/AddHandler.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/SpaceFrame.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/tree/ProjectTreeNode.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/tree/TreeCreator.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/PascalIDE.java" />
         <option value="$PROJECT_DIR$/src/wci/ide/util/ImageUtil.java" />
         <option value="$PROJECT_DIR$/src/wci/ide/commons/AddInfo.java" />
         <option value="$PROJECT_DIR$/src/wci/ide/AddFrame.java" />
@@ -155,13 +193,44 @@
         <option value="$PROJECT_DIR$/src/wci/ide/EditPane.java" />
         <option value="$PROJECT_DIR$/src/wci/ide/util/FileUtil.java" />
         <option value="$PROJECT_DIR$/src/wci/ide/IFrameListener.java" />
+        <option value="$PROJECT_DIR$/syntax-config/monokai.stx" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/ConsoleFrame.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/ConsolePane.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/CallStackPane.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/ICodePane.java" />
         <option value="$PROJECT_DIR$/src/wci/ide/EditorFrame.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/EditFrame.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/PascalIDE.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/tree/ProjectTreeModel.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/util/FileUtil.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/tree/TreeCreator.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/tree/TreeCreatorImpl.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/AddHandler.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/add/AddInfo.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/add/AddFileHandler.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/FileBrowserPane.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/add/AddHandler.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/add/AddFrame.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/add/AddFolderHandler.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit/Editor.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/tree/ProjectTreeSelectionListener.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit/EditFile.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit/TabListener.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit/IFrameListener.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit/EditDocumentListener.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/EditPane.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit/listener/EditDocumentListener.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit/listener/IFrameListener.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit/listener/TabListener.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/util/edit/listener/TabListener.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/util/open/WorkSpace.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/util/open/SpaceFrame.java" />
+        <option value="$PROJECT_DIR$/src/wci/ide/IDEFrame.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="-1" />
-    <option name="width" value="1366" />
+    <option name="width" value="1346" />
     <option name="height" value="768" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -247,6 +316,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -349,7 +419,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="EditorFrame.java" />
+              <option name="myItemId" value="IDEFrame.java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -375,13 +445,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="ideimpl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToyPascal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToyPascal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ide" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ideimpl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="util" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -461,12 +560,16 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="wci.ide.listener" />
       <recent name="wci.ide" />
       <recent name="wci.backend.interpreter" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/images" />
-      <recent name="$PROJECT_DIR$/src/wci/intermediate/symtabimpl" />
+      <recent name="$PROJECT_DIR$/src/wci/ide/ideimpl/util/open" />
+      <recent name="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit" />
+      <recent name="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/add" />
+      <recent name="$PROJECT_DIR$/src/wci/ide/ideimpl/util" />
+      <recent name="$PROJECT_DIR$/src/wci/ide/ideimpl/tree" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -502,7 +605,7 @@
     <configuration default="false" name="PascalIDE" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="wci.ide.*" />
+          <option name="PATTERN" value="wci.ide.listener.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -742,30 +845,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-1" width="1366" height="768" extended-state="6" />
+    <frame x="0" y="0" width="1346" height="768" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32608697" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3242424" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26666668" sideWeight="0.50292826" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13636364" sideWeight="0.49707174" order="11" side_tool="false" content_ui="tabs" x="339" y="270" width="742" height="695" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3242424" sideWeight="0.49557522" order="11" side_tool="false" content_ui="tabs" x="339" y="270" width="742" height="695" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19838946" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30683506" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6268116" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4529148" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48030302" sideWeight="0.50442475" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -775,41 +879,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="simpleUML" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46296296" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287879" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26666668" sideWeight="0.50292826" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.94917786" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4529148" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="simpleUML" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46296296" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32608697" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3287879" sideWeight="0.49707174" order="11" side_tool="false" content_ui="tabs" x="339" y="270" width="742" height="695" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19985358" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287879" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.pas" />
@@ -846,297 +916,19 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/parsers/StatementParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="139" column="61" lean-forward="false" selection-start-line="139" selection-start-column="61" selection-end-line="139" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/parsers/ProgramParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="20" lean-forward="false" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/Backend.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/parsers/VariableDeclarationsParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="77" column="47" lean-forward="false" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.tp" />
-    <entry file="file://$PROJECT_DIR$/src/wci/util/CrossReferencer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/util/ParseTreePrinter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="90" column="20" lean-forward="false" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/pascal/syntax.ebnf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/pascal/examples/assignment.pas">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/executors/StatementExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/executors/AssignmentExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="52" column="51" lean-forward="false" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/Debugger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="345" column="0" lean-forward="false" selection-start-line="345" selection-start-column="0" selection-end-line="345" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/DebuggerType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/debuggerimpl/NameValuePair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/debuggerimpl/CellTypePair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="117" column="8" lean-forward="false" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/pascal/examples/test.pas">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="966">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/IDEControl.java" />
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/Executor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="49" column="40" lean-forward="false" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/debuggerimpl/CommandProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="206" column="4" lean-forward="false" selection-start-line="206" selection-start-column="4" selection-end-line="206" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/debuggerimpl/CommandLineDebugger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="89" column="54" lean-forward="false" selection-start-line="89" selection-start-column="54" selection-end-line="89" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/BackendFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1426">
-          <caret line="69" column="69" lean-forward="false" selection-start-line="69" selection-start-column="69" selection-end-line="69" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pascal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/ginkgo.png" />
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/commons/WorkSpace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="27" column="7" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/SpaceFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/tree/TreeCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/PascalIDE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="59" lean-forward="false" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/util/ImageUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="17" column="72" lean-forward="false" selection-start-line="17" selection-start-column="72" selection-end-line="17" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/commons/AddInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="23" column="27" lean-forward="false" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/handler/add/AddHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="74" lean-forward="false" selection-start-line="6" selection-start-column="74" selection-end-line="6" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/exception/FileException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/AddFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/tree/ProjectTreeNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/tree/ProjectTreeModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/handler/add/AddFolderHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="18" column="76" lean-forward="false" selection-start-line="18" selection-start-column="76" selection-end-line="18" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/handler/add/AddFileHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/tree/TreeCreatorImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="33" column="76" lean-forward="false" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/tree/ProjectTreeSelectionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-          <folding>
-            <element signature="e#290#291#0" expanded="false" />
-            <element signature="e#336#337#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/commons/AddInfo.java" />
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/handler/add/AddHandler.java" />
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/exception/FileException.java" />
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/AddFrame.java" />
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/tree/ProjectTreeNode.java" />
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/tree/ProjectTreeModel.java" />
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/handler/add/AddFolderHandler.java" />
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/handler/add/AddFileHandler.java" />
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/tree/TreeCreatorImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/tree/ProjectTreeSelectionListener.java" />
     <entry file="file://$PROJECT_DIR$/src/wci/ide/editor/IFrameListener.java" />
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/TabListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="24" column="48" lean-forward="false" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#320#321#0" expanded="false" />
-            <element signature="e#366#367#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/commons/EditFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="31" column="7" lean-forward="false" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#995#996#0" expanded="true" />
-            <element signature="e#1027#1028#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/listener/TabListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/commons/EditFile.java" />
     <entry file="jar://$USER_HOME$/install/jdk1.8.0_111/src.zip!/javax/swing/event/DocumentListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
@@ -1144,13 +936,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/EditDocumentListener.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/listener/EditDocumentListener.java" />
+    <entry file="file://$PROJECT_DIR$/syntax-config/pascal.stx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="38" column="6" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/util/FileUtil.java" />
+    <entry file="file://$PROJECT_DIR$/src/wci/frontend/TokenType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1158,75 +956,267 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/listener/IFrameListener.java" />
+    <entry file="file://$PROJECT_DIR$/syntax-config/monokai.stx" />
+    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/PascalTokenType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/ICodePane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/syntax-config/pascal.stx">
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/ConsolePane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="38" column="6" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+        <state relative-caret-position="69">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/EditPane.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/EditFrame.java" />
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/EditorFrame.java" />
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/PascalIDE.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="138" column="73" lean-forward="false" selection-start-line="138" selection-start-column="73" selection-end-line="138" selection-end-column="73" />
+        <state relative-caret-position="23">
+          <caret line="3" column="34" lean-forward="true" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/ImageUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/FileUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/handler/AddHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/add/AddFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="71" column="26" lean-forward="false" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1098#1243#0" expanded="true" />
-            <element signature="e#1242#1243#0" expanded="true" />
-            <element signature="e#5449#5450#0" expanded="true" />
-            <element signature="e#5482#5483#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/PascalTokenType.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/tree/TreeCreator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        <state relative-caret-position="115">
+          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/util/FileUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/CallStackPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="33" column="10" lean-forward="false" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+        <state relative-caret-position="92">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/IFrameListener.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/add/AddFolderHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/EditorFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="203" column="41" lean-forward="false" selection-start-line="203" selection-start-column="41" selection-end-line="203" selection-end-column="41" />
+        <state relative-caret-position="372">
+          <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#3072:3218" expanded="false" />
-            <element signature="class#3250:3423" expanded="false" />
-            <element signature="class#3455:3601" expanded="false" />
-            <element signature="class#3632:3777" expanded="false" />
-            <element signature="class#3810:3957" expanded="false" />
-            <element signature="class#3991:4103" expanded="false" />
-            <element signature="class#4136:4248" expanded="false" />
-            <element signature="class#4279:4423" expanded="false" />
-            <element signature="class#4456:4604" expanded="false" />
-            <element signature="class#4642:4800" expanded="false" />
-            <element signature="class#4832:4978" expanded="false" />
-            <element signature="class#5008:5154" expanded="false" />
-            <element signature="class#5186:5337" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/tree/TreeCreatorImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-391">
+          <caret line="18" column="51" lean-forward="false" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/add/AddFileHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/add/AddHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/edit/Editor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="28" column="18" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1121#1266#0" expanded="false" />
+            <element signature="e#1265#1266#0" expanded="false" />
+            <element signature="e#5472#5473#0" expanded="false" />
+            <element signature="e#5505#5506#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/tree/ProjectTreeModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/tree/ProjectTreeSelectionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/tree/ProjectTreeNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/edit/EditFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/edit/listener/EditDocumentListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#410#411#0" expanded="true" />
+            <element signature="e#467#468#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/add/AddInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/edit/listener/IFrameListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/edit/listener/TabListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/EditPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2484">
+          <caret line="116" column="61" lean-forward="false" selection-start-line="116" selection-start-column="61" selection-end-line="116" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/FileBrowserPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="54" lean-forward="false" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/open/WorkSpace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/open/OpenFolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-299">
+          <caret line="89" column="28" lean-forward="false" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/ide/IDEFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          <folding>
+            <element signature="e#1993#1994#0" expanded="true" />
+            <element signature="e#2029#2030#0" expanded="true" />
+            <element signature="e#2066#2067#0" expanded="true" />
+            <element signature="e#2102#2103#0" expanded="true" />
+            <element signature="e#4731#4732#0" expanded="true" />
+            <element signature="e#4769#4770#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -196,7 +196,7 @@ public class CommandProcessor {
             // Add the symbol table entry of the procedure or function;
             callStack.add(routineId);
 
-            // Create and add a name-value pair for each local variable.
+            // Create and addimpl a name-value pair for each local variable.
             for (String name : ar.getAllNames()) {
                 Object value = ar.getCell(name).getValue();
                 callStack.add(new NameValuePair(name, value));
