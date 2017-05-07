@@ -1,6 +1,11 @@
 package wci.ide.ideimpl.util.edit;
 
 
+import wci.frontend.EofToken;
+import wci.frontend.FrontendFactory;
+import wci.frontend.Parser;
+import wci.frontend.Source;
+import wci.frontend.pascal.PascalTokenType;
 import wci.ide.ideimpl.util.FileUtil;
 
 import javax.swing.*;
@@ -11,24 +16,25 @@ import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Editor extends JTextPane {
     protected StyledDocument doc;
     private SimpleAttributeSet lineAttr = new SimpleAttributeSet();
-    protected SyntaxFormatter formatter = new SyntaxFormatter("syntax-config/pascal.stx");
-    private SimpleAttributeSet quotAttr = new SimpleAttributeSet();
+    protected SyntaxFormatter formatter = new SyntaxFormatter("colorscheme/pascal.stx");
     private int docChangeStart = 0;
     private int docChangeLength = 0;
     public Editor(File file) {
         this.setText(FileUtil.readFile(file));
+        this.setBackground(new Color(0xEB, 0xEB, 0xEB));
+        this.setFont(new Font(Font.MONOSPACED, Font.BOLD, 15));
         this.doc = getStyledDocument();
+
         this.setMargin(new Insets(3, 40, 0, 0));
         syntaxParse();
         addKeyListener(new KeyAdapter() {
@@ -53,30 +59,32 @@ public class Editor extends JTextPane {
                 length = docChangeLength + 1;
             }
             String s = doc.getText(start, length);
-            String[] tokens = s.split("\\s+|\\.|\\(|\\)|\\{|\\}|\\[|\\]");
             int curStart = 0;
-            boolean isQuot = false;
-            for (String token : tokens) {
-                int tokenPos = s.indexOf(token , curStart);
-                if (isQuot && (token.endsWith("\"") || token.endsWith("\'"))) {
-                    doc.setCharacterAttributes(start + tokenPos, token.length(), quotAttr, false);
-                    isQuot = false;
-                } else if (isQuot && !(token.endsWith("\"") || token.endsWith("\'"))) {
-                    doc.setCharacterAttributes(start + tokenPos, token.length(), quotAttr, false);
-                } else if ((token.startsWith("\"") || token.startsWith("\'"))
-                        && (token.endsWith("\"") || token.endsWith("\'"))) {
-                    doc.setCharacterAttributes(start + tokenPos, token.length(), quotAttr, false);
-                } else if ((token.startsWith("\"") || token.startsWith("\'"))
-                        && !(token.endsWith("\"") || token.endsWith("\'"))) {
-                    doc.setCharacterAttributes(start + tokenPos, token.length(), quotAttr, false);
-                    isQuot = true;
-                } else {
-                    formatter.setHighLight(doc , token , start + tokenPos, token.length());
+
+            // reuse the code of frontend package
+            Source source = new Source(
+                    new BufferedReader(new InputStreamReader(
+                            new ByteArrayInputStream(s.getBytes(StandardCharsets.UTF_8)))));
+            Parser parser = FrontendFactory.createParser("Pascal", "top-down", source);
+
+
+            while (!(parser.nextToken() instanceof EofToken)) {
+                // attention: parser cannot find comment.
+
+                if (s.charAt(curStart+1) == '{') {
+                    ++curStart;
+                    while (s.charAt(curStart) != '}') ++curStart;
                 }
-                curStart = tokenPos + token.length();
+                String token = parser.currentToken().getText();
+
+                PascalTokenType tokenType = (PascalTokenType) parser.currentToken().getType();
+                int tokenPos =  s.indexOf(token, curStart);
+
+                formatter.setHighLight(doc, tokenType, start+tokenPos, token.length());
+                curStart = tokenPos+token.length();
+
             }
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
@@ -94,6 +102,7 @@ public class Editor extends JTextPane {
         }
     }
 }
+
 class SyntaxFormatter {
     private Map<SimpleAttributeSet, ArrayList> attrMap = new HashMap<>();
     SimpleAttributeSet normalAttr = new SimpleAttributeSet();
@@ -109,6 +118,7 @@ class SyntaxFormatter {
                     if (patterns.size() > 0 && color > -1) {
                         SimpleAttributeSet attr = new SimpleAttributeSet();
                         StyleConstants.setForeground(attr, new Color(color));
+                        System.out.println(color);
                         attrMap.put(attr, patterns);
                     }
                     patterns = new ArrayList<>();
@@ -128,16 +138,14 @@ class SyntaxFormatter {
             e.printStackTrace();
         }
     }
-    public SimpleAttributeSet getNormalAttrbuteSet(){
-        return normalAttr;
-    }
-    public void setHighLight(StyledDocument doc, String token, int start, int length) {
+
+    public void setHighLight(StyledDocument doc, PascalTokenType tokenType, int start, int length) {
         SimpleAttributeSet currentAttrSet = null;
         outer :
         for (SimpleAttributeSet attr : attrMap.keySet()) {
             ArrayList patterns = attrMap.get(attr);
             for (Object pattern : patterns) {
-                if (Pattern.matches((String) pattern, token.toUpperCase())) {
+                if (pattern.equals(tokenType.toString())) {
                     currentAttrSet = attr;
                     break outer;
                 }
