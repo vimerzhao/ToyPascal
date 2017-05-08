@@ -34,14 +34,14 @@ public class Executor extends Backend {
 
         standardOut = new PrintWriter(new PrintStream(System.out));
     }
-    public Executor(String inputPath) {
+    public Executor(DebuggerType type, String inputPath) {
         try {
             standardIn = inputPath != null
                     ? new PascalScanner(new Source(new BufferedReader(new FileReader(inputPath))))
                     : new PascalScanner(new Source(new BufferedReader(new InputStreamReader(System.in))));
         } catch (IOException ignored) {}
 
-        debugger = BackendFactory.createDebugger(COMMAND_LINE, this, runtimeStack);
+        debugger = BackendFactory.createDebugger(type, this, runtimeStack);
 
     }
 

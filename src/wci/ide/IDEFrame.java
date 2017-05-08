@@ -84,6 +84,30 @@ public class IDEFrame extends JFrame {
         public void actionPerformed(ActionEvent e) {
         }
     };
+    private Action step = new AbstractAction("debug", new ImageIcon("images/step.gif")) {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
+    };
+    private Action go = new AbstractAction("go", new ImageIcon("images/resume.gif")) {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
+    };
+    private Action debug = new AbstractAction("debug", new ImageIcon("images/debug.gif")) {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
+    };
+    private Action terminate = new AbstractAction("quit", new ImageIcon("images/terminate.gif")) {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
+    };
 
     public IDEFrame(String title) {
         super(title);
@@ -119,8 +143,8 @@ public class IDEFrame extends JFrame {
         callStackPane = new CallStackPane();
         iCodePane = new ICodePane();
         debugPane.add(consolePane, "控制台");
-        //debugPane.add(callStackPane, "调用栈");
-        //debugPane.add(iCodePane, "中间代码");
+        debugPane.add(callStackPane, "调用栈");
+        debugPane.add(iCodePane, "中间代码");
         editSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, editPane, debugPane);
         editSplitPane.setDividerSize(4);
         editSplitPane.setDividerLocation(500);
@@ -142,6 +166,10 @@ public class IDEFrame extends JFrame {
         fileMenu.add(open);
         fileMenu.add(exit);
         toolBar.add(run).setToolTipText("运行");
+        toolBar.add(debug).setToolTipText("调试");
+        toolBar.add(step).setToolTipText("单步调试");
+        toolBar.add(go).setToolTipText("恢复运行");
+        toolBar.add(terminate).setToolTipText("退出调试");
     }
 
     public ProjectTreeNode getSelectNode() {

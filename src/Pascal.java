@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
+import wci.backend.interpreter.DebuggerType;
 import wci.frontend.*;
 import wci.intermediate.*;
 import wci.backend.*;
@@ -9,6 +10,9 @@ import wci.message.*;
 import wci.util.CrossReferencer;
 import wci.util.ParseTreePrinter;
 
+import static wci.backend.interpreter.DebuggerType.COMMAND_LINE;
+import static wci.backend.interpreter.DebuggerType.GUI;
+import static wci.ide.IDEControl.*;
 import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_ICODE;
 
 /**
@@ -27,6 +31,8 @@ public class Pascal
     private boolean intermediate;       // true to print intermediate code.
     private boolean xref;               // true to print cross-reference listing.
 
+    private DebuggerType debuggerType;
+
     /**
      * Compile or interpret a Pascal source program.
      * @param operation either "compile" or "execute".
@@ -34,8 +40,13 @@ public class Pascal
      * @param inputPath the input file path.
      * @param flags the command line flags.
      */
-    public Pascal(String operation, String sourcePath, String inputPath, String flags) {
+    public Pascal(String operation, String debugger,String sourcePath, String inputPath, String flags) {
         try {
+            if (debugger.equals("GUI")) {
+                debuggerType = GUI;
+            } else {
+                debuggerType = COMMAND_LINE;
+            }
             intermediate= flags.indexOf('i') > -1;
             xref        = flags.indexOf('x') > -1;
 
@@ -45,7 +56,7 @@ public class Pascal
             parser = FrontendFactory.createParser("Pascal", "top-down", source);
             parser.addMessageListener(new ParserMessageListener());
 
-            backend = BackendFactory.createBackend(operation, inputPath);
+            backend = BackendFactory.createBackend(operation, debuggerType, inputPath);
             backend.addMessageListener(new BackendMessageListener());
 
             parser.parse();
@@ -107,6 +118,14 @@ public class Pascal
             } else {
                 throw new Exception();
             }
+            String debugger = "COMMAND";
+            if (++i < args.length) {
+                if ("GUI".equals(args[i])) {
+                    debugger = "GUI";
+                } else {
+                    --i;
+                }
+            }
             // Runtime input data file path.
             if (++i < args.length) {
                 inputPath = args[i];
@@ -116,7 +135,7 @@ public class Pascal
                     throw new Exception();
                 }
             }
-            new Pascal(operation, sourcePath, inputPath, flags);
+            new Pascal(operation, debugger, sourcePath, inputPath, flags);
         }
         catch (Exception ex) {
             System.out.println(USAGE);
@@ -124,6 +143,7 @@ public class Pascal
     }
 
     private static final String SOURCE_LINE_FORMAT = "%03d %s";
+    private static final String TAG_SOURCE_LINE_FORMAT = LISTING_TAG + "%03d %s";
 
     /**
      * Listener for source messages.
@@ -142,8 +162,11 @@ public class Pascal
                 case SOURCE_LINE: {
                     int lineNumber = (Integer) body[0];
                     String lineText = (String) body[1];
-
-                    System.out.println(String.format(SOURCE_LINE_FORMAT, lineNumber, lineText));
+                    if (debuggerType.equals(GUI)) {
+                        System.out.println(String.format(TAG_SOURCE_LINE_FORMAT, lineNumber, lineText));
+                    } else {
+                        System.out.println(String.format(SOURCE_LINE_FORMAT, lineNumber, lineText));
+                    }
                     break;
                 }
             }
@@ -154,6 +177,11 @@ public class Pascal
         "\n%,20d source lines." +
         "\n%,20d syntax errors." +
         "\n%,20.2f seconds total parsing time.\n";
+    private static final String TAG_PARSER_SUMMARY_FORMAT =
+            PARSER_TAG + "%,d source lines, %,d syntax errors, " +
+                    "%,.2f seconds total parsing time.\n";
+
+
 
     private static final int PREFIX_WIDTH = 5;
     /**
@@ -174,9 +202,11 @@ public class Pascal
                     int syntaxErrors = (Integer) body[1];
                     float elapsedTime = (Float) body[2];
 
-                    System.out.printf(PARSER_SUMMARY_FORMAT,
-                                      statementCount, syntaxErrors,
-                                      elapsedTime);
+                    if (debuggerType.equals(GUI)) {
+                        System.out.printf(TAG_PARSER_SUMMARY_FORMAT, statementCount, syntaxErrors, elapsedTime);
+                    } else {
+                        System.out.printf(PARSER_SUMMARY_FORMAT, statementCount, syntaxErrors, elapsedTime);
+                    }
                     break;
                 }
                 case SYNTAX_ERROR: {
@@ -186,21 +216,24 @@ public class Pascal
                     String tokenText = (String) body[2];
                     String errorMessage = (String) body[3];
 
-                    int spaceCount = PREFIX_WIDTH + position;
                     StringBuilder flagBuffer = new StringBuilder();
+                    if (type.equals(COMMAND_LINE)) {
+                        int spaceCount = PREFIX_WIDTH + position;
 
-                    // Spaces up to the error position.
-                    for (int i = 1; i < spaceCount; ++i) {
-                        flagBuffer.append(' ');
+                        // Spaces up to the error position.
+                        for (int i = 1; i < spaceCount; ++i) {
+                            flagBuffer.append(' ');
+                        }
+
+                        // A pointer to the error followed by the error message.
+                        flagBuffer.append("^\n*** ").append(errorMessage);
+                    } else if (type.equals(GUI)) {
+                        flagBuffer.append(String.format(SYNTAX_TAG + "%d: %s", lineNumber, errorMessage));
                     }
-
-                    // A pointer to the error followed by the error message.
-                    flagBuffer.append("^\n*** ").append(errorMessage);
 
                     // Text, if any, of the bad token.
                     if (tokenText != null) {
-                        flagBuffer.append(" [at \"").append(tokenText)
-                                .append("\"]");
+                        flagBuffer.append(" [at \"").append(tokenText).append("\"]");
                     }
 
                     System.out.println(flagBuffer.toString());
@@ -214,6 +247,9 @@ public class Pascal
         "\n%,20d statements executed." +
         "\n%,20d runtime errors." +
         "\n%,20.2f seconds total execution time.\n";
+    private static final String TAG_INTERPRETER_SUMMARY_FORMAT =
+            INTERPRETER_TAG + "%,d statements executed, %,d runtime errors, " +
+                    "%,.2f seconds total execution time.\n";
 
     private static final String COMPILER_SUMMARY_FORMAT =
         "\n%,20d instructions generated." +
@@ -238,9 +274,15 @@ public class Pascal
                     int runtimeErrors = (Integer) body[1];
                     float elapsedTime = (Float) body[2];
 
-                    System.out.printf(INTERPRETER_SUMMARY_FORMAT,
+                    if (debuggerType.equals(GUI)) {
+                        System.out.printf(TAG_INTERPRETER_SUMMARY_FORMAT,
                             executionCount, runtimeErrors,
                             elapsedTime);
+                    } else {
+                        System.out.printf(INTERPRETER_SUMMARY_FORMAT,
+                            executionCount, runtimeErrors,
+                            elapsedTime);
+                    }
                     break;
                 }
 

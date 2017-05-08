@@ -6,6 +6,7 @@ import wci.backend.interpreter.DebuggerType;
 import wci.backend.interpreter.Executor;
 import wci.backend.interpreter.RuntimeStack;
 import wci.backend.interpreter.debuggerimpl.CommandLineDebugger;
+import wci.backend.interpreter.debuggerimpl.GUIDebugger;
 import wci.intermediate.TypeSpec;
 import wci.intermediate.symtabimpl.Predefined;
 
@@ -23,12 +24,12 @@ public class BackendFactory
      * @return a compiler or an interpreter back end component.
      * @throws Exception if an error occurred.
      */
-    public static Backend createBackend(String operation, String inputPath) throws Exception {
+    public static Backend createBackend(String operation,DebuggerType type, String inputPath) throws Exception {
         if (operation.equalsIgnoreCase("compile")) {
             return new CodeGenerator();
         }
         else if (operation.equalsIgnoreCase("execute")) {
-            return new Executor(inputPath);
+            return new Executor(type, inputPath);
         }
         else {
             throw new Exception("Backend factory: Invalid operation '" +
@@ -70,7 +71,7 @@ public class BackendFactory
                 return new CommandLineDebugger(backend, runtimeStack);
             }
             case GUI: {
-                return null;
+                return new GUIDebugger(backend, runtimeStack);
             }
             default: {
                 return null;
