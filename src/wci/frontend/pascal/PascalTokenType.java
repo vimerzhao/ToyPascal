@@ -26,6 +26,9 @@ public enum PascalTokenType implements TokenType
     LEFT_BRACKET("["), RIGHT_BRACKET("]"), LEFT_BRACE("{"), RIGHT_BRACE("}"),
     UP_ARROW("^"), DOT_DOT(".."),
 
+    // comment for render
+    COMMENT,
+
     IDENTIFIER, INTEGER, REAL, STRING,
     ERROR, END_OF_FILE;
 

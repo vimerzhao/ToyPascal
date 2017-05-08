@@ -119,8 +119,8 @@ public class IDEFrame extends JFrame {
         callStackPane = new CallStackPane();
         iCodePane = new ICodePane();
         debugPane.add(consolePane, "控制台");
-        debugPane.add(callStackPane, "调用栈");
-        debugPane.add(iCodePane, "中间代码");
+        //debugPane.add(callStackPane, "调用栈");
+        //debugPane.add(iCodePane, "中间代码");
         editSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, editPane, debugPane);
         editSplitPane.setDividerSize(4);
         editSplitPane.setDividerLocation(500);

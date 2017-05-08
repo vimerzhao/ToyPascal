@@ -23,19 +23,21 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import static wci.frontend.pascal.PascalTokenType.COMMENT;
+
 public class Editor extends JTextPane {
     protected StyledDocument doc;
     private SimpleAttributeSet lineAttr = new SimpleAttributeSet();
     protected SyntaxFormatter formatter = new SyntaxFormatter("colorscheme/pascal.stx");
-    private int docChangeStart = 0;
-    private int docChangeLength = 0;
+    private int curStart = 0;
     public Editor(File file) {
         this.setText(FileUtil.readFile(file));
-        this.setBackground(new Color(0xEB, 0xEB, 0xEB));
+        this.setBackground(new Color(0xDB, 0xDB, 0xDB));
+        this.setForeground(new Color(0xFF, 0x00, 0x00));
         this.setFont(new Font(Font.MONOSPACED, Font.BOLD, 15));
         this.doc = getStyledDocument();
 
-        this.setMargin(new Insets(3, 40, 0, 0));
+        this.setMargin(new Insets(3, 50, 0, 0));
         syntaxParse();
         addKeyListener(new KeyAdapter() {
             @Override
@@ -46,20 +48,12 @@ public class Editor extends JTextPane {
     }
     public void syntaxParse() {
         try {
-            Element root = doc.getDefaultRootElement();
-            int cursorPos = this.getCaretPosition();
-            int line = root.getElementIndex(cursorPos);
-            Element para = root.getElement(line);
-            int start = para.getStartOffset();
-            if (start > docChangeStart)	{
-                start = docChangeStart;
-            }
-            int length = para.getEndOffset() - start;
-            if (length < docChangeLength) {
-                length = docChangeLength + 1;
-            }
-            String s = doc.getText(start, length);
-            int curStart = 0;
+            Element root = doc.getDefaultRootElement();// content of doc
+
+            // note : this is a low effective solution
+            // render the modified part if you want to render faster.
+            String s = doc.getText(root.getStartOffset(), root.getEndOffset()-1);
+            curStart = 0;
 
             // reuse the code of frontend package
             Source source = new Source(
@@ -67,26 +61,44 @@ public class Editor extends JTextPane {
                             new ByteArrayInputStream(s.getBytes(StandardCharsets.UTF_8)))));
             Parser parser = FrontendFactory.createParser("Pascal", "top-down", source);
 
+            /*
+             * my note for future development!
+             * render the code is harder than I thought.So, this is a simple solution!
+             * I do not test the code completely! So find the bug by using the program!
+             */
 
             while (!(parser.nextToken() instanceof EofToken)) {
-                // attention: parser cannot find comment.
-
-                if (s.charAt(curStart+1) == '{') {
-                    ++curStart;
-                    while (s.charAt(curStart) != '}') ++curStart;
-                }
+                renderComment(s);
                 String token = parser.currentToken().getText();
-
                 PascalTokenType tokenType = (PascalTokenType) parser.currentToken().getType();
                 int tokenPos =  s.indexOf(token, curStart);
-
-                formatter.setHighLight(doc, tokenType, start+tokenPos, token.length());
+                formatter.setHighLight(doc, tokenType, tokenPos, token.length());
                 curStart = tokenPos+token.length();
 
             }
+            renderComment(s);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+    private void renderComment(String s){
+        // attention: parser cannot find comment.
+        // so diy your own comment render !
+        while ((curStart < s.length()) &&
+                (s.charAt(curStart)==' ' || s.charAt(curStart)=='\t'
+                        ||s.charAt(curStart)=='\n' || s.charAt(curStart)=='{')){
+            if (curStart<s.length() && s.charAt(curStart) == '{') {
+                int commentStart = curStart;
+                int len = 1;
+                while (s.charAt(curStart) != '}') {
+                    ++curStart;
+                    ++len;
+                }
+                formatter.setHighLight(doc, COMMENT, commentStart, len);
+            }
+            curStart++;
+        }
+
     }
 
     @Override
@@ -94,8 +106,8 @@ public class Editor extends JTextPane {
         super.paint(g);
         Element root = doc.getDefaultRootElement();
         int line = root.getElementIndex(doc.getLength());
-        g.setColor(new Color(230, 230, 230));
-        g.fillRect(0, 0, this.getMargin().left-10, getSize().height);
+        g.setColor(new Color(0xB0, 0xB0, 0xB0));
+        g.fillRect(0, 0, this.getMargin().left, getSize().height);
         g.setColor(new Color(40, 40, 40));
         for (int count = 0, j = 1; count <= line; ++count, ++j) {
             g.drawString(String.valueOf(j), 3, (int)((count+1)*1.5020* StyleConstants.getFontSize(lineAttr)));

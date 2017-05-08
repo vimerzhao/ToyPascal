@@ -100,7 +100,7 @@ public class EditPane extends Box{
     }
 
     public void openNewFile(File file) {
-        JInternalFrame iframe= new JInternalFrame(file.getAbsolutePath(), true, true, true, true);
+        JInternalFrame iframe= new JInternalFrame(file.getAbsolutePath(), false, true, false, false);
         Editor editor= new Editor(file);
         editor.getDocument().addDocumentListener(new EditDocumentListener(this));
         iframe.add(new JScrollPane(editor));
