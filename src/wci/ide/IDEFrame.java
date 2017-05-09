@@ -18,9 +18,7 @@ import java.awt.event.InputEvent;
 import java.io.File;
 import java.util.Enumeration;
 
-import static wci.ide.IDEControl.INTERPRETER_TAG;
-import static wci.ide.IDEControl.LISTING_TAG;
-import static wci.ide.IDEControl.PARSER_TAG;
+import static wci.ide.IDEControl.*;
 
 public class IDEFrame extends JFrame {
     private JSplitPane editSplitPane;
@@ -104,27 +102,15 @@ public class IDEFrame extends JFrame {
         // save file first!
         editPane.saveFile(editPane.getCurrentFile());
         String path = editPane.getCurrentFile().getFile().getAbsolutePath();
-        String result = RunProcess.run("../my-settings/test.pas");
+        String result = RunProcess.run(path);
         System.out.println(result);
         String[] strings = result.split("\n");
         StringBuilder outputBuilder = new StringBuilder();
         StringBuilder consoleBuilder= new StringBuilder();
         StringBuilder iCodeBuilder = new StringBuilder();
         for (int i = 0; i < strings.length; ++i) {
-            if (strings[i].startsWith(LISTING_TAG)) {
-                boolean flag = false;
-                while (i+1 < strings.length && strings[i+1].startsWith(" [")) {
-                    if (!flag) {
-                        consoleBuilder.append(strings[i].substring(LISTING_TAG.length()));
-                    }
-
-                    flag = true;
-                    ++i;
-                    consoleBuilder.append(strings[i]);
-                }
-                if (flag) {
-                    consoleBuilder.append('\n');
-                }
+            if (strings[i].startsWith(SYNTAX_TAG)) {
+               consoleBuilder.append(strings[i].substring(SYNTAX_TAG.length())).append('\n');
             } else if (strings[i].startsWith(PARSER_TAG)){
                 consoleBuilder.append(strings[i].substring(PARSER_TAG.length())).append('\n');
             } else if (strings[i].startsWith(INTERPRETER_TAG)) {
@@ -133,6 +119,8 @@ public class IDEFrame extends JFrame {
                 while (!strings[++i].startsWith(ParseTreePrinter.END_ICODE)) {
                     iCodeBuilder.append(strings[i]).append('\n');
                 }
+            }else if (strings[i].startsWith(LISTING_TAG)) {
+
             } else {
                 outputBuilder.append(strings[i]).append('\n');
             }

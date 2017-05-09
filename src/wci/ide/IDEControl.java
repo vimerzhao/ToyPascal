@@ -1,17 +1,11 @@
 package wci.ide;
 
-import java.awt.Color;
-
 /**
- * <h1>IDEControl</h1>
+ * IDEControl
  *
- * <p>The master interface of the Pascal IDE.</p>
- *
- * <p>Copyright (c) 2009 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
+ * The master interface of the Pascal IDE.
  */
-public interface IDEControl
-{
+public interface IDEControl {
     // Debugger output line tags.
     String LISTING_TAG = "!LISTING:";
     String PARSER_TAG = "!PARSER:";

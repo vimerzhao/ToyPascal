@@ -218,7 +218,7 @@ public class Pascal
                     String errorMessage = (String) body[3];
 
                     StringBuilder flagBuffer = new StringBuilder();
-                    if (type.equals(COMMAND_LINE)) {
+                    if (debuggerType.equals(COMMAND_LINE)) {
                         int spaceCount = PREFIX_WIDTH + position;
 
                         // Spaces up to the error position.
@@ -228,7 +228,7 @@ public class Pascal
 
                         // A pointer to the error followed by the error message.
                         flagBuffer.append("^\n*** ").append(errorMessage);
-                    } else if (type.equals(GUI)) {
+                    } else if (debuggerType.equals(GUI)) {
                         flagBuffer.append(String.format(SYNTAX_TAG + "%d: %s", lineNumber, errorMessage));
                     }
 
