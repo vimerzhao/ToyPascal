@@ -17,5 +17,6 @@ public class ProjectTreeSelectionListener extends MouseAdapter {
         if (selectNode == null) return;
         if (selectNode.getFile().isDirectory()) return;
         this.ideFrame.openFile(selectNode.getFile());
+        this.ideFrame.clearDebugPane();
     }
 }

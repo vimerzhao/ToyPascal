@@ -200,7 +200,7 @@ public class IDEFrame extends JFrame {
         callStackPane = new CallStackPane();
         iCodePane = new ICodePane(new JTextArea());
         outputPane = new OutputPane(new JTextArea());
-        debugPane.add(consolePane, "控制台");
+        debugPane.add(consolePane, "运行信息");
         debugPane.add(outputPane, "输出");
         //debugPane.add(callStackPane, "调用栈");
         debugPane.add(iCodePane, "中间代码");
@@ -259,6 +259,13 @@ public class IDEFrame extends JFrame {
             }
         }
     }
+
+    public void clearDebugPane() {
+        consolePane.setInfo("");
+        outputPane.setOutput("");
+        iCodePane.setICode("");
+    }
+
 }
 class FileChooser extends JFileChooser {
     private IDEFrame ideFrame;
@@ -276,6 +283,5 @@ class FileChooser extends JFileChooser {
         this.ideFrame.openFile(file);
         super.approveSelection();
     }
-
 
 }

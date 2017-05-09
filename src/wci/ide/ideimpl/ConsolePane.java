@@ -7,6 +7,7 @@ public class ConsolePane extends JScrollPane {
     public ConsolePane(JTextArea info) {
         super(info);
         this.info = info;
+        this.info.setEditable(false);
     }
 
     public void setInfo(String info) {
