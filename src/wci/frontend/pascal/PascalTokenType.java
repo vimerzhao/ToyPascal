@@ -28,6 +28,8 @@ public enum PascalTokenType implements TokenType
 
     // comment for render
     COMMENT,
+    // predefine word for render
+    PREDEFINED,
 
     IDENTIFIER, INTEGER, REAL, STRING,
     ERROR, END_OF_FILE;

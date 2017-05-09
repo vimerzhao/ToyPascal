@@ -8,6 +8,7 @@ public class ICodePane extends JScrollPane {
     public ICodePane(JTextArea iCode) {
         super(iCode);
         this.iCode = iCode;
+        this.iCode.setEditable(false);
     }
 
     public void setICode(String iCode) {

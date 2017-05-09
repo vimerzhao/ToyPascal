@@ -18,10 +18,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 import static wci.frontend.pascal.PascalTokenType.COMMENT;
 
@@ -46,6 +43,38 @@ public class Editor extends JTextPane {
             }
         });
     }
+
+    private static final Set<String> PREDEFINED = new HashSet<>();
+    static {
+        PREDEFINED.add("integer");
+        PREDEFINED.add("real");
+        PREDEFINED.add("boolean");
+        PREDEFINED.add("false");
+        PREDEFINED.add("true");
+        PREDEFINED.add("char");
+        PREDEFINED.add("read");
+        PREDEFINED.add("readln");
+        PREDEFINED.add("write");
+        PREDEFINED.add("writeln");
+        PREDEFINED.add("abs");
+        PREDEFINED.add("arctan");
+        PREDEFINED.add("chr");
+        PREDEFINED.add("cos");
+        PREDEFINED.add("eof");
+        PREDEFINED.add("eoln");
+        PREDEFINED.add("exp");
+        PREDEFINED.add("ln");
+        PREDEFINED.add("odd");
+        PREDEFINED.add("ord");
+        PREDEFINED.add("pred");
+        PREDEFINED.add("round");
+        PREDEFINED.add("sin");
+        PREDEFINED.add("sqr");
+        PREDEFINED.add("sqrt");
+        PREDEFINED.add("succ");
+        PREDEFINED.add("trunc");
+    }
+
     public void syntaxParse() {
         try {
             Element root = doc.getDefaultRootElement();// content of doc
@@ -72,6 +101,9 @@ public class Editor extends JTextPane {
                 String token = parser.currentToken().getText();
                 PascalTokenType tokenType = (PascalTokenType) parser.currentToken().getType();
                 int tokenPos =  s.indexOf(token, curStart);
+                if (PREDEFINED.contains(token.toLowerCase())) {
+                    tokenType = PascalTokenType.PREDEFINED;
+                }
                 formatter.setHighLight(doc, tokenType, tokenPos, token.length());
                 curStart = tokenPos+token.length();
 
@@ -81,6 +113,7 @@ public class Editor extends JTextPane {
             ex.printStackTrace();
         }
     }
+
     private void renderComment(String s){
         // attention: parser cannot find comment.
         // so diy your own comment render !
@@ -165,6 +198,7 @@ class SyntaxFormatter {
         if (currentAttrSet != null) {
             doc.setCharacterAttributes(start, length, currentAttrSet, false);
         } else {
+
             doc.setCharacterAttributes(start, length, normalAttr, false);
         }
     }
