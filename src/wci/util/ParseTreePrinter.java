@@ -18,6 +18,8 @@ import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_ROUTINES;
  * <p>Print a parse tree.</p>
  */
 public class ParseTreePrinter {
+    public static final String BEGIN_ICODE = "!BEGIN===== INTERMEDIATE CODE =====";
+    public static final String END_ICODE = "!END===== INTERMEDIATE CODE =====";
     private static final int INDENT_WIDTH = 4;
     private static final int LINE_WIDTH = 80;
     private PrintStream ps;         // output print stream
@@ -48,10 +50,10 @@ public class ParseTreePrinter {
      * @param symTabStack the symbol table stack.
      */
     public void print(SymTabStack symTabStack) {
-        ps.println("\n===== INTERMEDIATE CODE =====\n");
-
+        ps.println(BEGIN_ICODE);
         SymTabEntry programId = symTabStack.getProgramId();
         printRoutine(programId);
+        ps.println(END_ICODE);
     }
 
     /**

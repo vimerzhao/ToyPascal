@@ -7,12 +7,20 @@ import wci.ide.ideimpl.util.add.AddFileHandler;
 import wci.ide.ideimpl.util.add.AddFolderHandler;
 import wci.ide.ideimpl.util.add.AddFrame;
 import wci.ide.ideimpl.util.add.AddInfo;
+import wci.ide.ideimpl.util.run.RunProcess;
+import wci.util.ParseTreePrinter;
 
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
 import java.io.File;
+import java.util.Enumeration;
+
+import static wci.ide.IDEControl.INTERPRETER_TAG;
+import static wci.ide.IDEControl.LISTING_TAG;
+import static wci.ide.IDEControl.PARSER_TAG;
 
 public class IDEFrame extends JFrame {
     private JSplitPane editSplitPane;
@@ -22,6 +30,7 @@ public class IDEFrame extends JFrame {
     private ConsolePane consolePane;
     private FileBrowserPane fileBrowserPane;
     private ICodePane iCodePane;
+    private OutputPane outputPane;
     private JSplitPane fileSplitPane;
 
     // menu bar
@@ -32,6 +41,7 @@ public class IDEFrame extends JFrame {
     private JToolBar toolBar;
 
     private AddFrame addFrame;
+
 
     private Action newFile = new AbstractAction("新建文件", new ImageIcon("images/fileNew.gif")) {
         @Override
@@ -82,8 +92,56 @@ public class IDEFrame extends JFrame {
     private Action run = new AbstractAction("run", new ImageIcon("images/run.gif")) {
         @Override
         public void actionPerformed(ActionEvent e) {
+            runProgram();
         }
     };
+
+    private void runProgram() {
+        if (editPane.getCurrentFile() == null) {
+            JOptionPane.showMessageDialog(null, "未选择文件");
+            return;
+        }
+        // save file first!
+        editPane.saveFile(editPane.getCurrentFile());
+        String path = editPane.getCurrentFile().getFile().getAbsolutePath();
+        String result = RunProcess.run("../my-settings/test.pas");
+        System.out.println(result);
+        String[] strings = result.split("\n");
+        StringBuilder outputBuilder = new StringBuilder();
+        StringBuilder consoleBuilder= new StringBuilder();
+        StringBuilder iCodeBuilder = new StringBuilder();
+        for (int i = 0; i < strings.length; ++i) {
+            if (strings[i].startsWith(LISTING_TAG)) {
+                boolean flag = false;
+                while (i+1 < strings.length && strings[i+1].startsWith(" [")) {
+                    if (!flag) {
+                        consoleBuilder.append(strings[i].substring(LISTING_TAG.length()));
+                    }
+
+                    flag = true;
+                    ++i;
+                    consoleBuilder.append(strings[i]);
+                }
+                if (flag) {
+                    consoleBuilder.append('\n');
+                }
+            } else if (strings[i].startsWith(PARSER_TAG)){
+                consoleBuilder.append(strings[i].substring(PARSER_TAG.length())).append('\n');
+            } else if (strings[i].startsWith(INTERPRETER_TAG)) {
+                consoleBuilder.append(strings[i].substring(INTERPRETER_TAG.length())).append('\n');
+            } else if (strings[i].startsWith(ParseTreePrinter.BEGIN_ICODE)) {
+                while (!strings[++i].startsWith(ParseTreePrinter.END_ICODE)) {
+                    iCodeBuilder.append(strings[i]).append('\n');
+                }
+            } else {
+                outputBuilder.append(strings[i]).append('\n');
+            }
+        }
+        consolePane.setInfo(consoleBuilder.toString());
+        outputPane.setOutput(outputBuilder.toString());
+        iCodePane.setICode(iCodeBuilder.toString());
+
+    }
     private Action step = new AbstractAction("debug", new ImageIcon("images/step.gif")) {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -114,9 +172,15 @@ public class IDEFrame extends JFrame {
         initFrame();
     }
     public void initFrame() {
+        InitGlobalFont(new Font(Font.SANS_SERIF, Font.PLAIN, 14));
+
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setSize(screenSize);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //
+        Font font = new Font(Font.MONOSPACED, Font.PLAIN, 14);
+        UIManager.put("TextArea.font", font);
 
         // menu
         menuBar = new JMenuBar();
@@ -130,8 +194,12 @@ public class IDEFrame extends JFrame {
         toolBar.setMargin(new Insets(5, 5, 5, 5));
         add(toolBar, BorderLayout.NORTH);
 
-
         addListeners();
+        toolBar.getComponent(1).setEnabled(false);
+        toolBar.getComponent(2).setEnabled(false);
+        toolBar.getComponent(3).setEnabled(false);
+        toolBar.getComponent(4).setEnabled(false);
+
         // edit pane
         editPane = new EditPane(BoxLayout.Y_AXIS);
 
@@ -139,11 +207,14 @@ public class IDEFrame extends JFrame {
 
         // debug pane
         debugPane = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
-        consolePane = new ConsolePane();
+        debugPane.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 14));
+        consolePane = new ConsolePane(new JTextArea());
         callStackPane = new CallStackPane();
-        iCodePane = new ICodePane();
+        iCodePane = new ICodePane(new JTextArea());
+        outputPane = new OutputPane(new JTextArea());
         debugPane.add(consolePane, "控制台");
-        debugPane.add(callStackPane, "调用栈");
+        debugPane.add(outputPane, "输出");
+        //debugPane.add(callStackPane, "调用栈");
         debugPane.add(iCodePane, "中间代码");
         editSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, editPane, debugPane);
         editSplitPane.setDividerSize(4);
@@ -158,6 +229,7 @@ public class IDEFrame extends JFrame {
         fileSplitPane.setDividerLocation(300);
 
         add(fileSplitPane);
+
     }
 
     private void addListeners() {
@@ -187,9 +259,22 @@ public class IDEFrame extends JFrame {
     public FileBrowserPane getFileBrowserPane() {
         return fileBrowserPane;
     }
+
+    private void InitGlobalFont(Font font) {
+        FontUIResource fontRes = new FontUIResource(font);
+        for (Enumeration<Object> keys = UIManager.getDefaults().keys();
+             keys.hasMoreElements(); ) {
+            Object key = keys.nextElement();
+            Object value = UIManager.get(key);
+            if (value instanceof FontUIResource) {
+                UIManager.put(key, fontRes);
+            }
+        }
+    }
 }
 class FileChooser extends JFileChooser {
     private IDEFrame ideFrame;
+
     public FileChooser(IDEFrame ideFrame) {
         super("./");
         this.ideFrame = ideFrame;
@@ -203,4 +288,6 @@ class FileChooser extends JFileChooser {
         this.ideFrame.openFile(file);
         super.approveSelection();
     }
+
+
 }

@@ -1,43 +1,21 @@
-PROGRAM newton;
-
-CONST
-    epsilon = 1e-6;
+PROGRAM factorials (output);
 
 VAR
     number : integer;
 
-FUNCTION root(x : real) : real;
-    VAR
-        r : real;
+FUNCTION fact(n : integer) : integer;
 
     BEGIN
-        r := 1;
-        REPEAT
-            r := (x/r + r)/2;
-        UNTIL abs(x/sqr(r) - 1) < epsilon;
-        root := r;
-    END;
-
-PROCEDURE print(n : integer; root : real);
-    BEGIN
-        writeln('The square root of ', number:4, ' is ', root:8:4);
+	IF n <= 1 THEN fact := 1
+		  ELSE fact := n*fact(n - 1);
     END;
 
 BEGIN
+    number := 0;
     REPEAT
-        writeln;
-        write('Enter new number (0 to quit): ');
-        read(number);
-
-        IF number = 0 THEN BEGIN
-            print(number, 0.0);
-        END
-        ELSE IF number < 0 THEN BEGIN
-            writeln('*** ERROR:  number < 0');
-        END
-        ELSE BEGIN
-            print(number, root(number));
-        END
-    UNTIL number = 0
+	writeln('number = ', number:1,
+		'   number! = ', fact(number):5);
+        number := number + 1;
+    UNTIL number > 7;
 END.
 

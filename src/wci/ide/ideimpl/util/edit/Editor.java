@@ -130,7 +130,6 @@ class SyntaxFormatter {
                     if (patterns.size() > 0 && color > -1) {
                         SimpleAttributeSet attr = new SimpleAttributeSet();
                         StyleConstants.setForeground(attr, new Color(color));
-                        System.out.println(color);
                         attrMap.put(attr, patterns);
                     }
                     patterns = new ArrayList<>();

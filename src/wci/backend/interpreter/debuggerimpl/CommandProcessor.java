@@ -23,7 +23,7 @@ public class CommandProcessor {
 
     public CommandProcessor(Debugger debugger) {
         this.debugger = debugger;
-        this.stepping = true;
+        this.stepping = false;// close debug!
     }
 
     /**
