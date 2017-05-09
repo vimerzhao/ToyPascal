@@ -110,7 +110,7 @@ public class Editor extends JTextPane {
         g.fillRect(0, 0, this.getMargin().left, getSize().height);
         g.setColor(new Color(40, 40, 40));
         for (int count = 0, j = 1; count <= line; ++count, ++j) {
-            g.drawString(String.valueOf(j), 3, (int)((count+1)*1.5020* StyleConstants.getFontSize(lineAttr)));
+            g.drawString( String.format("%4d", j), 3, (int)((count+1)*1.4999* StyleConstants.getFontSize(lineAttr)));
         }
     }
 }

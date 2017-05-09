@@ -105,6 +105,15 @@ public class Pascal
             }
 
             int i = 0;
+            String debugger = "COMMAND";
+            if (++i < args.length) {
+                if ("GUI".equals(args[i])) {
+                    debugger = "GUI";
+                } else {
+                    --i;
+                }
+            }
+
             String flags = "";
             // Flags.
             while ((++i < args.length) && (args[i].charAt(0) == '-')) {
@@ -118,15 +127,7 @@ public class Pascal
             } else {
                 throw new Exception();
             }
-            String debugger = "COMMAND";
-            if (++i < args.length) {
-                if ("GUI".equals(args[i])) {
-                    debugger = "GUI";
-                } else {
-                    --i;
-                }
-            }
-            // Runtime input data file path.
+           // Runtime input data file path.
             if (++i < args.length) {
                 inputPath = args[i];
                 File inputFile = new File(inputPath);
