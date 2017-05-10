@@ -16,7 +16,7 @@ import static wci.frontend.pascal.PascalTokenType.*;
 import static wci.intermediate.symtabimpl.DefinitionImpl.ENUMERATION_CONSTANT;
 import static wci.intermediate.symtabimpl.SymTabKeyImpl.CONSTANT_VALUE;
 import static wci.intermediate.typeimpl.TypeFormImpl.ENUMERATION;
-import static wci.intermediate.typeimpl.TypekeyImpl.ENUMERATION_CONSTANTS;
+import static wci.intermediate.typeimpl.TypeKeyImpl.ENUMERATION_CONSTANTS;
 
 public class EnumerationTypeParser extends TypeSpecificationParser {
     public EnumerationTypeParser(PascalParserTD parent) {

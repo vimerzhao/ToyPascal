@@ -18,9 +18,9 @@ import static wci.frontend.pascal.PascalTokenType.*;
 import static wci.intermediate.icodeimpl.ICodeKeyImpl.ID;
 import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.SUBSCRIPTS;
 import static wci.intermediate.symtabimpl.DefinitionImpl.*;
-import static wci.intermediate.typeimpl.TypekeyImpl.ARRAY_ELEMENT_TYPE;
-import static wci.intermediate.typeimpl.TypekeyImpl.ARRAY_INDEX_TYPE;
-import static wci.intermediate.typeimpl.TypekeyImpl.RECORD_SYMTAB;
+import static wci.intermediate.typeimpl.TypeKeyImpl.ARRAY_ELEMENT_TYPE;
+import static wci.intermediate.typeimpl.TypeKeyImpl.ARRAY_INDEX_TYPE;
+import static wci.intermediate.typeimpl.TypeKeyImpl.RECORD_SYMTAB;
 
 public class VariableParser extends StatementParser {
     /**

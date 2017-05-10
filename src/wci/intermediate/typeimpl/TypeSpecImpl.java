@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 import static wci.intermediate.typeimpl.TypeFormImpl.ARRAY;
 import static wci.intermediate.typeimpl.TypeFormImpl.SUBRANGE;
-import static wci.intermediate.typeimpl.TypekeyImpl.*;
+import static wci.intermediate.typeimpl.TypeKeyImpl.*;
 
 /**
  * <h1>TypeSpecImpl</h1>

@@ -4,7 +4,6 @@ package wci.backend.interpreter.executors;
 import wci.backend.interpreter.Cell;
 import wci.backend.interpreter.Executor;
 import wci.backend.interpreter.MemoryFactory;
-import wci.intermediate.ICode;
 import wci.intermediate.ICodeNode;
 import wci.intermediate.TypeSpec;
 import wci.intermediate.icodeimpl.ICodeNodeTypeImpl;
@@ -21,8 +20,8 @@ import static wci.backend.interpreter.RuntimeErrorCode.UNINITIALIZED_VALUE;
 import static wci.backend.interpreter.RuntimeErrorCode.VALUE_RANGE;
 import static wci.intermediate.icodeimpl.ICodeKeyImpl.LINE;
 import static wci.intermediate.typeimpl.TypeFormImpl.SUBRANGE;
-import static wci.intermediate.typeimpl.TypekeyImpl.SUBRANGE_MAX_VALUE;
-import static wci.intermediate.typeimpl.TypekeyImpl.SUBRANGE_MIN_VALUE;
+import static wci.intermediate.typeimpl.TypeKeyImpl.SUBRANGE_MAX_VALUE;
+import static wci.intermediate.typeimpl.TypeKeyImpl.SUBRANGE_MIN_VALUE;
 import static wci.message.MessageType.*;
 
 public class StatementExecutor extends Executor{

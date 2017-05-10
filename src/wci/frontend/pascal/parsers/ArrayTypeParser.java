@@ -17,7 +17,7 @@ import static wci.frontend.pascal.PascalTokenType.*;
 import static wci.intermediate.typeimpl.TypeFormImpl.ARRAY;
 import static wci.intermediate.typeimpl.TypeFormImpl.ENUMERATION;
 import static wci.intermediate.typeimpl.TypeFormImpl.SUBRANGE;
-import static wci.intermediate.typeimpl.TypekeyImpl.*;
+import static wci.intermediate.typeimpl.TypeKeyImpl.*;
 
 public class ArrayTypeParser extends TypeSpecificationParser {
     public ArrayTypeParser(PascalParserTD parent) {

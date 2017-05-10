@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import static wci.intermediate.symtabimpl.SymTabKeyImpl.CONSTANT_VALUE;
 import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_ROUTINES;
 import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_SYMTAB;
-import static wci.intermediate.typeimpl.TypekeyImpl.*;
+import static wci.intermediate.typeimpl.TypeKeyImpl.*;
 
 /**
  * <h1>CrossReferencer</h1>

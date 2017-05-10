@@ -94,7 +94,7 @@ public class ICodeNodeImpl extends HashMap<ICodeKey, Object> implements ICodeNod
     public ICodeNode copy() {
         // create a copy with the same type.
         ICodeNodeImpl copy = (ICodeNodeImpl) ICodeFactory.createICodeNode(type);
-
+        copy.setTypeSpec(typeSpec);
         Set<Map.Entry<ICodeKey, Object>> attributes = entrySet();
         Iterator<Map.Entry<ICodeKey, Object>> it = attributes.iterator();
 

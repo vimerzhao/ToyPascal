@@ -12,9 +12,9 @@ import static wci.frontend.pascal.PascalTokenType.DOT_DOT;
 import static wci.frontend.pascal.PascalTokenType.IDENTIFIER;
 import static wci.intermediate.typeimpl.TypeFormImpl.ENUMERATION;
 import static wci.intermediate.typeimpl.TypeFormImpl.SUBRANGE;
-import static wci.intermediate.typeimpl.TypekeyImpl.SUBRANGE_BASE_TYPE;
-import static wci.intermediate.typeimpl.TypekeyImpl.SUBRANGE_MAX_VALUE;
-import static wci.intermediate.typeimpl.TypekeyImpl.SUBRANGE_MIN_VALUE;
+import static wci.intermediate.typeimpl.TypeKeyImpl.SUBRANGE_BASE_TYPE;
+import static wci.intermediate.typeimpl.TypeKeyImpl.SUBRANGE_MAX_VALUE;
+import static wci.intermediate.typeimpl.TypeKeyImpl.SUBRANGE_MIN_VALUE;
 
 public class SubrangeTypeParser extends TypeSpecificationParser {
     /**

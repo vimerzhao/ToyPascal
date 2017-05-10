@@ -11,7 +11,6 @@ import wci.intermediate.symtabimpl.Predefined;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashMap;
-import java.util.List;
 
 import static wci.backend.interpreter.RuntimeErrorCode.DIVISION_BY_ZERO;
 import static wci.backend.interpreter.RuntimeErrorCode.UNINITIALIZED_VALUE;
@@ -19,12 +18,11 @@ import static wci.intermediate.icodeimpl.ICodeKeyImpl.ID;
 import static wci.intermediate.icodeimpl.ICodeKeyImpl.VALUE;
 import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.*;
 import static wci.intermediate.symtabimpl.RoutineCodeImpl.DECLARED;
-import static wci.intermediate.symtabimpl.SymTabKeyImpl.DATA_VALUE;
 import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_CODE;
 import static wci.intermediate.typeimpl.TypeFormImpl.SUBRANGE;
-import static wci.intermediate.typeimpl.TypekeyImpl.ARRAY_ELEMENT_TYPE;
-import static wci.intermediate.typeimpl.TypekeyImpl.ARRAY_INDEX_TYPE;
-import static wci.intermediate.typeimpl.TypekeyImpl.SUBRANGE_MIN_VALUE;
+import static wci.intermediate.typeimpl.TypeKeyImpl.ARRAY_ELEMENT_TYPE;
+import static wci.intermediate.typeimpl.TypeKeyImpl.ARRAY_INDEX_TYPE;
+import static wci.intermediate.typeimpl.TypeKeyImpl.SUBRANGE_MIN_VALUE;
 
 /**
  * <h1>ExpressionExecutor</h1>

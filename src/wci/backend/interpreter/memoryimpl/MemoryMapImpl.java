@@ -12,9 +12,9 @@ import java.util.Iterator;
 import java.util.Set;
 
 import static wci.intermediate.symtabimpl.DefinitionImpl.*;
-import static wci.intermediate.typeimpl.TypekeyImpl.ARRAY_ELEMENT_COUNT;
-import static wci.intermediate.typeimpl.TypekeyImpl.ARRAY_ELEMENT_TYPE;
-import static wci.intermediate.typeimpl.TypekeyImpl.RECORD_SYMTAB;
+import static wci.intermediate.typeimpl.TypeKeyImpl.ARRAY_ELEMENT_COUNT;
+import static wci.intermediate.typeimpl.TypeKeyImpl.ARRAY_ELEMENT_TYPE;
+import static wci.intermediate.typeimpl.TypeKeyImpl.RECORD_SYMTAB;
 
 public class MemoryMapImpl extends HashMap<String, Cell> implements MemoryMap {
     /**

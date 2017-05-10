@@ -6,15 +6,11 @@ import wci.intermediate.ICodeNode;
 import wci.intermediate.SymTabEntry;
 import wci.intermediate.TypeSpec;
 import wci.intermediate.symtabimpl.Predefined;
-import wci.message.Message;
 
 import java.util.ArrayList;
 
 import static wci.intermediate.icodeimpl.ICodeKeyImpl.ID;
-import static wci.intermediate.icodeimpl.ICodeKeyImpl.LINE;
-import static wci.intermediate.symtabimpl.SymTabKeyImpl.DATA_VALUE;
-import static wci.intermediate.typeimpl.TypekeyImpl.ARRAY_ELEMENT_COUNT;
-import static wci.message.MessageType.ASSIGN;
+import static wci.intermediate.typeimpl.TypeKeyImpl.ARRAY_ELEMENT_COUNT;
 
 /**
  * <h1>AssignmentExecutor</h1>

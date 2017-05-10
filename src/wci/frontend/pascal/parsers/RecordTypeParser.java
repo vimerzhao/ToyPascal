@@ -13,7 +13,7 @@ import static wci.frontend.pascal.PascalTokenType.END;
 import static wci.frontend.pascal.PascalTokenType.SEMICOLON;
 import static wci.intermediate.symtabimpl.DefinitionImpl.FIELD;
 import static wci.intermediate.typeimpl.TypeFormImpl.RECORD;
-import static wci.intermediate.typeimpl.TypekeyImpl.RECORD_SYMTAB;
+import static wci.intermediate.typeimpl.TypeKeyImpl.RECORD_SYMTAB;
 
 public class RecordTypeParser extends TypeSpecificationParser {
     public RecordTypeParser(PascalParserTD parent) {

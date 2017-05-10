@@ -7,7 +7,7 @@ import wci.intermediate.TypeKey;
  *
  * <p>Attribute key for a Pascal type specification.</p>
  */
-public enum TypekeyImpl implements TypeKey {
+public enum TypeKeyImpl implements TypeKey {
     // Enumeration
     ENUMERATION_CONSTANTS,
 

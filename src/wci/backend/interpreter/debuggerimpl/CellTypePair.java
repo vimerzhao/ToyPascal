@@ -17,7 +17,7 @@ import java.util.HashMap;
 import static wci.frontend.pascal.PascalTokenType.*;
 import static wci.intermediate.typeimpl.TypeFormImpl.ENUMERATION;
 import static wci.intermediate.typeimpl.TypeFormImpl.SUBRANGE;
-import static wci.intermediate.typeimpl.TypekeyImpl.*;
+import static wci.intermediate.typeimpl.TypeKeyImpl.*;
 
 /**
  * Memory cell and data type pair used by the debugger.

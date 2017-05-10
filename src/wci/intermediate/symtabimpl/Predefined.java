@@ -11,7 +11,7 @@ import static wci.intermediate.symtabimpl.SymTabKeyImpl.CONSTANT_VALUE;
 import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_CODE;
 import static wci.intermediate.typeimpl.TypeFormImpl.ENUMERATION;
 import static wci.intermediate.typeimpl.TypeFormImpl.SCALAR;
-import static wci.intermediate.typeimpl.TypekeyImpl.ENUMERATION_CONSTANTS;
+import static wci.intermediate.typeimpl.TypeKeyImpl.ENUMERATION_CONSTANTS;
 
 /**
  * <h1>Predefined</h1>
