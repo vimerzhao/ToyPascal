@@ -14,6 +14,7 @@ public class FileBrowserPane extends JTree {
         super(treeModel);
         this.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 15));
     }
+
     public ProjectTreeNode getSelectNode() {
         TreePath path = this.getSelectionPath();
         if (path != null) {

@@ -4,6 +4,7 @@ package wci.ide.ideimpl.tree;
 import wci.ide.IDEFrame;
 import wci.ide.ideimpl.FileBrowserPane;
 import wci.ide.ideimpl.util.ImageUtil;
+import wci.ide.ideimpl.util.Info.WorkSpace;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeCellRenderer;
@@ -16,7 +17,7 @@ import java.util.List;
 public class TreeCreatorImpl implements TreeCreator {
     @Override
     public FileBrowserPane createTree(IDEFrame ideFrame) {
-        File spaceFolder = new File("../my-settings/");//当前目录
+        File spaceFolder = ideFrame.getWorkSpace().getFolder();
         ProjectTreeNode root = new ProjectTreeNode(spaceFolder, true);
         ProjectTreeModel treeModel = new ProjectTreeModel(root);
         FileBrowserPane tree = new FileBrowserPane(treeModel);
@@ -32,12 +33,22 @@ public class TreeCreatorImpl implements TreeCreator {
         }
         TreePath treePath = new TreePath(root);
         tree.expandPath(treePath);
+        expandAllNodes(tree, 0, tree.getRowCount());
         tree.setRootVisible(false); // avoid repeat
         tree.addMouseListener(new ProjectTreeSelectionListener(ideFrame));
         return tree;
     }
 
+    private void expandAllNodes(JTree tree, int startingIndex, int rowCount){
+        // only first layer
+        for(int i=startingIndex;i<rowCount;++i){
+            tree.expandRow(i);
+        }
 
+//        if(tree.getRowCount()!=rowCount){
+//            expandAllNodes(tree, rowCount, tree.getRowCount());
+//        }
+    }
 
     @Override
     public ProjectTreeNode createNode(File folder) {

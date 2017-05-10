@@ -3,6 +3,7 @@ package wci.ide;
 import wci.ide.ideimpl.*;
 import wci.ide.ideimpl.tree.ProjectTreeNode;
 import wci.ide.ideimpl.tree.TreeCreatorImpl;
+import wci.ide.ideimpl.util.Info.WorkSpace;
 import wci.ide.ideimpl.util.add.AddFileHandler;
 import wci.ide.ideimpl.util.add.AddFolderHandler;
 import wci.ide.ideimpl.util.add.AddFrame;
@@ -34,12 +35,13 @@ public class IDEFrame extends JFrame {
     // menu bar
     private JMenuBar menuBar;
     private JMenu fileMenu;
+    private JMenu helpMenu;
 
     // tool bar
     private JToolBar toolBar;
 
     private AddFrame addFrame;
-
+    private WorkSpace workSpace;
 
     private Action newFile = new AbstractAction("新建文件", new ImageIcon("images/fileNew.gif")) {
         @Override
@@ -69,14 +71,21 @@ public class IDEFrame extends JFrame {
     }
 
 
-    private Action open = new AbstractAction("打开文件", new ImageIcon("images/open.gif")) {
+    private Action openFile = new AbstractAction("打开文件", new ImageIcon("images/open.gif")) {
         @Override
         public void actionPerformed(ActionEvent e) {
-            selectFile();
+            selectFile(false);
         }
     };
-   public void selectFile() {
-       new FileChooser(this);
+
+    private Action openDir = new AbstractAction("打开目录", new ImageIcon("images/open.gif")) {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            selectFile(true);
+        }
+    };
+   public void selectFile(boolean onlyDir) {
+       new FileChooser(this, onlyDir);
     }
 
 
@@ -103,7 +112,6 @@ public class IDEFrame extends JFrame {
         editPane.saveFile(editPane.getCurrentFile());
         String path = editPane.getCurrentFile().getFile().getAbsolutePath();
         String result = RunProcess.run(path);
-        System.out.println(result);
         String[] strings = result.split("\n");
         StringBuilder outputBuilder = new StringBuilder();
         StringBuilder consoleBuilder= new StringBuilder();
@@ -157,23 +165,24 @@ public class IDEFrame extends JFrame {
 
     public IDEFrame(String title) {
         super(title);
-        initFrame();
     }
-    public void initFrame() {
-        InitGlobalFont(new Font(Font.SANS_SERIF, Font.PLAIN, 14));
+
+    public void initFrame(WorkSpace workSpace) {
+        this.workSpace = workSpace;
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setSize(screenSize);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //
         Font font = new Font(Font.MONOSPACED, Font.PLAIN, 14);
         UIManager.put("TextArea.font", font);
 
         // menu
         menuBar = new JMenuBar();
         fileMenu = new JMenu("文件");
+        helpMenu = new JMenu("帮助");
         menuBar.add(fileMenu);
+        menuBar.add(helpMenu);
 
         setJMenuBar(menuBar);
         // toolbar
@@ -190,9 +199,6 @@ public class IDEFrame extends JFrame {
 
         // edit pane
         editPane = new EditPane(BoxLayout.Y_AXIS);
-
-
-
         // debug pane
         debugPane = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
         debugPane.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 14));
@@ -220,11 +226,17 @@ public class IDEFrame extends JFrame {
 
     }
 
+    public WorkSpace getWorkSpace() {
+        return workSpace;
+    }
+
     private void addListeners() {
         fileMenu.add(newFile).setAccelerator(KeyStroke.getKeyStroke('N', InputEvent.CTRL_MASK));
         fileMenu.add(newFolder);
-        fileMenu.add(open);
+        fileMenu.add(openFile).setAccelerator(KeyStroke.getKeyStroke('O', InputEvent.CTRL_MASK));
+        fileMenu.add(openDir).setEnabled(false);
         fileMenu.add(exit);
+
         toolBar.add(run).setToolTipText("运行");
         toolBar.add(debug).setToolTipText("调试");
         toolBar.add(step).setToolTipText("单步调试");
@@ -248,17 +260,6 @@ public class IDEFrame extends JFrame {
         return fileBrowserPane;
     }
 
-    private void InitGlobalFont(Font font) {
-        FontUIResource fontRes = new FontUIResource(font);
-        for (Enumeration<Object> keys = UIManager.getDefaults().keys();
-             keys.hasMoreElements(); ) {
-            Object key = keys.nextElement();
-            Object value = UIManager.get(key);
-            if (value instanceof FontUIResource) {
-                UIManager.put(key, fontRes);
-            }
-        }
-    }
 
     public void clearDebugPane() {
         consolePane.setInfo("");
@@ -270,9 +271,12 @@ public class IDEFrame extends JFrame {
 class FileChooser extends JFileChooser {
     private IDEFrame ideFrame;
 
-    public FileChooser(IDEFrame ideFrame) {
+    public FileChooser(IDEFrame ideFrame, boolean onlyDir) {
         super("./");
         this.ideFrame = ideFrame;
+        if (onlyDir) {
+            this.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        }
         showOpenDialog(ideFrame);
     }
 
@@ -280,7 +284,10 @@ class FileChooser extends JFileChooser {
     public void approveSelection() {
         File file = getSelectedFile();
         this.ideFrame.getFileBrowserPane().setSelectionPath(null);
-        this.ideFrame.openFile(file);
+        if (file.isDirectory()) {
+        } else {
+            this.ideFrame.openFile(file);
+        }
         super.approveSelection();
     }
 

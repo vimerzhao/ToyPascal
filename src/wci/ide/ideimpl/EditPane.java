@@ -18,8 +18,8 @@ public class EditPane extends Box{
     private JDesktopPane desktop;
     private EditFile currentFile;
     private IFrameListener iframeListener;
-
     private List<EditFile> editFiles = new ArrayList<>();
+
     public EditPane(int axis) {
         super(axis);
         tabPane = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
@@ -44,13 +44,14 @@ public class EditPane extends Box{
         }
         openNewFile(file);
     }
+
     public void openExistFile(EditFile openedFile, File willOpenFile) {
         tabPane.setSelectedIndex(getFileIndex(willOpenFile));
         showIFrame(openedFile.getIframe());
         this.currentFile = openedFile;
         editFiles.add(openedFile);
-
     }
+
     public void showIFrame(JInternalFrame iframe) {
         try {
             iframe.setSelected(true);
@@ -63,6 +64,7 @@ public class EditPane extends Box{
     public void setCurrentFile(EditFile currentFile) {
         this.currentFile = currentFile;
     }
+
     public JInternalFrame getIFrame(String title) {
         JInternalFrame[] iframes = desktop.getAllFrames();
         for (JInternalFrame iframe : iframes) {
@@ -71,14 +73,12 @@ public class EditPane extends Box{
         return null;
     }
 
-
     private EditFile getEditFile(File file) {
         for (EditFile openFile : editFiles) {
             if (openFile.getFile().equals(file)) return openFile;
         }
         return null;
     }
-
 
     private int getFileIndex(File file) {
         EditFile openFile = getEditFile(file);
@@ -87,8 +87,6 @@ public class EditPane extends Box{
         }
         return getTabIndex(openFile.getIframe().getToolTipText());
     }
-
-
 
     private EditFile getOpenFile(File file) {
         for (EditFile openFile : editFiles) {
@@ -121,6 +119,7 @@ public class EditPane extends Box{
     public JDesktopPane getDesktop() {
         return desktop;
     }
+
     public int getTabIndex(String tip) {
         for (int i = 0; i < this.tabPane.getTabCount(); ++i) {
             if (tabPane.getToolTipTextAt(i).equals(tip)) {
@@ -137,6 +136,7 @@ public class EditPane extends Box{
     public EditFile getCurrentFile() {
         return currentFile;
     }
+
     public void closeIFrame(JInternalFrame iframe) {
         EditFile closeFile = getEditFile(iframe);
         afterClose(closeFile);
@@ -165,12 +165,14 @@ public class EditPane extends Box{
             }
         }
     }
+
     private int getEditFileIndex(EditFile editFile) {
         for (int i = 0; i < editFiles.size(); ++i) {
             if (editFiles.get(i).equals(editFile)) return i;
         }
         return -1;
     }
+
     public void askSave(EditFile file) {
         if (!file.isSaved()) {
             int val = JOptionPane.showConfirmDialog(this, "是否保存？", "询问", JOptionPane.YES_NO_OPTION);
