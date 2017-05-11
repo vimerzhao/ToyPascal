@@ -6,6 +6,7 @@ import wci.frontend.FrontendFactory;
 import wci.frontend.Parser;
 import wci.frontend.Source;
 import wci.frontend.pascal.PascalTokenType;
+import wci.ide.IDEFrame;
 import wci.ide.ideimpl.util.FileUtil;
 
 import javax.swing.*;
@@ -27,7 +28,10 @@ public class Editor extends JTextPane {
     private SimpleAttributeSet lineAttr = new SimpleAttributeSet();
     protected SyntaxFormatter formatter = new SyntaxFormatter("colorscheme/pascal.stx");
     private int curStart = 0;
-    public Editor(File file) {
+    private IDEFrame ideFrame;
+    private boolean isContainRead;
+    public Editor(File file, IDEFrame ideFrame) {
+        this.ideFrame = ideFrame;
         this.setText(FileUtil.readFile(file));
         this.setBackground(new Color(0xDB, 0xDB, 0xDB));
         this.setForeground(new Color(0xFF, 0x00, 0x00));
@@ -95,7 +99,7 @@ public class Editor extends JTextPane {
              * render the code is harder than I thought.So, this is a simple solution!
              * I do not test the code completely! So find the bug by using the program!
              */
-
+            isContainRead = false;
             while (!(parser.nextToken() instanceof EofToken)) {
                 renderComment(s);
                 String token = parser.currentToken().getText();
@@ -104,6 +108,11 @@ public class Editor extends JTextPane {
                 if (PREDEFINED.contains(token.toLowerCase())) {
                     tokenType = PascalTokenType.PREDEFINED;
                 }
+                // check read or readln
+                if (token.equals("read") || token.equals("readln")) {
+                    isContainRead = true;
+                }
+
                 formatter.setHighLight(doc, tokenType, tokenPos, token.length());
                 curStart = tokenPos+token.length();
 
@@ -111,6 +120,11 @@ public class Editor extends JTextPane {
             renderComment(s);
         } catch (Exception ex) {
             ex.printStackTrace();
+        }
+        if (isContainRead) {
+            this.ideFrame.getRunButton().setEnabled(false);
+        } else {
+            this.ideFrame.getRunButton().setEnabled(true);
         }
     }
 

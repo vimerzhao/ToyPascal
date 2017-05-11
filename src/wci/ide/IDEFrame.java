@@ -39,6 +39,7 @@ public class IDEFrame extends JFrame {
 
     // tool bar
     private JToolBar toolBar;
+    private Component runButton;
 
     private AddFrame addFrame;
     private WorkSpace workSpace;
@@ -198,7 +199,7 @@ public class IDEFrame extends JFrame {
         toolBar.getComponent(4).setEnabled(false);
 
         // edit pane
-        editPane = new EditPane(BoxLayout.Y_AXIS);
+        editPane = new EditPane(BoxLayout.Y_AXIS, this);
         // debug pane
         debugPane = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
         debugPane.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 14));
@@ -238,6 +239,7 @@ public class IDEFrame extends JFrame {
         fileMenu.add(exit);
 
         toolBar.add(run).setToolTipText("运行");
+        runButton = toolBar.getComponent(0);
         toolBar.add(debug).setToolTipText("调试");
         toolBar.add(step).setToolTipText("单步调试");
         toolBar.add(go).setToolTipText("恢复运行");
@@ -254,6 +256,10 @@ public class IDEFrame extends JFrame {
     public void openFile(File file) {
         setTitle("PascalIDE("+file.getAbsolutePath()+")");
         editPane.openFile(file);
+    }
+
+    public Component getRunButton() {
+        return runButton;
     }
 
     public FileBrowserPane getFileBrowserPane() {

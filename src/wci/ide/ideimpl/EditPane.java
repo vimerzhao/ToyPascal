@@ -1,5 +1,6 @@
 package wci.ide.ideimpl;
 
+import wci.ide.IDEFrame;
 import wci.ide.ideimpl.util.edit.*;
 import wci.ide.ideimpl.util.edit.listener.EditDocumentListener;
 import wci.ide.ideimpl.util.edit.listener.IFrameListener;
@@ -19,9 +20,10 @@ public class EditPane extends Box{
     private EditFile currentFile;
     private IFrameListener iframeListener;
     private List<EditFile> editFiles = new ArrayList<>();
-
-    public EditPane(int axis) {
+    private IDEFrame ideFrame;
+    public EditPane(int axis, IDEFrame ideFrame) {
         super(axis);
+        this.ideFrame = ideFrame;
         tabPane = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
         tabPane.addChangeListener(new TabListener(this));
         desktop = new JDesktopPane();
@@ -50,6 +52,8 @@ public class EditPane extends Box{
         tabPane.setSelectedIndex(getFileIndex(willOpenFile));
         showIFrame(openedFile.getIframe());
         this.currentFile = openedFile;
+        // check read or readln
+        this.currentFile.getEditor().syntaxParse();
         editFiles.add(openedFile);
     }
 
@@ -100,7 +104,7 @@ public class EditPane extends Box{
 
     public void openNewFile(File file) {
         JInternalFrame iframe= new JInternalFrame(file.getAbsolutePath(), false, true, false, false);
-        Editor editor= new Editor(file);
+        Editor editor= new Editor(file, this.ideFrame);
         editor.getDocument().addDocumentListener(new EditDocumentListener(this));
         iframe.add(new JScrollPane(editor));
         iframe.addInternalFrameListener(this.iframeListener);
