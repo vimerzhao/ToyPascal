@@ -136,6 +136,10 @@ class SpaceChooser extends JFileChooser {
         super.approveSelection();
         File folder = getSelectedFile();
         spaceFrame.setFolder(folder);
+        if (folder.getAbsolutePath().contains(" ")) {
+            JOptionPane.showMessageDialog(null, "路径不能包含空格！");
+            return;
+        }
         spaceFrame.getPathText().setText(folder.getAbsolutePath());
         spaceFrame.getConfirmButton().setEnabled(true);
     }
