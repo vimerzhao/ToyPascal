@@ -27,6 +27,7 @@ public class EditPane extends Box{
         desktop = new JDesktopPane();
         iframeListener = new IFrameListener(this);
         desktop.setBackground(Color.GRAY);
+        desktop.setToolTipText("请打开文件");
         add(tabPane);
         add(desktop);
     }

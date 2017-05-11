@@ -2,6 +2,7 @@ package wci.ide.ideimpl.tree;
 
 import wci.ide.IDEFrame;
 
+import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -16,7 +17,10 @@ public class ProjectTreeSelectionListener extends MouseAdapter {
         ProjectTreeNode selectNode = ideFrame.getSelectNode();
         if (selectNode == null) return;
         if (selectNode.getFile().isDirectory()) return;
-        if (!selectNode.getFile().getName().endsWith(".pas")) return;
+        if (!selectNode.getFile().getName().endsWith(".pas")) {
+            JOptionPane.showMessageDialog(null, "请打开.pas文件");
+            return;
+        }
         this.ideFrame.openFile(selectNode.getFile());
         this.ideFrame.clearDebugPane();
     }
