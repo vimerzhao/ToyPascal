@@ -3,6 +3,7 @@ package wci.backend.interpreter.debuggerimpl;
 import wci.backend.Backend;
 import wci.backend.interpreter.Debugger;
 import wci.backend.interpreter.RuntimeStack;
+import wci.ide.IDEControl;
 import wci.intermediate.Definition;
 import wci.intermediate.SymTabEntry;
 import wci.message.Message;
@@ -184,9 +185,9 @@ public class GUIDebugger extends Debugger {
      * @param lineNumber   the source line number where the error occurred.
      */
     public void runtimeError(String errorMessage, Integer lineNumber) {
-        System.out.print("*** RUNTIME ERROR");
+        System.out.print(IDEControl.RUNTIME_ERROR_TAG);
         if (lineNumber != null) {
-            System.out.print(" AT LINE " +
+            System.out.print("AT LINE " +
                     String.format("%03d", lineNumber));
         }
         System.out.println(": " + errorMessage);

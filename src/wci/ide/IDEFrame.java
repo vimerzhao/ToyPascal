@@ -124,6 +124,8 @@ public class IDEFrame extends JFrame {
                 consoleBuilder.append(strings[i].substring(PARSER_TAG.length())).append('\n');
             } else if (strings[i].startsWith(INTERPRETER_TAG)) {
                 consoleBuilder.append(strings[i].substring(INTERPRETER_TAG.length())).append('\n');
+            } else if (strings[i].startsWith(RUNTIME_ERROR_TAG)) {
+                consoleBuilder.append(strings[i].substring(RUNTIME_ERROR_TAG.length())).append("\n");
             } else if (strings[i].startsWith(ParseTreePrinter.BEGIN_ICODE)) {
                 while (!strings[++i].startsWith(ParseTreePrinter.END_ICODE)) {
                     iCodeBuilder.append(strings[i]).append('\n');

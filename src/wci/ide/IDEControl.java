@@ -18,4 +18,6 @@ public interface IDEControl {
     String DEBUGGER_VARIABLE_TAG = "!DEBUGGER.VARIABLE:";
 
 
+    // Runtime error
+    String RUNTIME_ERROR_TAG = "!RUNTIME ERROR";
 }

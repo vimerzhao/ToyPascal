@@ -1,15 +1,17 @@
-PROGRAM test;
-
+PROGRAM Test;
+TYPE
+    arrType = ARRAY[1..20] OF integer;
 VAR
-    x:integer;
+    arr : arrType;
 
-PROCEDURE func(VAR x: integer);
+PROCEDURE func(a:arrType);
     BEGIN
-        x := 2;
+	arr[1] := 2;
     END;
 
 BEGIN
-    x := 1;
-    func(x);
-    writeln(x);
+    arr[1] := 1;
+    writeln(arr[1]);
+    func(arr);
+    writeln(arr[1]);
 END.
