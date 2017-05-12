@@ -18,7 +18,7 @@ public interface RuntimeDisplay {
      * @param nestingLevel the nesting level.
      * @param ar the activation record for the routine.
      */
-    void callUpdata(int nestingLevel, ActivationRecord ar);
+    void callUpdate(int nestingLevel, ActivationRecord ar);
 
     /**
      * Update the display for a return from a routine at a given nesting level.

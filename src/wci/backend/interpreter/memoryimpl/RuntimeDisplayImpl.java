@@ -22,7 +22,7 @@ public class RuntimeDisplayImpl extends ArrayList<ActivationRecord> implements R
      * @param ar the activation record for the routine.
      */
     @Override
-    public void callUpdata(int nestingLevel, ActivationRecord ar) {
+    public void callUpdate(int nestingLevel, ActivationRecord ar) {
         if (nestingLevel >= size()) {
             add(ar);
         } else {

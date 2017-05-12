@@ -40,6 +40,6 @@ public class RuntimeStackImpl extends ArrayList<ActivationRecord> implements Run
         int nestingLevel = ar.getNestingLevel();
 
         add(ar);
-        display.callUpdata(nestingLevel, ar);
+        display.callUpdate(nestingLevel, ar);
     }
 }

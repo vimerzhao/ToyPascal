@@ -61,7 +61,7 @@ public class MemoryMapImpl extends HashMap<String, Cell> implements MemoryMap {
                 return allocateArrayCells(type);
             }
             case RECORD: {
-                allocateRecordMap(type);
+                return allocateRecordMap(type);
             }
             default: {
                 return null;    // uninitialized scalar value.
