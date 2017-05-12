@@ -69,7 +69,7 @@ public class ConstantDefinitionsParser extends DeclarationsParser {
                 constantId = symTabStack.enterLocal(name);
                 constantId.appendLineNumber(token.getLineNumber());
             } else {
-                errorHandler.flag(token, IDENTIFIER_UNDEFINED, this);
+                errorHandler.flag(token, IDENTIFIER_REDEFINED, this);
                 constantId = null;
             }
 

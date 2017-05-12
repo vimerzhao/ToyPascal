@@ -1,6 +1,7 @@
 package wci.ide.ideimpl.util.add;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.util.Objects;
 
@@ -29,7 +30,8 @@ public class AddFrame extends JFrame {
                 cancel(info);
             }
         });
-        setLocation(200, 200);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation(screenSize.width/2, screenSize.height/3);
         setResizable(false);
         namePanel.setLayout(new BoxLayout(namePanel, BoxLayout.X_AXIS));
         namePanel.add(nameLabel);
