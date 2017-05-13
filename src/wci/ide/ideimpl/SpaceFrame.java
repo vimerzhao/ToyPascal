@@ -54,7 +54,7 @@ public class SpaceFrame extends JFrame {
         buttonPanel.add(new Label("            "));
         buttonPanel.add(cancleButton);
 
-        cancleButton.addActionListener(e->System.exit(0));// Amazing lambda!!
+        cancleButton.addActionListener(e -> System.exit(0));// Amazing lambda!!
 
         mainPanel.add(buttonPanel);
         add(mainPanel);
@@ -63,9 +63,10 @@ public class SpaceFrame extends JFrame {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int height = mainPanel.getHeight();
         int width = mainPanel.getWidth();
-        setLocation((screenSize.width-width)/2, screenSize.height/2-height);
+        setLocation((screenSize.width - width) / 2, screenSize.height / 2 - height);
         setResizable(false);
     }
+
     private void InitGlobalFont(Font font) {
         FontUIResource fontRes = new FontUIResource(font);
         for (Enumeration<Object> keys = UIManager.getDefaults().keys();
@@ -95,9 +96,11 @@ public class SpaceFrame extends JFrame {
         return confirmButton;
     }
 }
+
 class ConfirmButtonListener implements ActionListener {
     private SpaceFrame spaceFrame;
     private IDEFrame ideFrame;
+
     public ConfirmButtonListener(SpaceFrame spaceFrame, IDEFrame ideFrame) {
         this.spaceFrame = spaceFrame;
         this.ideFrame = ideFrame;
@@ -114,6 +117,7 @@ class ConfirmButtonListener implements ActionListener {
 
 class ChooseButtonListener implements ActionListener {
     private JFileChooser chooser;
+
     public ChooseButtonListener(JFileChooser chooser) {
         this.chooser = chooser;
     }
@@ -124,8 +128,10 @@ class ChooseButtonListener implements ActionListener {
         chooser.showOpenDialog(null);//show file chooser
     }
 }
+
 class SpaceChooser extends JFileChooser {
     private SpaceFrame spaceFrame;
+
     public SpaceChooser(SpaceFrame spaceFrame) {
         super("./");
         this.spaceFrame = spaceFrame;

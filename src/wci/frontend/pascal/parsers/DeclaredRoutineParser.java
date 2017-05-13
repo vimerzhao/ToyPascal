@@ -14,15 +14,54 @@ import java.util.EnumSet;
 
 import static wci.frontend.pascal.PascalErrorCode.*;
 import static wci.frontend.pascal.PascalTokenType.*;
-import static wci.intermediate.symtabimpl.DefinitionImpl.PROGRAM_PARM;
-import static wci.intermediate.symtabimpl.DefinitionImpl.VALUE_PARM;
-import static wci.intermediate.symtabimpl.DefinitionImpl.VAR_PARM;
+import static wci.intermediate.symtabimpl.DefinitionImpl.*;
 import static wci.intermediate.symtabimpl.RoutineCodeImpl.DECLARED;
 import static wci.intermediate.symtabimpl.RoutineCodeImpl.FORWARD;
 import static wci.intermediate.symtabimpl.SymTabKeyImpl.*;
 
 public class DeclaredRoutineParser extends DeclarationsParser {
+    // Synchronization set for a formal parameter sublist
+    private static final EnumSet<PascalTokenType> PARAMETER_SET =
+            DeclarationsParser.DECLARATION_START_SET.clone();
+    // Synchronization set for the opening left parenthesis
+    private static final EnumSet<PascalTokenType> LEFT_PAREN_SET =
+            DeclarationsParser.DECLARATION_START_SET.clone();
+    // Synchronization set for the closing right parenthesis.
+    private static final EnumSet<PascalTokenType> RIGHT_PAREN_SET =
+            LEFT_PAREN_SET.clone();
+    // Synchronization set to follow a formal parameter identifier.
+    private static final EnumSet<PascalTokenType> PARAMETER_FOLLOW_SET =
+            EnumSet.of(COLON, RIGHT_PAREN, SEMICOLON);
+    // Synchronization set for the , token.
+    private static final EnumSet<PascalTokenType> COMMA_SET =
+            EnumSet.of(COMMA, COLON, IDENTIFIER, RIGHT_PAREN, SEMICOLON);
     private static int dummyCounter = 0;    // counter for dummy routine names
+
+    static {
+        PARAMETER_SET.add(VAR);
+        PARAMETER_SET.add(IDENTIFIER);
+        PARAMETER_SET.add(RIGHT_PAREN);
+    }
+
+    static {
+        LEFT_PAREN_SET.add(LEFT_PAREN);
+        LEFT_PAREN_SET.add(SEMICOLON);
+        LEFT_PAREN_SET.add(COLON);
+    }
+
+    static {
+        RIGHT_PAREN_SET.remove(LEFT_PAREN);
+        RIGHT_PAREN_SET.add(RIGHT_PAREN);
+    }
+
+    static {
+        PARAMETER_FOLLOW_SET.addAll(DeclarationsParser.DECLARATION_START_SET);
+    }
+
+    static {
+        COMMA_SET.addAll(DeclarationsParser.DECLARATION_START_SET);
+    }
+
     private SymTabEntry parentId;           // entry of parent routine's name
 
     public DeclaredRoutineParser(PascalParserTD parent) {
@@ -31,7 +70,8 @@ public class DeclaredRoutineParser extends DeclarationsParser {
 
     /**
      * Parse a standard subroutine declaration.
-     * @param token the initial token.
+     *
+     * @param token    the initial token.
      * @param parentId the symbol table entry of the parent routine's name.
      * @return the symbol table entry of the declared routine's name.
      * @throws Exception if an error occurred.
@@ -139,8 +179,9 @@ public class DeclaredRoutineParser extends DeclarationsParser {
 
     /**
      * Parse a routine's name.
-     * @param token the current token.
-     * @param dummyName  a dummy name in case of parsing program.
+     *
+     * @param token     the current token.
+     * @param dummyName a dummy name in case of parsing program.
      * @return the symbol table entry of the declared routine's name.
      * @throws Exception
      */
@@ -172,7 +213,8 @@ public class DeclaredRoutineParser extends DeclarationsParser {
 
     /**
      * Parse a routine's formal parameter list and the function return type.
-     * @param token the current token.
+     *
+     * @param token     the current token.
      * @param routineId the symbol table entry of the declared routine's name.
      * @throws Exception if an error occurred.
      */
@@ -201,35 +243,10 @@ public class DeclaredRoutineParser extends DeclarationsParser {
         }
     }
 
-    // Synchronization set for a formal parameter sublist
-    private static final EnumSet<PascalTokenType> PARAMETER_SET =
-            DeclarationsParser.DECLARATION_START_SET.clone();
-    static {
-        PARAMETER_SET.add(VAR);
-        PARAMETER_SET.add(IDENTIFIER);
-        PARAMETER_SET.add(RIGHT_PAREN);
-    }
-
-    // Synchronization set for the opening left parenthesis
-    private static final EnumSet<PascalTokenType> LEFT_PAREN_SET =
-            DeclarationsParser.DECLARATION_START_SET.clone();
-    static {
-        LEFT_PAREN_SET.add(LEFT_PAREN);
-        LEFT_PAREN_SET.add(SEMICOLON);
-        LEFT_PAREN_SET.add(COLON);
-    }
-
-    // Synchronization set for the closing right parenthesis.
-    private static final EnumSet<PascalTokenType> RIGHT_PAREN_SET =
-            LEFT_PAREN_SET.clone();
-    static {
-        RIGHT_PAREN_SET.remove(LEFT_PAREN);
-        RIGHT_PAREN_SET.add(RIGHT_PAREN);
-    }
-
     /**
      * Parse a routine's formal parameter list.
-     * @param token the current token.
+     *
+     * @param token     the current token.
      * @param routineId the symbol table entry of the declared routine's name.
      * @throws Exception if an error occurred.
      */
@@ -260,23 +277,10 @@ public class DeclaredRoutineParser extends DeclarationsParser {
         }
     }
 
-    // Synchronization set to follow a formal parameter identifier.
-    private static final EnumSet<PascalTokenType> PARAMETER_FOLLOW_SET =
-            EnumSet.of(COLON, RIGHT_PAREN, SEMICOLON);
-    static {
-        PARAMETER_FOLLOW_SET.addAll(DeclarationsParser.DECLARATION_START_SET);
-    }
-
-    // Synchronization set for the , token.
-    private static final EnumSet<PascalTokenType> COMMA_SET =
-            EnumSet.of(COMMA, COLON, IDENTIFIER, RIGHT_PAREN, SEMICOLON);
-    static {
-        COMMA_SET.addAll(DeclarationsParser.DECLARATION_START_SET);
-    }
-
     /**
      * Parse a sublist of formal parameter declarations.
-     * @param token the current token.
+     *
+     * @param token     the current token.
      * @param routineId the symbol table entry of the declared routine's name.
      * @return the sublist of symbol table entries for the parm identifiers.
      * @throws Exception if an error occurred.

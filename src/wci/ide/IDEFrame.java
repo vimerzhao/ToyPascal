@@ -12,12 +12,10 @@ import wci.ide.ideimpl.util.run.RunProcess;
 import wci.util.ParseTreePrinter;
 
 import javax.swing.*;
-import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
 import java.io.File;
-import java.util.Enumeration;
 
 import static wci.ide.IDEControl.*;
 
@@ -50,97 +48,36 @@ public class IDEFrame extends JFrame {
             createNewFile();
         }
     };
-    private void createNewFile() {
-        AddInfo info = new AddInfo("新建文件", this, new AddFileHandler());
-        showAddFrame(info);
-    }
-    private void showAddFrame(AddInfo info) {
-        setEnabled(false);
-        addFrame = new AddFrame(info);
-        addFrame.pack();
-        addFrame.setVisible(true);
-    }
     private Action newFolder = new AbstractAction("新建目录", new ImageIcon("images/folderNew.gif")) {
         @Override
         public void actionPerformed(ActionEvent e) {
             createNewFolder();
         }
     };
-    public void createNewFolder() {
-        AddInfo info = new AddInfo("目录名称", this, new AddFolderHandler());
-        showAddFrame(info);
-    }
-
-
     private Action openFile = new AbstractAction("打开文件", new ImageIcon("images/open.gif")) {
         @Override
         public void actionPerformed(ActionEvent e) {
             selectFile(false);
         }
     };
-
     private Action openDir = new AbstractAction("打开目录", new ImageIcon("images/open.gif")) {
         @Override
         public void actionPerformed(ActionEvent e) {
             selectFile(true);
         }
     };
-   public void selectFile(boolean onlyDir) {
-       new FileChooser(this, onlyDir);
-    }
-
-
     private Action exit = new AbstractAction("退   出") {
         @Override
         public void actionPerformed(ActionEvent e) {
             System.exit(0);
         }
     };
-
     private Action run = new AbstractAction("run", new ImageIcon("images/run.gif")) {
         @Override
         public void actionPerformed(ActionEvent e) {
             runProgram();
         }
     };
-
-    private void runProgram() {
-        if (editPane.getCurrentFile() == null) {
-            JOptionPane.showMessageDialog(null, "未选择文件");
-            return;
-        }
-        // save file first!
-        editPane.saveFile(editPane.getCurrentFile());
-        String path = editPane.getCurrentFile().getFile().getAbsolutePath();
-        String result = RunProcess.run(path);
-        String[] strings = result.split("\n");
-        StringBuilder outputBuilder = new StringBuilder();
-        StringBuilder consoleBuilder= new StringBuilder();
-        StringBuilder iCodeBuilder = new StringBuilder();
-        for (int i = 0; i < strings.length; ++i) {
-            if (strings[i].startsWith(SYNTAX_TAG)) {
-               consoleBuilder.append(strings[i].substring(SYNTAX_TAG.length())).append('\n');
-            } else if (strings[i].startsWith(PARSER_TAG)){
-                consoleBuilder.append(strings[i].substring(PARSER_TAG.length())).append('\n');
-            } else if (strings[i].startsWith(INTERPRETER_TAG)) {
-                consoleBuilder.append(strings[i].substring(INTERPRETER_TAG.length())).append('\n');
-            } else if (strings[i].startsWith(RUNTIME_ERROR_TAG)) {
-                consoleBuilder.append(strings[i].substring(RUNTIME_ERROR_TAG.length())).append("\n");
-            } else if (strings[i].startsWith(ParseTreePrinter.BEGIN_ICODE)) {
-                while (!strings[++i].startsWith(ParseTreePrinter.END_ICODE)) {
-                    iCodeBuilder.append(strings[i]).append('\n');
-                }
-            }else if (strings[i].startsWith(LISTING_TAG)) {
-
-            } else {
-                outputBuilder.append(strings[i]).append('\n');
-            }
-        }
-        consolePane.setInfo(consoleBuilder.toString());
-        outputPane.setOutput(outputBuilder.toString());
-        iCodePane.setICode(iCodeBuilder.toString());
-
-    }
     private Action step = new AbstractAction("debug", new ImageIcon("images/step.gif")) {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -168,6 +105,65 @@ public class IDEFrame extends JFrame {
 
     public IDEFrame(String title) {
         super(title);
+    }
+
+    private void createNewFile() {
+        AddInfo info = new AddInfo("新建文件", this, new AddFileHandler());
+        showAddFrame(info);
+    }
+
+    private void showAddFrame(AddInfo info) {
+        setEnabled(false);
+        addFrame = new AddFrame(info);
+        addFrame.pack();
+        addFrame.setVisible(true);
+    }
+
+    public void createNewFolder() {
+        AddInfo info = new AddInfo("目录名称", this, new AddFolderHandler());
+        showAddFrame(info);
+    }
+
+    public void selectFile(boolean onlyDir) {
+        new FileChooser(this, onlyDir);
+    }
+
+    private void runProgram() {
+        if (editPane.getCurrentFile() == null) {
+            JOptionPane.showMessageDialog(null, "未选择文件");
+            return;
+        }
+        // save file first!
+        editPane.saveFile(editPane.getCurrentFile());
+        String path = editPane.getCurrentFile().getFile().getAbsolutePath();
+        String result = RunProcess.run(path);
+        String[] strings = result.split("\n");
+        StringBuilder outputBuilder = new StringBuilder();
+        StringBuilder consoleBuilder = new StringBuilder();
+        StringBuilder iCodeBuilder = new StringBuilder();
+        for (int i = 0; i < strings.length; ++i) {
+            if (strings[i].startsWith(SYNTAX_TAG)) {
+                consoleBuilder.append(strings[i].substring(SYNTAX_TAG.length())).append('\n');
+            } else if (strings[i].startsWith(PARSER_TAG)) {
+                consoleBuilder.append(strings[i].substring(PARSER_TAG.length())).append('\n');
+            } else if (strings[i].startsWith(INTERPRETER_TAG)) {
+                consoleBuilder.append(strings[i].substring(INTERPRETER_TAG.length())).append('\n');
+            } else if (strings[i].startsWith(RUNTIME_ERROR_TAG)) {
+                consoleBuilder.append(strings[i].substring(RUNTIME_ERROR_TAG.length())).append("\n");
+            } else if (strings[i].startsWith(ParseTreePrinter.BEGIN_ICODE)) {
+                while (!strings[++i].startsWith(ParseTreePrinter.END_ICODE)) {
+                    iCodeBuilder.append(strings[i]).append('\n');
+                }
+            } else if (strings[i].startsWith(LISTING_TAG)) {
+
+            } else {
+                outputBuilder.append(strings[i]).append('\n');
+            }
+        }
+        consolePane.setInfo(consoleBuilder.toString());
+        outputPane.setOutput(outputBuilder.toString());
+        iCodePane.setICode(iCodeBuilder.toString());
+
     }
 
     public void initFrame(WorkSpace workSpace) {
@@ -251,12 +247,13 @@ public class IDEFrame extends JFrame {
     public ProjectTreeNode getSelectNode() {
         return fileBrowserPane.getSelectNode();
     }
+
     public void reloadNode(ProjectTreeNode selectNode) {
         fileBrowserPane.reloadNode(selectNode);
     }
 
     public void openFile(File file) {
-        setTitle("PascalIDE("+file.getAbsolutePath()+")");
+        setTitle("PascalIDE(" + file.getAbsolutePath() + ")");
         editPane.openFile(file);
     }
 
@@ -276,6 +273,7 @@ public class IDEFrame extends JFrame {
     }
 
 }
+
 class FileChooser extends JFileChooser {
     private IDEFrame ideFrame;
 

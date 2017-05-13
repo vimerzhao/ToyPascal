@@ -13,11 +13,43 @@ import java.util.EnumSet;
 
 import static wci.frontend.pascal.PascalErrorCode.*;
 import static wci.frontend.pascal.PascalTokenType.*;
-import static wci.intermediate.symtabimpl.DefinitionImpl.FIELD;
-import static wci.intermediate.symtabimpl.DefinitionImpl.PROGRAM_PARM;
-import static wci.intermediate.symtabimpl.DefinitionImpl.VARIABLE;
+import static wci.intermediate.symtabimpl.DefinitionImpl.*;
 
 public class VariableDeclarationsParser extends DeclarationsParser {
+    // Synchronization set for a variable identifier.
+    static final EnumSet<PascalTokenType> IDENTIFIER_SET =
+            DeclarationsParser.VAR_START_SET.clone();
+    // Synchronization set for the start of the next definition or declaration.
+    static final EnumSet<PascalTokenType> NEXT_START_SET =
+            DeclarationsParser.ROUTINE_START_SET.clone();
+    // Synchronization set to start a sublist identifier.
+    static final EnumSet<PascalTokenType> IDENTIFIER_START_SET =
+            EnumSet.of(IDENTIFIER, COMMA);
+    // Synchronization set to follow a sublist identifier.
+    private static final EnumSet<PascalTokenType> IDENTIFIER_FOLLOW_SET =
+            EnumSet.of(COLON, SEMICOLON);
+    // Synchronization set the , token
+    private static final EnumSet<PascalTokenType> COMMA_SET =
+            EnumSet.of(COMMA, COLON, IDENTIFIER, SEMICOLON);
+    // Synchronization set for the : token.
+    private static final EnumSet<PascalTokenType> COLON_SET =
+            EnumSet.of(COLON, SEMICOLON);
+
+    static {
+        IDENTIFIER_SET.add(IDENTIFIER);
+        IDENTIFIER_SET.add(END);
+        IDENTIFIER_SET.add(SEMICOLON);
+    }
+
+    static {
+        NEXT_START_SET.add(IDENTIFIER);
+        NEXT_START_SET.add(SEMICOLON);
+    }
+
+    static {
+        IDENTIFIER_FOLLOW_SET.addAll(DeclarationsParser.VAR_START_SET);
+    }
+
     private Definition definition;  // how to define the identifier.
 
     public VariableDeclarationsParser(PascalParserTD parent) {
@@ -26,47 +58,17 @@ public class VariableDeclarationsParser extends DeclarationsParser {
 
     /**
      * Setter.
+     *
      * @param definition the definition to set.
      */
     protected void setDefinition(Definition definition) {
         this.definition = definition;
     }
 
-
-    // Synchronization set for a variable identifier.
-    static final EnumSet<PascalTokenType> IDENTIFIER_SET =
-            DeclarationsParser.VAR_START_SET.clone();
-    static {
-        IDENTIFIER_SET.add(IDENTIFIER);
-        IDENTIFIER_SET.add(END);
-        IDENTIFIER_SET.add(SEMICOLON);
-    }
-
-    // Synchronization set for the start of the next definition or declaration.
-    static final EnumSet<PascalTokenType> NEXT_START_SET =
-            DeclarationsParser.ROUTINE_START_SET.clone();
-    static {
-        NEXT_START_SET.add(IDENTIFIER);
-        NEXT_START_SET.add(SEMICOLON);
-    }
-
-    // Synchronization set to start a sublist identifier.
-    static final EnumSet<PascalTokenType> IDENTIFIER_START_SET =
-            EnumSet.of(IDENTIFIER, COMMA);
-    // Synchronization set to follow a sublist identifier.
-    private static final EnumSet<PascalTokenType> IDENTIFIER_FOLLOW_SET =
-            EnumSet.of(COLON, SEMICOLON);
-    static {
-        IDENTIFIER_FOLLOW_SET.addAll(DeclarationsParser.VAR_START_SET);
-    }
-
-    // Synchronization set the , token
-    private static final EnumSet<PascalTokenType> COMMA_SET =
-            EnumSet.of(COMMA, COLON, IDENTIFIER, SEMICOLON);
-
     /**
      * Parse variable declarations.
-     * @param token the initial token.
+     *
+     * @param token    the initial token.
      * @param parentId the symbol table of the parent's routine's name.
      * @return null
      * @throws Exception if an error occurred.
@@ -95,16 +97,18 @@ public class VariableDeclarationsParser extends DeclarationsParser {
         }
         return null;
     }
+
     /**
      * Parse a sublist of identifier and their type specification.
-     * @param token the current token.
+     *
+     * @param token     the current token.
      * @param followSet the synchronization set to follow an identifier.
      * @param commaSet
      * @return the sublist of identifiers in a declaration.
      * @throws Exception if an error occurred.
      */
     protected ArrayList<SymTabEntry> parseIdentifierSublist(Token token,
-            EnumSet<PascalTokenType> followSet, EnumSet<PascalTokenType> commaSet) throws Exception {
+                                                            EnumSet<PascalTokenType> followSet, EnumSet<PascalTokenType> commaSet) throws Exception {
         ArrayList<SymTabEntry> sublist = new ArrayList<>();
         do {
             token = synchronize(IDENTIFIER_START_SET);
@@ -142,6 +146,7 @@ public class VariableDeclarationsParser extends DeclarationsParser {
 
     /**
      * Parse an identifier.
+     *
      * @param token the current token.
      * @return the symbol table table entry of the identifier.
      * @throws Exception if an error occurred.
@@ -167,12 +172,9 @@ public class VariableDeclarationsParser extends DeclarationsParser {
         return id;
     }
 
-    // Synchronization set for the : token.
-    private static final EnumSet<PascalTokenType> COLON_SET =
-            EnumSet.of(COLON, SEMICOLON);
-
     /**
      * Parse the type specification.
+     *
      * @param token the current token.
      * @return the type specification.
      * @throws Exception if an error occurred.
@@ -191,7 +193,7 @@ public class VariableDeclarationsParser extends DeclarationsParser {
 
         if ((definition != VARIABLE) && (definition != FIELD)
                 && (type != null) && (type.getIdentifier() == null)) {
-             errorHandler.flag(token, INVALID_TYPE, this);
+            errorHandler.flag(token, INVALID_TYPE, this);
         }
 
         return type;

@@ -12,33 +12,32 @@ import wci.intermediate.symtabimpl.Predefined;
 
 /**
  * BackendFactory
- *
+ * <p>
  * A factory class that creates compiler and interpreter components.
  */
-public class BackendFactory
-{
+public class BackendFactory {
     /**
      * Create a compiler or an interpreter back end component.
+     *
      * @param operation either "compile" or "execute"
      * @param inputPath the input file path.
      * @return a compiler or an interpreter back end component.
      * @throws Exception if an error occurred.
      */
-    public static Backend createBackend(String operation,DebuggerType type, String inputPath) throws Exception {
+    public static Backend createBackend(String operation, DebuggerType type, String inputPath) throws Exception {
         if (operation.equalsIgnoreCase("compile")) {
             return new CodeGenerator();
-        }
-        else if (operation.equalsIgnoreCase("execute")) {
+        } else if (operation.equalsIgnoreCase("execute")) {
             return new Executor(type, inputPath);
-        }
-        else {
+        } else {
             throw new Exception("Backend factory: Invalid operation '" +
-                                operation + "'");
+                    operation + "'");
         }
     }
 
     /**
      * Return the default value for a data type.
+     *
      * @param type
      * @return
      */
@@ -60,8 +59,9 @@ public class BackendFactory
 
     /**
      * Create a debugger.
-     * @param type the type of debugger(COMMAND_LINE or GUI).
-     * @param backend the back end.
+     *
+     * @param type         the type of debugger(COMMAND_LINE or GUI).
+     * @param backend      the back end.
      * @param runtimeStack the runtime stack.
      * @return the debugger.
      */

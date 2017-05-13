@@ -10,7 +10,7 @@ import static wci.message.MessageType.RUNTIME_ERROR;
 
 /**
  * <h1>RuntimeErrorHandler</h1>
- *
+ * <p>
  * <p>Runtime error handler for the backend interpreter.</p>
  */
 public class RuntimeErrorHandler {
@@ -20,16 +20,19 @@ public class RuntimeErrorHandler {
 
     /**
      * Getter.
+     *
      * @return the count of runtime errors.
      */
     public static int getErrorCount() {
         return errorCount;
     }
+
     /**
      * Flag a runtime error.
-     * @param node the root node of the offending statement or expression.
+     *
+     * @param node      the root node of the offending statement or expression.
      * @param errorCode the runtime error code.
-     * @param backend the backend processor.
+     * @param backend   the backend processor.
      */
     public void flag(ICodeNode node, RuntimeErrorCode errorCode, Backend backend) {
         String lineNumber = null;
@@ -41,12 +44,12 @@ public class RuntimeErrorHandler {
 
         // Notify the interpreter's listeners.
         backend.sendMessage(new Message(RUNTIME_ERROR,
-                new Object[] {errorCode.toString(),
-                (Integer) node.getAttribute(LINE)}));
+                new Object[]{errorCode.toString(),
+                        (Integer) node.getAttribute(LINE)}));
 
         if (++errorCount > MAX_ERRORS) {
-             backend.sendMessage(new Message(INTERPRETER_SUMMARY,
-                    new Object[] {"ABORTED AFTER TOO MANY RUNTIME ERRORS.",
+            backend.sendMessage(new Message(INTERPRETER_SUMMARY,
+                    new Object[]{"ABORTED AFTER TOO MANY RUNTIME ERRORS.",
                             (Integer) node.getAttribute(LINE)}));
 
             System.exit(-1);

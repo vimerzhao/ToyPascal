@@ -12,13 +12,12 @@ import java.util.Iterator;
 import java.util.Set;
 
 import static wci.intermediate.symtabimpl.DefinitionImpl.*;
-import static wci.intermediate.typeimpl.TypeKeyImpl.ARRAY_ELEMENT_COUNT;
-import static wci.intermediate.typeimpl.TypeKeyImpl.ARRAY_ELEMENT_TYPE;
-import static wci.intermediate.typeimpl.TypeKeyImpl.RECORD_SYMTAB;
+import static wci.intermediate.typeimpl.TypeKeyImpl.*;
 
 public class MemoryMapImpl extends HashMap<String, Cell> implements MemoryMap {
     /**
      * Create a memory map and allocate its memory cells based on the entries in a symbol table.
+     *
      * @param symTab
      */
     public MemoryMapImpl(SymTab symTab) {
@@ -37,6 +36,7 @@ public class MemoryMapImpl extends HashMap<String, Cell> implements MemoryMap {
             }
         }
     }
+
     @Override
     public Cell getCell(String name) {
         return get(name);

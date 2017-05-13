@@ -1,11 +1,13 @@
 package wci.frontend.pascal;
 
-import wci.frontend.*;
+import wci.frontend.EofToken;
+import wci.frontend.Scanner;
+import wci.frontend.Source;
+import wci.frontend.Token;
 import wci.frontend.pascal.tokens.*;
 
 import static wci.frontend.Source.EOF;
-import static wci.frontend.pascal.PascalTokenType.*;
-import static wci.frontend.pascal.PascalErrorCode.*;
+import static wci.frontend.pascal.PascalErrorCode.INVALID_CHARACTER;
 
 /**
  * PascalScanner
@@ -13,6 +15,7 @@ import static wci.frontend.pascal.PascalErrorCode.*;
 public class PascalScanner extends Scanner {
     /**
      * Constructor
+     *
      * @param source the source to be used with this scanner.
      */
     public PascalScanner(Source source) {
@@ -21,6 +24,7 @@ public class PascalScanner extends Scanner {
 
     /**
      * Extract and return the next Pascal token from the source.
+     *
      * @return the next token.
      * @throws Exception if an error occurred.
      */

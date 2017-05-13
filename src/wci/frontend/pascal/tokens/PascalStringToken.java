@@ -1,12 +1,12 @@
 package wci.frontend.pascal.tokens;
 
-import wci.frontend.*;
-import wci.frontend.pascal.*;
+import wci.frontend.Source;
+import wci.frontend.pascal.PascalToken;
 
-import static wci.frontend.Source.EOL;
 import static wci.frontend.Source.EOF;
-import static wci.frontend.pascal.PascalTokenType.*;
-import static wci.frontend.pascal.PascalErrorCode.*;
+import static wci.frontend.pascal.PascalErrorCode.UNEXPECTED_EOF;
+import static wci.frontend.pascal.PascalTokenType.ERROR;
+import static wci.frontend.pascal.PascalTokenType.STRING;
 
 /**
  * PascalStringToken
@@ -14,6 +14,7 @@ import static wci.frontend.pascal.PascalErrorCode.*;
 public class PascalStringToken extends PascalToken {
     /**
      * Constructor.
+     *
      * @param source the source from where to fetch the token's characters.
      * @throws Exception if an error occurred.
      */

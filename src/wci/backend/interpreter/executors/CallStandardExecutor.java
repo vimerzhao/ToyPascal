@@ -31,6 +31,7 @@ public class CallStandardExecutor extends CallExecutor {
 
     /**
      * Execute a call to a standard procedure or function.
+     *
      * @param node the CALL node.
      * @return the function value, or null for a procedure call.
      */
@@ -49,44 +50,56 @@ public class CallStandardExecutor extends CallExecutor {
 
         switch ((RoutineCodeImpl) routineCode) {
             case READ:
-            case READLN:  return executeReadReadln(node, routineCode);
+            case READLN:
+                return executeReadReadln(node, routineCode);
 
             case WRITE:
-            case WRITELN: return executeWriteWriteln(node, routineCode);
+            case WRITELN:
+                return executeWriteWriteln(node, routineCode);
 
             case EOF:
-            case EOLN:    return executeEofEoln(node, routineCode);
+            case EOLN:
+                return executeEofEoln(node, routineCode);
 
             case ABS:
-            case SQR:     return executeAbsSqr(node, routineCode, actualNode);
+            case SQR:
+                return executeAbsSqr(node, routineCode, actualNode);
 
             case ARCTAN:
             case COS:
             case EXP:
             case LN:
             case SIN:
-            case SQRT:    return executeArctanCosExpLnSinSqrt(node, routineCode,
-                    actualNode);
+            case SQRT:
+                return executeArctanCosExpLnSinSqrt(node, routineCode,
+                        actualNode);
 
             case PRED:
-            case SUCC:    return executePredSucc(node, routineCode,
-                    actualNode, type);
+            case SUCC:
+                return executePredSucc(node, routineCode,
+                        actualNode, type);
 
-            case CHR:     return executeChr(node, routineCode, actualNode);
-            case ODD:     return executeOdd(node, routineCode, actualNode);
-            case ORD:     return executeOrd(node, routineCode, actualNode);
+            case CHR:
+                return executeChr(node, routineCode, actualNode);
+            case ODD:
+                return executeOdd(node, routineCode, actualNode);
+            case ORD:
+                return executeOrd(node, routineCode, actualNode);
 
             case ROUND:
-            case TRUNC:   return executeRoundTrunc(node, routineCode,
-                    actualNode);
+            case TRUNC:
+                return executeRoundTrunc(node, routineCode,
+                        actualNode);
 
-            default:      return null;  // should never get here
+            default:
+                return null;  // should never get here
         }
     }
 
     /**
      * Execute a call to read or readln.
-     * @param callNode the CALL node.
+     *
+     * @param callNode    the CALL node.
      * @param routineCode the routine code.
      * @return null.
      */
@@ -111,40 +124,32 @@ public class CallStandardExecutor extends CallExecutor {
                     if (baseType == Predefined.integerType) {
                         Token token = standardIn.nextToken();
                         value = (Integer) parseNumber(token, baseType);
-                    }
-                    else if (baseType == Predefined.realType) {
+                    } else if (baseType == Predefined.realType) {
                         Token token = standardIn.nextToken();
                         value = (Float) parseNumber(token, baseType);
-                    }
-                    else if (baseType == Predefined.booleanType) {
+                    } else if (baseType == Predefined.booleanType) {
                         Token token = standardIn.nextToken();
                         value = parseBoolean(token);
-                    }
-                    else if (baseType == Predefined.charType) {
+                    } else if (baseType == Predefined.charType) {
                         char ch = standardIn.nextChar();
                         if ((ch == Source.EOL) || (ch == Source.EOF)) {
                             ch = ' ';
                         }
                         value = ch;
-                    }
-                    else {
+                    } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     errorHandler.flag(callNode, INVALID_INPUT,
                             CallStandardExecutor.this);
 
                     if (type == Predefined.realType) {
                         value = 0.0f;
-                    }
-                    else if (type == Predefined.charType) {
+                    } else if (type == Predefined.charType) {
                         value = ' ';
-                    }
-                    else if (type == Predefined.booleanType) {
+                    } else if (type == Predefined.booleanType) {
                         value = false;
-                    }
-                    else {
+                    } else {
                         value = 0;
                     }
                 }
@@ -163,8 +168,7 @@ public class CallStandardExecutor extends CallExecutor {
         if (routineCode == READLN) {
             try {
                 standardIn.skipToNextLine();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 errorHandler.flag(callNode, INVALID_INPUT,
                         CallStandardExecutor.this);
             }
@@ -175,8 +179,9 @@ public class CallStandardExecutor extends CallExecutor {
 
     /**
      * Parse an integer or real value from the standard input.
+     *
      * @param token the current input token.
-     * @param type the input value type.
+     * @param type  the input value type.
      * @return the integer or real value.
      * @throws Exception if an error occurred.
      */
@@ -218,6 +223,7 @@ public class CallStandardExecutor extends CallExecutor {
 
     /**
      * Parse a boolean value from the standard input.
+     *
      * @param token the current input token.
      * @return the boolean value.
      * @throws Exception if an error occurred.
@@ -228,22 +234,20 @@ public class CallStandardExecutor extends CallExecutor {
 
             if (text.equalsIgnoreCase("true")) {
                 return new Boolean(true);
-            }
-            else if (text.equalsIgnoreCase("false")) {
+            } else if (text.equalsIgnoreCase("false")) {
                 return new Boolean(false);
-            }
-            else {
+            } else {
                 throw new Exception();
             }
-        }
-        else {
+        } else {
             throw new Exception();
         }
     }
 
     /**
      * Execute a call to write or writeln.
-     * @param callNode the CALL node.
+     *
+     * @param callNode    the CALL node.
      * @param routineCode the routine code.
      * @return null.
      */
@@ -260,17 +264,16 @@ public class CallStandardExecutor extends CallExecutor {
                 ArrayList<ICodeNode> children = writeParmNode.getChildren();
                 ICodeNode exprNode = children.get(0);
                 TypeSpec dataType = exprNode.getTypeSpec().baseType();
-                String typeCode = dataType.isPascalString()          ? "s"
+                String typeCode = dataType.isPascalString() ? "s"
                         : dataType == Predefined.integerType ? "d"
-                        : dataType == Predefined.realType    ? "f"
+                        : dataType == Predefined.realType ? "f"
                         : dataType == Predefined.booleanType ? "s"
-                        : dataType == Predefined.charType    ? "c"
-                        :                                      "s";
+                        : dataType == Predefined.charType ? "c"
+                        : "s";
                 Object value = expressionExecutor.execute(exprNode);
 
                 if ((dataType == Predefined.charType) &&
-                        (value instanceof String))
-                {
+                        (value instanceof String)) {
                     value = ((String) value).charAt(0);
                 }
 
@@ -307,7 +310,8 @@ public class CallStandardExecutor extends CallExecutor {
 
     /**
      * Execute a call to eof or eoln.
-     * @param callNode the CALL node.
+     *
+     * @param callNode    the CALL node.
      * @param routineCode the routine code.
      * @return true or false.
      */
@@ -315,12 +319,10 @@ public class CallStandardExecutor extends CallExecutor {
         try {
             if (routineCode == EOF) {
                 return standardIn.atEof();
-            }
-            else {
+            } else {
                 return standardIn.atEol();
             }
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             errorHandler.flag(callNode, INVALID_INPUT,
                     CallStandardExecutor.this);
             return true;
@@ -329,31 +331,31 @@ public class CallStandardExecutor extends CallExecutor {
 
     /**
      * Execute a call to abs or sqr.
-     * @param callNode the CALL node.
+     *
+     * @param callNode    the CALL node.
      * @param routineCode the routine code.
-     * @param actualNode the actual parameter node.
+     * @param actualNode  the actual parameter node.
      * @return the function value.
      */
     private Number executeAbsSqr(ICodeNode callNode, RoutineCode routineCode,
-                                 ICodeNode actualNode)
-    {
+                                 ICodeNode actualNode) {
         Object argValue = expressionExecutor.execute(actualNode);
 
         if (argValue instanceof Integer) {
             int value = (Integer) argValue;
-            return routineCode == ABS ? Math.abs(value) : value*value;
-        }
-        else {
+            return routineCode == ABS ? Math.abs(value) : value * value;
+        } else {
             float value = (Float) argValue;
-            return routineCode == ABS ? Math.abs(value) : value*value;
+            return routineCode == ABS ? Math.abs(value) : value * value;
         }
     }
 
     /**
      * Execute a call to arctan, cos, exp, ln, sin, or sqrt.
-     * @param callNode the CALL node.
+     *
+     * @param callNode    the CALL node.
      * @param routineCode the routine code.
-     * @param actualNode the actual parameter node.
+     * @param actualNode  the actual parameter node.
      * @return the function value.
      */
     private Float executeArctanCosExpLnSinSqrt(ICodeNode callNode, RoutineCode routineCode, ICodeNode actualNode) {
@@ -361,16 +363,19 @@ public class CallStandardExecutor extends CallExecutor {
         Float value = argValue instanceof Integer ? (Integer) argValue : (Float) argValue;
 
         switch ((RoutineCodeImpl) routineCode) {
-            case ARCTAN: return (float) Math.atan(value);
-            case COS:    return (float) Math.cos(value);
-            case EXP:    return (float) Math.exp(value);
-            case SIN:    return (float) Math.sin(value);
+            case ARCTAN:
+                return (float) Math.atan(value);
+            case COS:
+                return (float) Math.cos(value);
+            case EXP:
+                return (float) Math.exp(value);
+            case SIN:
+                return (float) Math.sin(value);
 
             case LN: {
                 if (value > 0.0f) {
                     return (float) Math.log(value);
-                }
-                else {
+                } else {
                     errorHandler.flag(callNode, INVALID_STANDARD_FUNCTION_ARGUMENT, CallStandardExecutor.this);
                     return 0.0f;
                 }
@@ -385,16 +390,18 @@ public class CallStandardExecutor extends CallExecutor {
                 }
             }
 
-            default: return 0.0f;  // should never get here
+            default:
+                return 0.0f;  // should never get here
         }
     }
 
     /**
      * Execute a call to pred or succ.
-     * @param callNode the CALL node.
+     *
+     * @param callNode    the CALL node.
      * @param routineCode the routine code.
-     * @param actualNode the actual parameter node.
-     * @param type the value type.
+     * @param actualNode  the actual parameter node.
+     * @param type        the value type.
      * @return the function value.
      */
     private Integer executePredSucc(ICodeNode callNode, RoutineCode routineCode, ICodeNode actualNode, TypeSpec type) {
@@ -407,9 +414,10 @@ public class CallStandardExecutor extends CallExecutor {
 
     /**
      * Execute a call to chr.
-     * @param callNode the CALL node.
+     *
+     * @param callNode    the CALL node.
      * @param routineCode the routine code.
-     * @param actualNode the actual parameter node.
+     * @param actualNode  the actual parameter node.
      * @return the function value.
      */
     private Character executeChr(ICodeNode callNode, RoutineCode routineCode, ICodeNode actualNode) {
@@ -420,9 +428,10 @@ public class CallStandardExecutor extends CallExecutor {
 
     /**
      * Execute a call to odd.
-     * @param callNode the CALL node.
+     *
+     * @param callNode    the CALL node.
      * @param routineCode the routine code.
-     * @param actualNode the actual parameter node.
+     * @param actualNode  the actual parameter node.
      * @return true or false.
      */
     private Boolean executeOdd(ICodeNode callNode, RoutineCode routineCode, ICodeNode actualNode) {
@@ -432,9 +441,10 @@ public class CallStandardExecutor extends CallExecutor {
 
     /**
      * Execute a call to ord.
-     * @param callNode the CALL node.
+     *
+     * @param callNode    the CALL node.
      * @param routineCode the routine code.
-     * @param actualNode the actual parameter node.
+     * @param actualNode  the actual parameter node.
      * @return the function value.
      */
     private Integer executeOrd(ICodeNode callNode, RoutineCode routineCode, ICodeNode actualNode) {
@@ -453,9 +463,10 @@ public class CallStandardExecutor extends CallExecutor {
 
     /**
      * Execute a call to round or trunc.
-     * @param callNode the CALL node.
+     *
+     * @param callNode    the CALL node.
      * @param routineCode the routine code.
-     * @param actualNode the actual parameter node.
+     * @param actualNode  the actual parameter node.
      * @return the function value.
      */
     private Integer executeRoundTrunc(ICodeNode callNode, RoutineCode routineCode, ICodeNode actualNode) {

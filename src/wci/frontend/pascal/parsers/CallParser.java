@@ -24,6 +24,15 @@ import static wci.intermediate.typeimpl.TypeFormImpl.SCALAR;
 import static wci.intermediate.typeimpl.TypeFormImpl.SUBRANGE;
 
 public class CallParser extends StatementParser {
+    // Synchronization set for the , token.
+    private static final EnumSet<PascalTokenType> COMMA_SET =
+            ExpressionParser.EXPR_START_SET.clone();
+
+    static {
+        COMMA_SET.add(COMMA);
+        COMMA_SET.add(RIGHT_PAREN);
+    }
+
     /**
      * Constructor.
      *
@@ -35,6 +44,7 @@ public class CallParser extends StatementParser {
 
     /**
      * Prase a call to a declared procedure or function.
+     *
      * @param token the initial token.
      * @return the root of the generated parse tree.
      * @throws Exception if an error occurred.
@@ -44,31 +54,24 @@ public class CallParser extends StatementParser {
         SymTabEntry pfId = symTabStack.lookup(token.getText().toLowerCase());
         RoutineCode routineCode = (RoutineCode) pfId.getAttribute(ROUTINE_CODE);
         StatementParser callParser = (routineCode == DECLARED) || (routineCode == FORWARD)
-                                    ? new CallDeclaredParser(this)
-                                    : new CallStandardParser(this);
+                ? new CallDeclaredParser(this)
+                : new CallStandardParser(this);
         return callParser.parse(token);
-    }
-
-    // Synchronization set for the , token.
-    private static final EnumSet<PascalTokenType> COMMA_SET =
-            ExpressionParser.EXPR_START_SET.clone();
-    static {
-        COMMA_SET.add(COMMA);
-        COMMA_SET.add(RIGHT_PAREN);
     }
 
     /**
      * Parse the actual parameters of a procedure or function call.
-     * @param token the current token.
-     * @param pfId the symbol table entry of the procedure of function name.
-     * @param isDeclared true if parsing actual parms of a delared routine.
-     * @param isReadReadln true if parsing actual parms of read or readln.
+     *
+     * @param token          the current token.
+     * @param pfId           the symbol table entry of the procedure of function name.
+     * @param isDeclared     true if parsing actual parms of a delared routine.
+     * @param isReadReadln   true if parsing actual parms of read or readln.
      * @param isWriteWriteln true if parsing actual parms of write or writeln.
      * @return the PARAMETERS node, or null if there are no actual parameters.
      * @throws Exception if an error occurred.
      */
     protected ICodeNode parseActualParameters(Token token, SymTabEntry pfId,
-            boolean isDeclared, boolean isReadReadln, boolean isWriteWriteln) throws Exception {
+                                              boolean isDeclared, boolean isReadReadln, boolean isWriteWriteln) throws Exception {
         ExpressionParser expressionParser = new ExpressionParser(this);
         ICodeNode parmsNode = ICodeFactory.createICodeNode(PARAMETERS);
         ArrayList<SymTabEntry> formalParms = null;
@@ -115,11 +118,11 @@ public class CallParser extends StatementParser {
                 TypeSpec type = exprNode.getTypeSpec().baseType();
                 TypeForm form = type.getForm();
 
-                if (! ((form == SCALAR)
+                if (!((form == SCALAR)
                         || (type == Predefined.booleanType)
                         || (type.isPascalString())
-                       )
-                   ) {
+                )
+                        ) {
                     errorHandler.flag(token, INCOMPATIBLE_TYPES, this);
                 }
 
@@ -145,7 +148,7 @@ public class CallParser extends StatementParser {
         }
         token = nextToken();    // consume closing
         if ((parmsNode.getChildren().size() == 0)
-                || (isDeclared && (parmIndex != parmCount-1))) {
+                || (isDeclared && (parmIndex != parmCount - 1))) {
             errorHandler.flag(token, WRONG_NUMBER_OF_PARMS, this);
         }
         return parmsNode;
@@ -153,8 +156,9 @@ public class CallParser extends StatementParser {
 
     /**
      * Check an actual parameter against the corresponding formal parameter.
-     * @param token the current token.
-     * @param formalId the symbol table entry of the formal parameter.
+     *
+     * @param token      the current token.
+     * @param formalId   the symbol table entry of the formal parameter.
      * @param actualNode the parse tree node of the actual paramter.
      */
     private void checkActualParameter(Token token, SymTabEntry formalId, ICodeNode actualNode) {
@@ -171,9 +175,11 @@ public class CallParser extends StatementParser {
             errorHandler.flag(token, INCOMPATIBLE_TYPES, this);
         }
     }
+
     /**
      * Parse the field width or the precision for an actual parameter
      * of a call to write or writeln.
+     *
      * @param token the current token.
      * @return the INTEGER_CONSTANT node or null
      * @throws Exception if an error occurred.

@@ -10,6 +10,12 @@ import static wci.intermediate.icodeimpl.ICodeKeyImpl.VALUE;
 import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.STRING_CONSTANT;
 
 public class SelectExecutor extends StatementExecutor {
+    // Jump table cache: entry key is a SELECT node,entry value is the jump table.
+    // Jump table: entry key is a selection value, entry key is the branch statement.
+    private static HashMap<ICodeNode, HashMap<Object, ICodeNode>> jumpCache = new HashMap<>();
+
+    // Optimized version
+
     /**
      * Constructor.
      *
@@ -19,14 +25,9 @@ public class SelectExecutor extends StatementExecutor {
         super(parent);
     }
 
-    // Optimized version
-
-    // Jump table cache: entry key is a SELECT node,entry value is the jump table.
-    // Jump table: entry key is a selection value, entry key is the branch statement.
-    private static HashMap<ICodeNode, HashMap<Object, ICodeNode>> jumpCache = new HashMap<>();
-
     /**
      * Execute SELECT statement.
+     *
      * @param node the root node of the statement.
      * @return null.
      */
@@ -61,6 +62,7 @@ public class SelectExecutor extends StatementExecutor {
 
     /**
      * Create a jump table for a SELECT node.
+     *
      * @param node the SELECT node.
      * @return the jump table.
      */

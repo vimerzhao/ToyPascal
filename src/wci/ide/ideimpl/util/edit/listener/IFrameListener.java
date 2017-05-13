@@ -9,6 +9,7 @@ import javax.swing.event.InternalFrameEvent;
 
 public class IFrameListener extends InternalFrameAdapter {
     private EditPane editPane;
+
     public IFrameListener(EditPane editPane) {
         this.editPane = editPane;
     }

@@ -2,7 +2,7 @@ package wci.frontend.pascal;
 
 /**
  * PascalErrorCode
- *
+ * <p>
  * Pascal translation error codes.
  */
 public enum PascalErrorCode {
@@ -84,7 +84,7 @@ public enum PascalErrorCode {
     /**
      * Constructor.
      *
-     * @param status the exit status.
+     * @param status  the exit status.
      * @param message the error message.
      */
     PascalErrorCode(int status, String message) {

@@ -1,11 +1,12 @@
 package wci.ide.ideimpl;
 
 import wci.ide.IDEFrame;
-import wci.ide.ideimpl.util.edit.*;
+import wci.ide.ideimpl.util.FileUtil;
+import wci.ide.ideimpl.util.edit.EditFile;
+import wci.ide.ideimpl.util.edit.Editor;
 import wci.ide.ideimpl.util.edit.listener.EditDocumentListener;
 import wci.ide.ideimpl.util.edit.listener.IFrameListener;
 import wci.ide.ideimpl.util.edit.listener.TabListener;
-import wci.ide.ideimpl.util.FileUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,13 +15,14 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EditPane extends Box{
+public class EditPane extends Box {
     private JTabbedPane tabPane;
     private JDesktopPane desktop;
     private EditFile currentFile;
     private IFrameListener iframeListener;
     private List<EditFile> editFiles = new ArrayList<>();
     private IDEFrame ideFrame;
+
     public EditPane(int axis, IDEFrame ideFrame) {
         super(axis);
         this.ideFrame = ideFrame;
@@ -66,10 +68,6 @@ public class EditPane extends Box{
         }
     }
 
-    public void setCurrentFile(EditFile currentFile) {
-        this.currentFile = currentFile;
-    }
-
     public JInternalFrame getIFrame(String title) {
         JInternalFrame[] iframes = desktop.getAllFrames();
         for (JInternalFrame iframe : iframes) {
@@ -103,8 +101,8 @@ public class EditPane extends Box{
     }
 
     public void openNewFile(File file) {
-        JInternalFrame iframe= new JInternalFrame(file.getAbsolutePath(), false, true, false, false);
-        Editor editor= new Editor(file, this.ideFrame);
+        JInternalFrame iframe = new JInternalFrame(file.getAbsolutePath(), false, true, false, false);
+        Editor editor = new Editor(file, this.ideFrame);
         editor.getDocument().addDocumentListener(new EditDocumentListener(this));
         iframe.add(new JScrollPane(editor));
         iframe.addInternalFrameListener(this.iframeListener);
@@ -116,7 +114,7 @@ public class EditPane extends Box{
             e.printStackTrace();
         }
         tabPane.addTab(file.getName(), null, null, file.getAbsolutePath());
-        tabPane.setSelectedIndex(tabPane.getTabCount()-1);
+        tabPane.setSelectedIndex(tabPane.getTabCount() - 1);
         currentFile = new EditFile(file, true, iframe, editor);
         editFiles.add(currentFile);
     }
@@ -142,6 +140,10 @@ public class EditPane extends Box{
         return currentFile;
     }
 
+    public void setCurrentFile(EditFile currentFile) {
+        this.currentFile = currentFile;
+    }
+
     public void closeIFrame(JInternalFrame iframe) {
         EditFile closeFile = getEditFile(iframe);
         afterClose(closeFile);
@@ -149,6 +151,7 @@ public class EditPane extends Box{
         getTabPane().remove(index);
         editFiles.remove(closeFile);
     }
+
     public EditFile getEditFile(JInternalFrame iframe) {
         for (EditFile openFile : editFiles) {
             if (openFile.getIframe().equals(iframe)) return openFile;
@@ -162,11 +165,11 @@ public class EditPane extends Box{
             currentFile = null;
         } else {
             if (editFilesIndex == 0) {
-                currentFile = editFiles.get(editFilesIndex+1);
-            } else if (editFilesIndex == (editFiles.size()-1)) {
-                currentFile = editFiles.get(editFiles.size()-2);
+                currentFile = editFiles.get(editFilesIndex + 1);
+            } else if (editFilesIndex == (editFiles.size() - 1)) {
+                currentFile = editFiles.get(editFiles.size() - 2);
             } else {
-                currentFile = editFiles.get(editFilesIndex-1);
+                currentFile = editFiles.get(editFilesIndex - 1);
             }
         }
     }

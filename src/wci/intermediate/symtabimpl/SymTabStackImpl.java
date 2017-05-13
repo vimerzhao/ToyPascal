@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  * SymTabStack
- *
+ * <p>
  * An implementation of the symbol table stack.
  */
 public class SymTabStackImpl extends ArrayList<SymTab> implements SymTabStack {
@@ -27,6 +27,7 @@ public class SymTabStackImpl extends ArrayList<SymTab> implements SymTabStack {
 
     /**
      * Getter.
+     *
      * @return the current nesting level.
      */
     @Override
@@ -36,6 +37,7 @@ public class SymTabStackImpl extends ArrayList<SymTab> implements SymTabStack {
 
     /**
      * Return the local symbol table which is at the top of the stack.
+     *
      * @return the local symbol table.
      */
     @Override
@@ -45,6 +47,7 @@ public class SymTabStackImpl extends ArrayList<SymTab> implements SymTabStack {
 
     /**
      * Create and enter a new entry into the local symbol table.
+     *
      * @param name the name of the entry.
      * @return the new entry.
      */
@@ -55,6 +58,7 @@ public class SymTabStackImpl extends ArrayList<SymTab> implements SymTabStack {
 
     /**
      * Look up an existing symbol table entry in the local symbol table.
+     *
      * @param name the name of the entry.
      * @return the entry,or null if it does not exist.
      */
@@ -65,6 +69,7 @@ public class SymTabStackImpl extends ArrayList<SymTab> implements SymTabStack {
 
     /**
      * Look up an existing symbol table entry throughout the stack.
+     *
      * @param name the name of the entry.
      * @return the entry,or null if it does not exist.
      */
@@ -81,16 +86,8 @@ public class SymTabStackImpl extends ArrayList<SymTab> implements SymTabStack {
     }
 
     /**
-     * Setter.
-     * @param id the symbol table entry for the main program identifier.
-     */
-    @Override
-    public void setProgramId(SymTabEntry id) {
-        this.programId = id;
-    }
-
-    /**
      * Getter.
+     *
      * @return the symbol table entry for the main program identifier.
      */
     @Override
@@ -99,7 +96,18 @@ public class SymTabStackImpl extends ArrayList<SymTab> implements SymTabStack {
     }
 
     /**
+     * Setter.
+     *
+     * @param id the symbol table entry for the main program identifier.
+     */
+    @Override
+    public void setProgramId(SymTabEntry id) {
+        this.programId = id;
+    }
+
+    /**
      * Push a new symbol table onto the symbol table stack.
+     *
      * @return the pushed symbol table.
      */
     @Override
@@ -112,6 +120,7 @@ public class SymTabStackImpl extends ArrayList<SymTab> implements SymTabStack {
 
     /**
      * Push a symbol table onto the symbol table stack.
+     *
      * @param symTab the symbol table to push.
      * @return the pushed symbol table.
      */
@@ -124,6 +133,7 @@ public class SymTabStackImpl extends ArrayList<SymTab> implements SymTabStack {
 
     /**
      * Pop a symbol table off the symbol table stack.
+     *
      * @return the popped symbol table.
      */
     @Override

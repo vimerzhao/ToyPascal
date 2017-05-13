@@ -1,10 +1,11 @@
 package wci.frontend.pascal;
 
-import wci.frontend.*;
+import wci.frontend.Source;
+import wci.frontend.Token;
 
 /**
  * PascalToken
- *
+ * <p>
  * Base class for Pascal token classes.
  */
 public class PascalToken extends Token {

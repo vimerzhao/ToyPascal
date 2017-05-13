@@ -2,7 +2,7 @@ package wci.frontend;
 
 /**
  * Scanner
- *
+ * <p>
  * A language-independent framework class.  This abstract scanner class
  * will be implemented by language-specific subclasses.
  */
@@ -12,6 +12,7 @@ public abstract class Scanner {
 
     /**
      * Constructor
+     *
      * @param source the source to be used with this scanner.
      */
     public Scanner(Source source) {
@@ -27,6 +28,7 @@ public abstract class Scanner {
 
     /**
      * Return next token from the source.
+     *
      * @return the next token.
      * @throws Exception if an error occurred.
      */
@@ -38,6 +40,7 @@ public abstract class Scanner {
     /**
      * Do the actual work of extracting and returning the next token from the
      * source. Implemented by scanner subclasses.
+     *
      * @return the next token.
      * @throws Exception if an error occurred.
      */
@@ -45,6 +48,7 @@ public abstract class Scanner {
 
     /**
      * Call the source's currentChar() method.
+     *
      * @return the current character from the source.
      * @throws Exception if an error occurred.
      */
@@ -54,14 +58,17 @@ public abstract class Scanner {
 
     /**
      * Call the source's nextChar() method.
+     *
      * @return the next character from the source.
      * @throws Exception if an error occurred.
      */
     public char nextChar() throws Exception {
         return source.nextChar();
     }
+
     /**
      * Call the source's atEol() method.
+     *
      * @return true if at the end of the source line, else return false.
      * @throws Exception if an error occurred.
      */
@@ -71,6 +78,7 @@ public abstract class Scanner {
 
     /**
      * Call the source's atEof() method.
+     *
      * @return true if at the end of the source file, else return false.
      * @throws Exception if an error occurred.
      */
@@ -80,6 +88,7 @@ public abstract class Scanner {
 
     /**
      * Call the source's skipToNextLine() method.
+     *
      * @throws Exception if an error occurred.
      */
     public void skipToNextLine() throws Exception {

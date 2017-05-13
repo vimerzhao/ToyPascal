@@ -12,18 +12,32 @@ import wci.intermediate.typeimpl.TypeChecker;
 
 import java.util.EnumSet;
 
-import static wci.frontend.pascal.PascalErrorCode.INCOMPATIBLE_TYPES;
-import static wci.frontend.pascal.PascalErrorCode.MISSING_DO;
-import static wci.frontend.pascal.PascalErrorCode.MISSING_TO_DOWNTO;
-import static wci.frontend.pascal.PascalTokenType.DO;
-import static wci.frontend.pascal.PascalTokenType.DOWNTO;
-import static wci.frontend.pascal.PascalTokenType.TO;
+import static wci.frontend.pascal.PascalErrorCode.*;
+import static wci.frontend.pascal.PascalTokenType.*;
 import static wci.intermediate.icodeimpl.ICodeKeyImpl.VALUE;
 import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.*;
 import static wci.intermediate.typeimpl.TypeFormImpl.ENUMERATION;
 
 
 public class ForStatementParser extends StatementParser {
+    // Synchronization set fot TO or DOWNTO.
+    static final EnumSet<PascalTokenType> TO_DOWNTO_SET =
+            ExpressionParser.EXPR_START_SET.clone();
+    // Synchronization set for DO.
+    private static final EnumSet<PascalTokenType> DO_SET =
+            StatementParser.STMT_START_SET.clone();
+
+    static {
+        TO_DOWNTO_SET.add(TO);
+        TO_DOWNTO_SET.add(DOWNTO);
+        TO_DOWNTO_SET.addAll(StatementParser.STMT_FOLLOW_SET);
+    }
+
+    static {
+        DO_SET.add(DO);
+        DO_SET.addAll(StatementParser.STMT_FOLLOW_SET);
+    }
+
     /**
      * Constructor.
      *
@@ -33,27 +47,9 @@ public class ForStatementParser extends StatementParser {
         super(parent);
     }
 
-    // Synchronization set fot TO or DOWNTO.
-    static final EnumSet<PascalTokenType> TO_DOWNTO_SET =
-            ExpressionParser.EXPR_START_SET.clone();
-
-    static {
-        TO_DOWNTO_SET.add(TO);
-        TO_DOWNTO_SET.add(DOWNTO);
-        TO_DOWNTO_SET.addAll(StatementParser.STMT_FOLLOW_SET);
-    }
-
-    // Synchronization set for DO.
-    private static final EnumSet<PascalTokenType> DO_SET =
-            StatementParser.STMT_START_SET.clone();
-
-    static {
-        DO_SET.add(DO);
-        DO_SET.addAll(StatementParser.STMT_FOLLOW_SET);
-    }
-
     /**
      * Parse the FOR statement.
+     *
      * @param token the initial token.
      * @return the root node of the generated parse tree.
      * @throws Exception if an error occurred.
@@ -71,8 +67,8 @@ public class ForStatementParser extends StatementParser {
         // Parse the embedded initial assignment.
         AssignmentStatementParser assignmentParser = new AssignmentStatementParser(this);
         ICodeNode initAssignNode = assignmentParser.parse(token);
-        TypeSpec controlType = initAssignNode != null   ? initAssignNode.getTypeSpec()
-                                                        : Predefined.undefinedType;
+        TypeSpec controlType = initAssignNode != null ? initAssignNode.getTypeSpec()
+                : Predefined.undefinedType;
         // Set the current line number attribute.
         setLineNumber(initAssignNode, targetToken);
         // Type check: The control variable's type must be integer or enumeration.

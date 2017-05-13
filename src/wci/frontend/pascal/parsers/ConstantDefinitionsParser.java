@@ -19,39 +19,40 @@ import static wci.intermediate.symtabimpl.DefinitionImpl.ENUMERATION_CONSTANT;
 import static wci.intermediate.symtabimpl.SymTabKeyImpl.CONSTANT_VALUE;
 
 public class ConstantDefinitionsParser extends DeclarationsParser {
-    public ConstantDefinitionsParser(PascalParserTD parent) {
-        super(parent);
-    }
-
+    // Synchronization set for starting a constant.
+    static final EnumSet<PascalTokenType> CONSTANT_START_SET =
+            EnumSet.of(IDENTIFIER, INTEGER, REAL, PLUS, MINUS, STRING, SEMICOLON);
     // Synchronization set for a constant identifier.
     private static final EnumSet<PascalTokenType> IDENTIFIER_SET =
             DeclarationsParser.TYPE_START_SET.clone();
+    // Synchronization set for the = token
+    private static final EnumSet<PascalTokenType> EQUAL_SET =
+            CONSTANT_START_SET.clone();
+    // Synchronization set for the start of the next definition or declaration.
+    private static final EnumSet<PascalTokenType> NEXT_START_SET =
+            DeclarationsParser.TYPE_START_SET.clone();
+
     static {
         IDENTIFIER_SET.add(IDENTIFIER);
     }
 
-    // Synchronization set for starting a constant.
-    static final EnumSet<PascalTokenType> CONSTANT_START_SET =
-            EnumSet.of(IDENTIFIER, INTEGER, REAL, PLUS, MINUS, STRING, SEMICOLON);
-
-    // Synchronization set for the = token
-    private static final EnumSet<PascalTokenType> EQUAL_SET =
-            CONSTANT_START_SET.clone();
     static {
         EQUAL_SET.add(EQUALS);
         EQUAL_SET.add(SEMICOLON);
     }
 
-    // Synchronization set for the start of the next definition or declaration.
-    private static final EnumSet<PascalTokenType> NEXT_START_SET =
-            DeclarationsParser.TYPE_START_SET.clone();
     static {
         NEXT_START_SET.add(SEMICOLON);
         NEXT_START_SET.add(IDENTIFIER);
     }
 
+    public ConstantDefinitionsParser(PascalParserTD parent) {
+        super(parent);
+    }
+
     /**
      * Parse constant definitions.
+     *
      * @param token the initial token.
      * @throws Exception if an error occurred.
      */
@@ -120,6 +121,7 @@ public class ConstantDefinitionsParser extends DeclarationsParser {
 
     /**
      * Parse a constant value.
+     *
      * @param token the current value.
      * @return the constant value.
      * @throws Exception if an error occurred.
@@ -166,8 +168,9 @@ public class ConstantDefinitionsParser extends DeclarationsParser {
 
     /**
      * Parse an identifier constant.
+     *
      * @param token the current token.
-     * @param sign the sign, if any.
+     * @param sign  the sign, if any.
      * @return Object the constant value.
      * @throws Exception if an error occurred.
      */
@@ -222,6 +225,7 @@ public class ConstantDefinitionsParser extends DeclarationsParser {
 
     /**
      * Return the type of a constant given its value.
+     *
      * @param value the constant value.
      * @return the type specification.
      */

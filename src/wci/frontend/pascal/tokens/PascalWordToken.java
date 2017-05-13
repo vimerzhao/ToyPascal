@@ -1,13 +1,15 @@
 package wci.frontend.pascal.tokens;
 
-import wci.frontend.*;
-import wci.frontend.pascal.*;
+import wci.frontend.Source;
+import wci.frontend.pascal.PascalToken;
+import wci.frontend.pascal.PascalTokenType;
 
-import static wci.frontend.pascal.PascalTokenType.*;
+import static wci.frontend.pascal.PascalTokenType.IDENTIFIER;
+import static wci.frontend.pascal.PascalTokenType.RESERVED_WORDS;
 
 /**
  * PascalWordToken
- *
+ * <p>
  * Pascal word tokens(identifiers and reserved words).
  */
 public class PascalWordToken extends PascalToken {
@@ -41,7 +43,7 @@ public class PascalWordToken extends PascalToken {
 
         // Check: Is it a reserved word or an identifier?
         type = (RESERVED_WORDS.contains(text.toLowerCase()))
-               ? PascalTokenType.valueOf(text.toUpperCase())    // reserved word
-               : IDENTIFIER;                                   // identifier
+                ? PascalTokenType.valueOf(text.toUpperCase())    // reserved word
+                : IDENTIFIER;                                   // identifier
     }
 }

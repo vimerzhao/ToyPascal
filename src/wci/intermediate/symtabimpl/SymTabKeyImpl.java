@@ -2,7 +2,7 @@ package wci.intermediate.symtabimpl;
 
 import wci.intermediate.SymTabKey;
 
-public enum SymTabKeyImpl implements SymTabKey{
+public enum SymTabKeyImpl implements SymTabKey {
     // Constant.
     CONSTANT_VALUE,
 

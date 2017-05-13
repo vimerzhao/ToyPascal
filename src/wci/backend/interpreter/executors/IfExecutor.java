@@ -17,6 +17,7 @@ public class IfExecutor extends StatementExecutor {
 
     /**
      * Execute an IF statement.
+     *
      * @param node the root node of the statement.
      * @return null.
      */

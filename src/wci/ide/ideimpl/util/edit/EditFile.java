@@ -8,6 +8,7 @@ public class EditFile {
     private boolean saved;
     private JInternalFrame iframe;
     private Editor editor;
+
     public EditFile(File file, boolean saved, JInternalFrame iframe, Editor editor) {
         this.file = file;
         this.saved = saved;

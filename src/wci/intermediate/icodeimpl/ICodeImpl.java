@@ -5,7 +5,7 @@ import wci.intermediate.ICodeNode;
 
 /**
  * ICodeImpl
- *
+ * <p>
  * An implementation of the intermediate code as a parse tree.
  */
 public class ICodeImpl implements ICode {
@@ -13,6 +13,7 @@ public class ICodeImpl implements ICode {
 
     /**
      * Set and return the root node.
+     *
      * @param node the node to set as root.
      * @return the root node.
      */
@@ -24,6 +25,7 @@ public class ICodeImpl implements ICode {
 
     /**
      * Get the root node.
+     *
      * @return the root node.
      */
     @Override

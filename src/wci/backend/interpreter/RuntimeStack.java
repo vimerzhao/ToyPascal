@@ -13,6 +13,7 @@ public interface RuntimeStack {
 
     /**
      * Get the topmost activation record at a given nesting level.
+     *
      * @param nestingLevel the nesting level.
      * @return the activation record.
      */
@@ -30,6 +31,7 @@ public interface RuntimeStack {
 
     /**
      * Push an activation record onto the stack.
+     *
      * @param ar the activation record to push.
      */
     void push(ActivationRecord ar);

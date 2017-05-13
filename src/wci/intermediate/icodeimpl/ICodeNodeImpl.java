@@ -6,7 +6,7 @@ import java.util.*;
 
 /**
  * ICodeNodeImpl
- *
+ * <p>
  * An implementation of a node of the intermediate code.
  */
 public class ICodeNodeImpl extends HashMap<ICodeKey, Object> implements ICodeNode {
@@ -17,6 +17,7 @@ public class ICodeNodeImpl extends HashMap<ICodeKey, Object> implements ICodeNod
 
     /**
      * Constructor.
+     *
      * @param type the node type whose name will be the name of this code.
      */
     public ICodeNodeImpl(ICodeNodeType type) {
@@ -27,6 +28,7 @@ public class ICodeNodeImpl extends HashMap<ICodeKey, Object> implements ICodeNod
 
     /**
      * Getter.
+     *
      * @return the node type.
      */
     @Override
@@ -36,6 +38,7 @@ public class ICodeNodeImpl extends HashMap<ICodeKey, Object> implements ICodeNod
 
     /**
      * Return the parent of this node.
+     *
      * @return the parent node.
      */
     @Override
@@ -45,6 +48,7 @@ public class ICodeNodeImpl extends HashMap<ICodeKey, Object> implements ICodeNod
 
     /**
      * Add a child node.
+     *
      * @param node the child node.Not added if null.
      * @return the child node.
      */
@@ -59,6 +63,7 @@ public class ICodeNodeImpl extends HashMap<ICodeKey, Object> implements ICodeNod
 
     /**
      * Return an array list of this node's children.
+     *
      * @return the array list of children.
      */
     @Override
@@ -68,7 +73,8 @@ public class ICodeNodeImpl extends HashMap<ICodeKey, Object> implements ICodeNod
 
     /**
      * Set a node attribute.
-     * @param key the attribute key.
+     *
+     * @param key   the attribute key.
      * @param value the attribute value.
      */
     @Override
@@ -78,6 +84,7 @@ public class ICodeNodeImpl extends HashMap<ICodeKey, Object> implements ICodeNod
 
     /**
      * Get the value of a node attribute.
+     *
      * @param key the attribute key.
      * @return the attribute value.
      */
@@ -88,6 +95,7 @@ public class ICodeNodeImpl extends HashMap<ICodeKey, Object> implements ICodeNod
 
     /**
      * Make a copy if this node.
+     *
      * @return the copy.
      */
     @Override
@@ -108,13 +116,13 @@ public class ICodeNodeImpl extends HashMap<ICodeKey, Object> implements ICodeNod
     }
 
     @Override
-    public void setTypeSpec(TypeSpec typeSpec) {
-        this.typeSpec = typeSpec;
+    public TypeSpec getTypeSpec() {
+        return typeSpec;
     }
 
     @Override
-    public TypeSpec getTypeSpec() {
-        return typeSpec;
+    public void setTypeSpec(TypeSpec typeSpec) {
+        this.typeSpec = typeSpec;
     }
 
     @Override

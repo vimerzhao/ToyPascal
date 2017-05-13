@@ -14,7 +14,7 @@ import static wci.intermediate.typeimpl.TypeKeyImpl.*;
 
 /**
  * TypeSpecImpl
- *
+ * <p>
  * A Pascal type specification implementation.
  */
 public class TypeSpecImpl extends HashMap<TypeKey, Object> implements TypeSpec {
@@ -23,6 +23,7 @@ public class TypeSpecImpl extends HashMap<TypeKey, Object> implements TypeSpec {
 
     /**
      * Constructor.
+     *
      * @param form the type form.
      */
     public TypeSpecImpl(TypeForm form) {
@@ -32,6 +33,7 @@ public class TypeSpecImpl extends HashMap<TypeKey, Object> implements TypeSpec {
 
     /**
      * Constructor.
+     *
      * @param value a string value.
      */
     public TypeSpecImpl(String value) {
@@ -49,6 +51,7 @@ public class TypeSpecImpl extends HashMap<TypeKey, Object> implements TypeSpec {
 
     /**
      * Getter.
+     *
      * @return the type form.
      */
     @Override
@@ -57,16 +60,8 @@ public class TypeSpecImpl extends HashMap<TypeKey, Object> implements TypeSpec {
     }
 
     /**
-     * Setter.
-     * @param identifier the type identifier (symbol table entry).
-     */
-    @Override
-    public void setIdentifier(SymTabEntry identifier) {
-        this.identifier = identifier;
-    }
-
-    /**
      * Getter.
+     *
      * @return the type identifier (symbol table entry).
      */
     @Override
@@ -75,8 +70,19 @@ public class TypeSpecImpl extends HashMap<TypeKey, Object> implements TypeSpec {
     }
 
     /**
+     * Setter.
+     *
+     * @param identifier the type identifier (symbol table entry).
+     */
+    @Override
+    public void setIdentifier(SymTabEntry identifier) {
+        this.identifier = identifier;
+    }
+
+    /**
      * Set an attribute of the specification.
-     * @param key the attribute key.
+     *
+     * @param key   the attribute key.
      * @param value the attribute value.
      */
     @Override
@@ -86,6 +92,7 @@ public class TypeSpecImpl extends HashMap<TypeKey, Object> implements TypeSpec {
 
     /**
      * Get the value of an attribute of the specification.
+     *
      * @param key the attribute key.
      * @return the attribute value.
      */

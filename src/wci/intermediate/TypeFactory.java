@@ -8,6 +8,7 @@ import wci.intermediate.typeimpl.TypeSpecImpl;
 public class TypeFactory {
     /**
      * Create a type specification of a given form.
+     *
      * @param form the form
      * @return the type specification.
      */
@@ -17,6 +18,7 @@ public class TypeFactory {
 
     /**
      * Create a string type specification.
+     *
      * @param value the string value.
      * @return the type specification.
      */

@@ -11,7 +11,7 @@ import java.util.TreeMap;
 
 /**
  * SymTabImpl
- *
+ * <p>
  * An implementation of the symbol table.
  */
 public class SymTabImpl extends TreeMap<String, SymTabEntry> implements SymTab {
@@ -23,6 +23,7 @@ public class SymTabImpl extends TreeMap<String, SymTabEntry> implements SymTab {
 
     /**
      * Getter.
+     *
      * @return the scope nesting level of this entry.
      */
     @Override
@@ -32,6 +33,7 @@ public class SymTabImpl extends TreeMap<String, SymTabEntry> implements SymTab {
 
     /**
      * Create and enter a new entry into the symbol table.
+     *
      * @param name the name of the entry.
      * @return the new entry
      */
@@ -45,6 +47,7 @@ public class SymTabImpl extends TreeMap<String, SymTabEntry> implements SymTab {
 
     /**
      * Look up an existing symbol table entry.
+     *
      * @param name the name of the entry.
      * @return the entry,or null if it does not exist.
      */

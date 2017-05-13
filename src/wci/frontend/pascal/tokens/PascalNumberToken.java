@@ -1,22 +1,22 @@
 package wci.frontend.pascal.tokens;
 
-import wci.frontend.*;
-import wci.frontend.pascal.*;
+import wci.frontend.Source;
+import wci.frontend.pascal.PascalToken;
 
-import static wci.frontend.pascal.PascalTokenType.*;
 import static wci.frontend.pascal.PascalErrorCode.*;
+import static wci.frontend.pascal.PascalTokenType.*;
 
 /**
  * PascalNumberToken
- *
+ * <p>
  * Pascal number tokens (integer and real).
  */
-public class PascalNumberToken extends PascalToken
-{
+public class PascalNumberToken extends PascalToken {
     private static final int MAX_EXPONENT = 37;
 
     /**
      * Constructor.
+     *
      * @param source the source from where to fetch the token's characters.
      * @throws Exception if an error occurred.
      */
@@ -111,6 +111,7 @@ public class PascalNumberToken extends PascalToken
 
     /**
      * Extract and return the digits of an unsigned integer.
+     *
      * @param textBuffer the buffer to append token's characters.
      * @return the string of digits.
      * @throws Exception if an error occurred.
@@ -138,6 +139,7 @@ public class PascalNumberToken extends PascalToken
     /**
      * Compute and return the integer value of a string of digits.
      * Check for overflow.
+     *
      * @param digits the string of digits.
      * @return the integer value.
      */
@@ -169,14 +171,15 @@ public class PascalNumberToken extends PascalToken
 
     /**
      * Compute and return the float value of a real number.
-     * @param wholeDigits the string of digits before the decimal point.
+     *
+     * @param wholeDigits    the string of digits before the decimal point.
      * @param fractionDigits the string of digits after the decimal point.
      * @param exponentDigits the string of exponent digits.
-     * @param exponentSign the exponent sign.
+     * @param exponentSign   the exponent sign.
      * @return the float value.
      */
     private float computeFloateValue(String wholeDigits, String fractionDigits,
-            String exponentDigits, char exponentSign) {
+                                     String exponentDigits, char exponentSign) {
         double floatValue = 0.0;
         int exponentValue = computeIntegerValue(exponentDigits);
         String digits = wholeDigits;    // whole and fraction digits

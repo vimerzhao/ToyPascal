@@ -4,32 +4,35 @@ import java.util.ArrayList;
 
 /**
  * SymTab
- *
+ * <p>
  * The framework interface that represents the symbol table.
  */
 public interface SymTab {
     /**
      * Getter.
+     *
      * @return the scope nesting level of this entry.
      */
-    public int getNestingLevel();
+    int getNestingLevel();
 
     /**
      * Create and enter a new entry into the symbol table.
+     *
      * @param name the name of the entry.
      * @return the new entry.
      */
-    public SymTabEntry enter(String name);
+    SymTabEntry enter(String name);
 
     /**
      * Look up an existing symbol table entry.
+     *
      * @param name the name of the entry.
      * @return the entry, or null if it does not exist.
      */
-    public SymTabEntry lookup(String name);
+    SymTabEntry lookup(String name);
 
     /**
      * @return a list of symbol table entries sorted by name.
      */
-    public ArrayList<SymTabEntry> sortedEntries();
+    ArrayList<SymTabEntry> sortedEntries();
 }

@@ -6,6 +6,7 @@ public class AddInfo {
     private String info;// file name or folder name
     private IDEFrame ideFrame; // frame
     private AddHandler handler;// handler class after click add button
+
     public AddInfo(String info, IDEFrame ideFrame, AddHandler handler) {
         this.info = info;
         this.ideFrame = ideFrame;

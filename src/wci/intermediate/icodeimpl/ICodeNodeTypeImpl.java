@@ -4,7 +4,7 @@ import wci.intermediate.ICodeNodeType;
 
 /**
  * ICodeNodeType
- *
+ * <p>
  * Node types of the intermediate code parse tree.
  */
 public enum ICodeNodeTypeImpl implements ICodeNodeType {

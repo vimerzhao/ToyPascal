@@ -10,9 +10,11 @@ import javax.swing.event.ChangeListener;
 
 public class TabListener implements ChangeListener {
     private EditPane editPane;
+
     public TabListener(EditPane editPane) {
         this.editPane = editPane;
     }
+
     @Override
     public void stateChanged(ChangeEvent e) {
         JTabbedPane tabbedPane = (JTabbedPane) e.getSource();

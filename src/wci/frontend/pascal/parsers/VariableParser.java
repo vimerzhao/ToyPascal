@@ -18,11 +18,17 @@ import static wci.frontend.pascal.PascalTokenType.*;
 import static wci.intermediate.icodeimpl.ICodeKeyImpl.ID;
 import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.SUBSCRIPTS;
 import static wci.intermediate.symtabimpl.DefinitionImpl.*;
-import static wci.intermediate.typeimpl.TypeKeyImpl.ARRAY_ELEMENT_TYPE;
-import static wci.intermediate.typeimpl.TypeKeyImpl.ARRAY_INDEX_TYPE;
-import static wci.intermediate.typeimpl.TypeKeyImpl.RECORD_SYMTAB;
+import static wci.intermediate.typeimpl.TypeKeyImpl.*;
 
 public class VariableParser extends StatementParser {
+    // Synchronization set to start a subscript or a field.
+    private static final EnumSet<PascalTokenType> SUBSCRIPT_FIELD_START_SET =
+            EnumSet.of(LEFT_BRACKET, DOT);
+    // Synchronization set for the ] token.
+    private static final EnumSet<PascalTokenType> RIGHT_BRACKET_SET =
+            EnumSet.of(RIGHT_BRACKET, EQUALS, SEMICOLON);
+    private boolean isFunctionTarget = false;
+
     /**
      * Constructor.
      *
@@ -32,12 +38,9 @@ public class VariableParser extends StatementParser {
         super(parent);
     }
 
-    // Synchronization set to start a subscript or a field.
-    private static final EnumSet<PascalTokenType> SUBSCRIPT_FIELD_START_SET =
-            EnumSet.of(LEFT_BRACKET, DOT);
-
     /**
      * Parse a variable.
+     *
      * @param token the initial token.
      * @return the root node of the generated parse tree.
      * @throws Exception if an error occurred.
@@ -61,7 +64,8 @@ public class VariableParser extends StatementParser {
 
     /**
      * Parse a variable.
-     * @param token the initial token.
+     *
+     * @param token      the initial token.
      * @param variableId the symbol table entry of the variable identifier.
      * @return the root node of the generated parse tree.
      * @throws Exception if an error occurred.
@@ -69,10 +73,10 @@ public class VariableParser extends StatementParser {
     public ICodeNode parse(Token token, SymTabEntry variableId) throws Exception {
         // Check how the variable is defined.
         Definition defnCode = variableId.getDefinition();
-         if (! ( (defnCode == VARIABLE)
-                 || (defnCode == VALUE_PARM)
-                 || (defnCode == VAR_PARM)
-                 || (isFunctionTarget && (defnCode == DefinitionImpl.FUNCTION)))) {
+        if (!((defnCode == VARIABLE)
+                || (defnCode == VALUE_PARM)
+                || (defnCode == VAR_PARM)
+                || (isFunctionTarget && (defnCode == DefinitionImpl.FUNCTION)))) {
             errorHandler.flag(token, INVALID_IDENTIFIER_USAGE, this);
         }
         variableId.appendLineNumber(token.getLineNumber());
@@ -103,12 +107,9 @@ public class VariableParser extends StatementParser {
         return variableNode;
     }
 
-    // Synchronization set for the ] token.
-    private static final EnumSet<PascalTokenType> RIGHT_BRACKET_SET =
-            EnumSet.of(RIGHT_BRACKET, EQUALS, SEMICOLON);
-
     /**
      * Parse a set of comma-separated subscript expressions.
+     *
      * @param variableType the type of the array variable.
      * @return the root node of the generated parse tree.
      * @throws Exception if an error occurred.
@@ -160,6 +161,7 @@ public class VariableParser extends StatementParser {
 
     /**
      * Parse a record field.
+     *
      * @param variableType the type of the record variable.
      * @return the root node of the generated parse tree.
      * @throws Exception if an error occurred.
@@ -195,10 +197,9 @@ public class VariableParser extends StatementParser {
         return fieldNode;
     }
 
-    private boolean isFunctionTarget = false;
-
     /**
      * Parse a function name as the target of an assignment statement.
+     *
      * @param token
      * @return the root node of the generated parse tree.
      * @throws Exception

@@ -18,8 +18,9 @@ public class RuntimeDisplayImpl extends ArrayList<ActivationRecord> implements R
 
     /**
      * Update the display for a call to a routine at a given nesting level.
+     *
      * @param nestingLevel the nesting level.
-     * @param ar the activation record for the routine.
+     * @param ar           the activation record for the routine.
      */
     @Override
     public void callUpdate(int nestingLevel, ActivationRecord ar) {
@@ -33,6 +34,7 @@ public class RuntimeDisplayImpl extends ArrayList<ActivationRecord> implements R
 
     /**
      * Update the display for a return from a routine at a given nesting level.
+     *
      * @param nestingLevel
      */
     @Override

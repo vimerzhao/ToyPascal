@@ -1,7 +1,5 @@
 package wci.backend.interpreter;
 
-import wci.backend.interpreter.Cell;
-
 import java.util.ArrayList;
 
 /**
@@ -10,13 +8,13 @@ import java.util.ArrayList;
 public interface MemoryMap {
     /**
      * Return the memory cell with the given name.
+     *
      * @param name
      * @return
      */
     Cell getCell(String name);
 
     /**
-     *
      * @return the list of all the names.
      */
     ArrayList<String> getAllNames();

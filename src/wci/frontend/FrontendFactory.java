@@ -5,15 +5,16 @@ import wci.frontend.pascal.PascalScanner;
 
 /**
  * FrontendFactory
- *
+ * <p>
  * A factory class that creates parsers for specific source languages.
  */
 public class FrontendFactory {
     /**
      * Create a parser.
+     *
      * @param language the name of the source language (e.g., "Pascal").
-     * @param type the type of parser (e.g., "top-down").
-     * @param source the source object.
+     * @param type     the type of parser (e.g., "top-down").
+     * @param source   the source object.
      * @return the parser.
      * @throws Exception if an error occurred.
      */

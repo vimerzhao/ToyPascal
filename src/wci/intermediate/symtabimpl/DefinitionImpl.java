@@ -4,10 +4,10 @@ import wci.intermediate.Definition;
 
 /**
  * DefinitionImpl
- *
+ * <p>
  * How a Pascal symbol table entry is defined.
  */
-public enum  DefinitionImpl implements Definition {
+public enum DefinitionImpl implements Definition {
     CONSTANT,
     ENUMERATION_CONSTANT("enumeration constant"),
     TYPE,
@@ -32,15 +32,16 @@ public enum  DefinitionImpl implements Definition {
 
     /**
      * Constructor.
+     *
      * @param text the text for the definition code.
      */
-    DefinitionImpl(String text)
-    {
+    DefinitionImpl(String text) {
         this.text = text;
     }
 
     /**
      * Getter.
+     *
      * @return the text of the definition code.
      */
     @Override

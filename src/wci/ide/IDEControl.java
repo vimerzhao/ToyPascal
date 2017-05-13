@@ -2,7 +2,7 @@ package wci.ide;
 
 /**
  * IDEControl
- *
+ * <p>
  * The master interface of the Pascal IDE.
  */
 public interface IDEControl {

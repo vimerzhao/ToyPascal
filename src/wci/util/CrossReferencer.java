@@ -6,28 +6,28 @@ import wci.intermediate.typeimpl.TypeFormImpl;
 
 import java.util.ArrayList;
 
-import static wci.intermediate.symtabimpl.SymTabKeyImpl.CONSTANT_VALUE;
-import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_ROUTINES;
-import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_SYMTAB;
+import static wci.intermediate.symtabimpl.SymTabKeyImpl.*;
 import static wci.intermediate.typeimpl.TypeKeyImpl.*;
 
 /**
  * CrossReferencer
- *
+ * <p>
  * Generate a cross-reference listing.
  */
 public class CrossReferencer {
     private static final int NAME_WIDTH = 16;
 
-    private static final String NAME_FORMAT       = "%-" + NAME_WIDTH + "s";
-    private static final String NUMBERS_LABEL     = " Line numbers    ";
+    private static final String NAME_FORMAT = "%-" + NAME_WIDTH + "s";
+    private static final String NUMBERS_LABEL = " Line numbers    ";
     private static final String NUMBERS_UNDERLINE = " ------------    ";
     private static final String NUMBER_FORMAT = " %03d";
 
-    private static final int LABEL_WIDTH  = NUMBERS_LABEL.length();
+    private static final int LABEL_WIDTH = NUMBERS_LABEL.length();
     private static final int INDENT_WIDTH = NAME_WIDTH + LABEL_WIDTH;
 
     private static final StringBuilder INDENT = new StringBuilder(INDENT_WIDTH);
+    private static final String ENUM_CONST_FORMAT = "%" + NAME_WIDTH + "s = %s";
+
     static {
         for (int i = 0; i < INDENT_WIDTH; ++i) {
             INDENT.append(" ");
@@ -36,6 +36,7 @@ public class CrossReferencer {
 
     /**
      * Print the cross-reference table.
+     *
      * @param symTabStack the symbol table stack.
      */
     public void print(SymTabStack symTabStack) {
@@ -47,6 +48,7 @@ public class CrossReferencer {
 
     /**
      * Print a cross-reference table for a routine.
+     *
      * @param routineId the routine identifier's symbol table entry.
      */
     private void printRoutine(SymTabEntry routineId) {
@@ -84,7 +86,8 @@ public class CrossReferencer {
 
     /**
      * Print the entries in a symbol table.
-     * @param symTab the symbol table.
+     *
+     * @param symTab      the symbol table.
      * @param recordTypes the list to fill with RECORD type specifications.
      */
     private void printSymTab(SymTab symTab, ArrayList<TypeSpec> recordTypes) {
@@ -108,7 +111,8 @@ public class CrossReferencer {
 
     /**
      * Print a symbol table entry.
-     * @param entry the symbol table entry.
+     *
+     * @param entry       the symbol table entry.
      * @param recordTypes the list to fill with RECORD specifications.
      */
     private void printEntry(SymTabEntry entry, ArrayList<TypeSpec> recordTypes) {
@@ -159,6 +163,7 @@ public class CrossReferencer {
 
     /**
      * Convert a value to a string.
+     *
      * @param value the value.
      * @return the string.
      */
@@ -168,6 +173,7 @@ public class CrossReferencer {
 
     /**
      * Print a type specification.
+     *
      * @param type the type specification.
      */
     private void printType(TypeSpec type) {
@@ -180,11 +186,10 @@ public class CrossReferencer {
         }
     }
 
-    private static final String ENUM_CONST_FORMAT = "%" + NAME_WIDTH + "s = %s";
-
     /**
      * Print the details of a type specification.
-     * @param type the type specification.
+     *
+     * @param type        the type specification.
      * @param recordTypes the list to fill with RECORD type specifications.
      */
     private void printTypeDetail(TypeSpec type, ArrayList<TypeSpec> recordTypes) {
@@ -255,6 +260,7 @@ public class CrossReferencer {
 
     /**
      * Print cross-reference tables for records defined in the routine.
+     *
      * @param recordTypes the list to fill with RECORD type specifications.
      */
     private void printRecords(ArrayList<TypeSpec> recordTypes) {

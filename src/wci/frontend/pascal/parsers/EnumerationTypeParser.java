@@ -19,23 +19,24 @@ import static wci.intermediate.typeimpl.TypeFormImpl.ENUMERATION;
 import static wci.intermediate.typeimpl.TypeKeyImpl.ENUMERATION_CONSTANTS;
 
 public class EnumerationTypeParser extends TypeSpecificationParser {
-    public EnumerationTypeParser(PascalParserTD parent) {
-        super(parent);
-    }
-
     // Synchronization set to start an enumeration constant.
     private static final EnumSet<PascalTokenType> ENUM_CONSTANT_START_SET =
             EnumSet.of(IDENTIFIER, COMMA);
-
     // Synchronization set to follow an enumeration definition.
     private static final EnumSet<PascalTokenType> ENUM_DEFINITION_FOLLOW_SET =
             EnumSet.of(RIGHT_PAREN, SEMICOLON);
+
     static {
         ENUM_DEFINITION_FOLLOW_SET.addAll(DeclarationsParser.VAR_START_SET);
     }
 
+    public EnumerationTypeParser(PascalParserTD parent) {
+        super(parent);
+    }
+
     /**
      * Parse a Pascal enumeration type specification.
+     *
      * @param token the current token.
      * @return the enumeration type specification.
      * @throws Exception if an error occurred.
@@ -76,10 +77,11 @@ public class EnumerationTypeParser extends TypeSpecificationParser {
 
     /**
      * Parse an enumeration identifier.
-     * @param token token the current token.
-     * @param value the identifier's integer value(sequence number)/
+     *
+     * @param token           token the current token.
+     * @param value           the identifier's integer value(sequence number)/
      * @param enumerationType the enumeration type specification.
-     * @param constants the array of symbol table entries for the enumeration constants.
+     * @param constants       the array of symbol table entries for the enumeration constants.
      * @throws Exception if an error occurred.
      */
     private void parseEnumerationIdentifier(

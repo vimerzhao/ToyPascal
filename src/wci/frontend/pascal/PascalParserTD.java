@@ -1,28 +1,22 @@
 package wci.frontend.pascal;
 
-import wci.frontend.*;
-import wci.frontend.pascal.parsers.BlockParser;
+import wci.frontend.EofToken;
+import wci.frontend.Parser;
+import wci.frontend.Scanner;
+import wci.frontend.Token;
 import wci.frontend.pascal.parsers.ProgramParser;
-import wci.frontend.pascal.parsers.StatementParser;
-import wci.intermediate.ICode;
-import wci.intermediate.ICodeFactory;
-import wci.intermediate.ICodeNode;
-import wci.intermediate.SymTabEntry;
-import wci.intermediate.symtabimpl.DefinitionImpl;
 import wci.intermediate.symtabimpl.Predefined;
 import wci.message.Message;
 
 import java.util.EnumSet;
 
-import static wci.frontend.pascal.PascalTokenType.*;
-import static wci.frontend.pascal.PascalErrorCode.*;
-import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_ICODE;
-import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_SYMTAB;
-import static wci.message.MessageType.*;
+import static wci.frontend.pascal.PascalErrorCode.IO_ERROR;
+import static wci.frontend.pascal.PascalErrorCode.UNEXPECTED_TOKEN;
+import static wci.message.MessageType.PARSER_SUMMARY;
 
 /**
  * PascalParserTD
- *
+ * <p>
  * The top-down Pascal parser.
  */
 public class PascalParserTD extends Parser {
@@ -30,6 +24,7 @@ public class PascalParserTD extends Parser {
 
     /**
      * Constructor.
+     *
      * @param scanner the scanner to be used with this parser.
      */
     public PascalParserTD(Scanner scanner) {
@@ -38,6 +33,7 @@ public class PascalParserTD extends Parser {
 
     /**
      * Constructor for subclass.
+     *
      * @param parent the parent parser.
      */
     public PascalParserTD(PascalParserTD parent) {
@@ -48,6 +44,7 @@ public class PascalParserTD extends Parser {
     /**
      * Parse a Pascal source program and generate the symbol table and the intermediate code.
      * and the intermediate code.
+     *
      * @throws Exception if an error occurred.
      */
     @Override
@@ -65,7 +62,7 @@ public class PascalParserTD extends Parser {
             // Send the parser summary message.
             float elapsedTime = (System.currentTimeMillis() - startTime) / 1000f;
             sendMessage(new Message(PARSER_SUMMARY,
-                    new Number[] {token.getLineNumber(), getErrorCount(), elapsedTime}));
+                    new Number[]{token.getLineNumber(), getErrorCount(), elapsedTime}));
         } catch (java.io.IOException ex) {
             errorHandler.abortTranslation(IO_ERROR, this);
         }
@@ -73,6 +70,7 @@ public class PascalParserTD extends Parser {
 
     /**
      * Return the number of syntax errors found by the parser.
+     *
      * @return the error count.
      */
     @Override
@@ -82,6 +80,7 @@ public class PascalParserTD extends Parser {
 
     /**
      * Synchronize the parser.
+     *
      * @param syncSet the set of token types for synchronizing the parser.
      * @return the token where the parser has synchronized.
      * @throws Exception if an error occurred.
@@ -98,7 +97,7 @@ public class PascalParserTD extends Parser {
             // Recover by skipping tokens that are not in the synchronization set.
             do {
                 token = nextToken();
-            } while (!(token instanceof  EofToken) && !syncSet.contains(token.getType()));
+            } while (!(token instanceof EofToken) && !syncSet.contains(token.getType()));
         }
 
         return token;

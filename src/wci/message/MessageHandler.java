@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * MessageHandler
- *
+ * <p>
  * A helper class to which message producer classes delegate the task of
  * maintaining and notifying listeners.
  */
@@ -21,6 +21,7 @@ public class MessageHandler {
 
     /**
      * Add a listener to the listener list.
+     *
      * @param listener the listener to addimpl.
      */
     public void addListener(MessageListener listener) {
@@ -29,6 +30,7 @@ public class MessageHandler {
 
     /**
      * Remove a listener from the listener list.
+     *
      * @param listener the listener to remove.
      */
     public void removeListener(MessageListener listener) {
@@ -37,6 +39,7 @@ public class MessageHandler {
 
     /**
      * Notify listeners after setting the message.
+     *
      * @param message the message to set.
      */
     public void sendMessage(Message message) {

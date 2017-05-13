@@ -2,10 +2,10 @@ package wci.backend.interpreter;
 
 /**
  * RuntimeErrorCode
- *
+ * <p>
  * Runtime error codes.
  */
-public enum  RuntimeErrorCode {
+public enum RuntimeErrorCode {
     UNINITIALIZED_VALUE("Uninitialized value"),
     VALUE_RANGE("Value out of range"),
     INVALID_CASE_EXPRESSION_VALUE("Invalid CASE expression value"),
@@ -19,6 +19,7 @@ public enum  RuntimeErrorCode {
 
     /**
      * Constructor.
+     *
      * @param message the error message
      */
     RuntimeErrorCode(String message) {

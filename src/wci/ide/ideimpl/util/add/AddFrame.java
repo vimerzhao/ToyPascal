@@ -2,7 +2,10 @@ package wci.ide.ideimpl.util.add;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Objects;
 
 public class AddFrame extends JFrame {
@@ -31,7 +34,7 @@ public class AddFrame extends JFrame {
             }
         });
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        setLocation(screenSize.width/2, screenSize.height/3);
+        setLocation(screenSize.width / 2, screenSize.height / 3);
         setResizable(false);
         namePanel.setLayout(new BoxLayout(namePanel, BoxLayout.X_AXIS));
         namePanel.add(nameLabel);

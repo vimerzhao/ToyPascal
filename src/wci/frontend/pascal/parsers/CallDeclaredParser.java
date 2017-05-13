@@ -21,6 +21,7 @@ public class CallDeclaredParser extends CallParser {
 
     /**
      * Parse a call to a declared procedure or function.
+     *
      * @param token the initial token.
      * @return the root node of the generated parse tree.
      * @throws Exception if an error occurred.

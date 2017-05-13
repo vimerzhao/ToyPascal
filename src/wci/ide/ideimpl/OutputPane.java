@@ -4,6 +4,7 @@ import javax.swing.*;
 
 public class OutputPane extends JScrollPane {
     private JTextArea output;
+
     public OutputPane(JTextArea output) {
         super(output);
         this.output = output;

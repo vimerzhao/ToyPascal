@@ -7,5 +7,6 @@ import java.io.File;
 
 public interface TreeCreator {
     JTree createTree(IDEFrame ideFrame);
+
     ProjectTreeNode createNode(File folder);
 }

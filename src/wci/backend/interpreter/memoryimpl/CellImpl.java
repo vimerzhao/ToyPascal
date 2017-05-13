@@ -10,12 +10,12 @@ public class CellImpl implements Cell {
     }
 
     @Override
-    public void setValue(Object newValue) {
-        this.value = newValue;
+    public Object getValue() {
+        return value;
     }
 
     @Override
-    public Object getValue() {
-        return value;
+    public void setValue(Object newValue) {
+        this.value = newValue;
     }
 }

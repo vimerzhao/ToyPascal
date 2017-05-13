@@ -11,12 +11,13 @@ import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.COMPOUND;
 
 /**
  * CompoundStatementParser
- *
+ * <p>
  * Parse a Pascal compound statement.
  */
 public class CompoundStatementParser extends StatementParser {
     /**
      * Constructor.
+     *
      * @param parent the parent parser.
      */
     public CompoundStatementParser(PascalParserTD parent) {
@@ -25,6 +26,7 @@ public class CompoundStatementParser extends StatementParser {
 
     /**
      * Parse a compound statement.
+     *
      * @param token the initial token.
      * @return the root node of the generated parse tree.
      * @throws Exception if an error occurred.

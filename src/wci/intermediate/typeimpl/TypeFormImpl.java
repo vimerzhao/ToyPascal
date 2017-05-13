@@ -4,7 +4,7 @@ import wci.intermediate.TypeForm;
 
 /**
  * TypeFormImpl
- *
+ * <p>
  * Type forms for a Pascal type specification.
  */
 public enum TypeFormImpl implements TypeForm {

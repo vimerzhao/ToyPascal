@@ -1,18 +1,19 @@
 package wci.frontend.pascal.tokens;
 
-import wci.frontend.*;
-import wci.frontend.pascal.*;
+import wci.frontend.Source;
+import wci.frontend.pascal.PascalToken;
 
-import static wci.frontend.pascal.PascalTokenType.*;
-import static wci.frontend.pascal.PascalErrorCode.*;
+import static wci.frontend.pascal.PascalErrorCode.INVALID_CHARACTER;
+import static wci.frontend.pascal.PascalTokenType.ERROR;
+import static wci.frontend.pascal.PascalTokenType.SPECIAL_SYMBOLS;
 
 /**
  * PascalSpecialSymbolToken
  */
-public class PascalSpecialSymbolToken extends PascalToken
-{
+public class PascalSpecialSymbolToken extends PascalToken {
     /**
      * Constructor.
+     *
      * @param source the source from where to fetch the token's characters.
      * @throws Exception if an error occurred.
      */
@@ -32,9 +33,21 @@ public class PascalSpecialSymbolToken extends PascalToken
         type = null;
         switch (currentChar) {
             // Single-character special symbols.
-            case '+':  case '-':  case '*':  case '/':  case ',':
-            case ';':  case '\'': case '=':  case '(':  case ')':
-            case '[':  case ']':  case '{':  case '}':  case '^': {
+            case '+':
+            case '-':
+            case '*':
+            case '/':
+            case ',':
+            case ';':
+            case '\'':
+            case '=':
+            case '(':
+            case ')':
+            case '[':
+            case ']':
+            case '{':
+            case '}':
+            case '^': {
                 nextChar();    // consume character
                 break;
             }

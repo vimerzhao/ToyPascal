@@ -2,7 +2,7 @@ package wci.message;
 
 /**
  * MessageType
- *
+ * <p>
  * Message types.
  */
 public enum MessageType {

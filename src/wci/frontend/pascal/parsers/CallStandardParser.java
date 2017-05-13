@@ -25,6 +25,7 @@ public class CallStandardParser extends CallParser {
 
     /**
      * Parse a call to a declared procedure or function.
+     *
      * @param token the initial token.
      * @return the root node of the generated parse tree.
      * @throws Exception if an error occurred.
@@ -39,41 +40,51 @@ public class CallStandardParser extends CallParser {
         token = nextToken();
         switch ((RoutineCodeImpl) routineCode) {
             case READ:
-            case READLN:  return parseReadReadln(token, callNode, pfId);
+            case READLN:
+                return parseReadReadln(token, callNode, pfId);
 
             case WRITE:
-            case WRITELN: return parseWriteWriteln(token, callNode, pfId);
+            case WRITELN:
+                return parseWriteWriteln(token, callNode, pfId);
 
             case EOF:
-            case EOLN:    return parseEofEoln(token, callNode, pfId);
+            case EOLN:
+                return parseEofEoln(token, callNode, pfId);
 
             case ABS:
-            case SQR:     return parseAbsSqr(token, callNode, pfId);
+            case SQR:
+                return parseAbsSqr(token, callNode, pfId);
 
             case ARCTAN:
             case COS:
             case EXP:
             case LN:
             case SIN:
-            case SQRT:    return parseArctanCosExpLnSinSqrt(token, callNode,
-                    pfId);
+            case SQRT:
+                return parseArctanCosExpLnSinSqrt(token, callNode,
+                        pfId);
 
             case PRED:
-            case SUCC:    return parsePredSucc(token, callNode, pfId);
+            case SUCC:
+                return parsePredSucc(token, callNode, pfId);
 
-            case CHR:     return parseChr(token, callNode, pfId);
-            case ODD:     return parseOdd(token, callNode, pfId);
-            case ORD:     return parseOrd(token, callNode, pfId);
+            case CHR:
+                return parseChr(token, callNode, pfId);
+            case ODD:
+                return parseOdd(token, callNode, pfId);
+            case ORD:
+                return parseOrd(token, callNode, pfId);
 
             case ROUND:
-            case TRUNC:   return parseRoundTrunc(token, callNode, pfId);
+            case TRUNC:
+                return parseRoundTrunc(token, callNode, pfId);
 
-            default:      return null;  // should never get here
+            default:
+                return null;  // should never get here
         }
     }
 
     /**
-     *
      * @param token
      * @param callNode
      * @param pfId
@@ -167,6 +178,7 @@ public class CallStandardParser extends CallParser {
 
     /**
      * Parse a cal to odd.
+     *
      * @param token
      * @param callNode
      * @param pfId
@@ -189,9 +201,10 @@ public class CallStandardParser extends CallParser {
 
     /**
      * Parse a call to ord
+     *
      * @param token
      * @param callNode the CALL node.
-     * @param pfId the symbol table entry of the standard routine name.
+     * @param pfId     the symbol table entry of the standard routine name.
      * @return ICodeNode the CALL node.
      * @throws Exception
      */
@@ -212,9 +225,10 @@ public class CallStandardParser extends CallParser {
 
     /**
      * Parse a call to round or trunc.
+     *
      * @param token
      * @param callNode the CALL node
-     * @param pfId the symbol table entry of the standard routine name.
+     * @param pfId     the symbol table entry of the standard routine name.
      * @return ICodeNode the CALL node.
      * @throws Exception
      */
@@ -237,9 +251,10 @@ public class CallStandardParser extends CallParser {
 
     /**
      * Check the number of actual parameters
-     * @param token the current token.
+     *
+     * @param token     the current token.
      * @param parmsNode the PARAMETERS node.
-     * @param count the correct number of parameters.
+     * @param count     the correct number of parameters.
      * @return true if the count if correct.
      */
     private boolean checkParmCount(Token token, ICodeNode parmsNode, int count) {

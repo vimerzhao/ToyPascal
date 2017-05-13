@@ -12,6 +12,7 @@ public interface ActivationRecord {
 
     /**
      * Get the memory cell for the given name from the memory map.
+     *
      * @param name
      * @return the cell
      */
@@ -31,6 +32,7 @@ public interface ActivationRecord {
 
     /**
      * Make a dynamic link from this activation record to another one.
+     *
      * @param ar
      * @return
      */

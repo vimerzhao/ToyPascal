@@ -3,7 +3,6 @@ package wci.frontend.pascal.parsers;
 import wci.frontend.Token;
 import wci.frontend.pascal.PascalParserTD;
 import wci.frontend.pascal.PascalTokenType;
-import wci.intermediate.ICode;
 import wci.intermediate.ICodeFactory;
 import wci.intermediate.ICodeNode;
 import wci.intermediate.TypeSpec;
@@ -19,6 +18,15 @@ import static wci.frontend.pascal.PascalTokenType.ELSE;
 import static wci.frontend.pascal.PascalTokenType.THEN;
 
 public class IfStatementParser extends StatementParser {
+    // Synchronization set for THEN.
+    private static final EnumSet<PascalTokenType> THEN_SET =
+            StatementParser.STMT_START_SET.clone();
+
+    static {
+        THEN_SET.add(THEN);
+        THEN_SET.addAll(StatementParser.STMT_FOLLOW_SET);
+    }
+
     /**
      * Constructor.
      *
@@ -28,16 +36,9 @@ public class IfStatementParser extends StatementParser {
         super(parent);
     }
 
-    // Synchronization set for THEN.
-    private static final EnumSet<PascalTokenType> THEN_SET =
-            StatementParser.STMT_START_SET.clone();
-    static  {
-        THEN_SET.add(THEN);
-        THEN_SET.addAll(StatementParser.STMT_FOLLOW_SET);
-    }
-
     /**
      * Parse an IF statement.
+     *
      * @param token the initial token.
      * @return the root node of the generated tree.
      * @throws Exception if an error occurred.

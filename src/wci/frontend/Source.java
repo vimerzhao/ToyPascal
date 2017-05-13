@@ -1,14 +1,18 @@
 package wci.frontend;
 
+import wci.message.Message;
+import wci.message.MessageHandler;
+import wci.message.MessageListener;
+import wci.message.MessageProducer;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 
-import wci.message.*;
 import static wci.message.MessageType.SOURCE_LINE;
 
 /**
  * Source
- *
+ * <p>
  * The framework class that represents the source program.
  */
 public class Source implements MessageProducer {
@@ -24,6 +28,7 @@ public class Source implements MessageProducer {
 
     /**
      * Constructor.
+     *
      * @param reader the reader for the source program
      * @throws IOException if an I/O error occurred
      */
@@ -36,6 +41,7 @@ public class Source implements MessageProducer {
 
     /**
      * Getter.
+     *
      * @return the current source line number.
      */
     public int getLineNum() {
@@ -44,6 +50,7 @@ public class Source implements MessageProducer {
 
     /**
      * Getter.
+     *
      * @return the position of the next source character in the
      * current source line.
      */
@@ -53,6 +60,7 @@ public class Source implements MessageProducer {
 
     /**
      * Return the source character at the current position.
+     *
      * @return the source character at the current position.
      * @throws Exception if an error occurred.
      */
@@ -75,6 +83,7 @@ public class Source implements MessageProducer {
 
     /**
      * Consume the current source character and return the next character.
+     *
      * @return the next source character.
      * @throws Exception if an error occurred.
      */
@@ -86,6 +95,7 @@ public class Source implements MessageProducer {
     /**
      * Return the source character following the current character without
      * consuming the current character.
+     *
      * @return the following character.
      * @throws Exception if an error occurred.
      */
@@ -101,6 +111,7 @@ public class Source implements MessageProducer {
 
     /**
      * Read the next source line.
+     *
      * @throws IOException if an I/O error occurred.
      */
     private void readLine() throws IOException {
@@ -114,12 +125,13 @@ public class Source implements MessageProducer {
         // Send a source line message containing the line number
         // and the line text to all the listeners.
         if (line != null) {
-            sendMessage(new Message(SOURCE_LINE, new Object[] {lineNum, line}));
+            sendMessage(new Message(SOURCE_LINE, new Object[]{lineNum, line}));
         }
     }
 
     /**
      * Close the source.
+     *
      * @throws Exception if an error occurred.
      */
     public void close() throws Exception {
@@ -157,6 +169,7 @@ public class Source implements MessageProducer {
     /**
      * Skip the rest of the current input line
      * by forcing the next read to read a new line.
+     *
      * @throws Exception if an error occurred.
      */
     public void skipToNextLine() throws Exception {
@@ -168,6 +181,7 @@ public class Source implements MessageProducer {
 
     /**
      * Add a parser message listener.
+     *
      * @param listener the message listener to addimpl.
      */
     public void addMessageListener(MessageListener listener) {
@@ -176,6 +190,7 @@ public class Source implements MessageProducer {
 
     /**
      * Remove a parser message listener.
+     *
      * @param listener the message listener to remove.
      */
     public void removeMessageListener(MessageListener listener) {
@@ -184,6 +199,7 @@ public class Source implements MessageProducer {
 
     /**
      * Notify listeners after setting the message.
+     *
      * @param message the message to set.
      */
     public void sendMessage(Message message) {

@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 
 public class ProjectTreeSelectionListener extends MouseAdapter {
     private IDEFrame ideFrame;
+
     public ProjectTreeSelectionListener(IDEFrame ideFrame) {
         this.ideFrame = ideFrame;
     }

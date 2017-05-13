@@ -4,7 +4,6 @@ package wci.ide.ideimpl.tree;
 import wci.ide.IDEFrame;
 import wci.ide.ideimpl.FileBrowserPane;
 import wci.ide.ideimpl.util.ImageUtil;
-import wci.ide.ideimpl.util.Info.WorkSpace;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeCellRenderer;
@@ -39,9 +38,9 @@ public class TreeCreatorImpl implements TreeCreator {
         return tree;
     }
 
-    private void expandAllNodes(JTree tree, int startingIndex, int rowCount){
+    private void expandAllNodes(JTree tree, int startingIndex, int rowCount) {
         // only first layer
-        for(int i=startingIndex;i<rowCount;++i){
+        for (int i = startingIndex; i < rowCount; ++i) {
             tree.expandRow(i);
         }
 

@@ -20,16 +20,18 @@ import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.*;
 import static wci.intermediate.symtabimpl.RoutineCodeImpl.DECLARED;
 import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_CODE;
 import static wci.intermediate.typeimpl.TypeFormImpl.SUBRANGE;
-import static wci.intermediate.typeimpl.TypeKeyImpl.ARRAY_ELEMENT_TYPE;
-import static wci.intermediate.typeimpl.TypeKeyImpl.ARRAY_INDEX_TYPE;
-import static wci.intermediate.typeimpl.TypeKeyImpl.SUBRANGE_MIN_VALUE;
+import static wci.intermediate.typeimpl.TypeKeyImpl.*;
 
 /**
  * ExpressionExecutor
- *
+ * <p>
  * Executor an expression.
  */
 public class ExpressionExecutor extends StatementExecutor {
+    // Set of arithmetic operator node types.
+    private static final EnumSet<ICodeNodeTypeImpl> ARITH_OP =
+            EnumSet.of(ADD, SUBTRACT, MULTIPLY, FLOAT_DIVIDE, INTEGER_DIVIDE, MOD);
+
     /**
      * Constructor.
      *
@@ -41,6 +43,7 @@ public class ExpressionExecutor extends StatementExecutor {
 
     /**
      * Execute an expression.
+     *
      * @param node the root intermediate code node of the compound statement.
      * @return the computed value of the expression.
      */
@@ -63,7 +66,7 @@ public class ExpressionExecutor extends StatementExecutor {
             }
             case STRING_CONSTANT: {
                 // Return the string value.
-                return (String)node.getAttribute(VALUE);
+                return (String) node.getAttribute(VALUE);
             }
             case NEGATE: {
                 // Return the NEGATE node's expression node child.
@@ -111,13 +114,10 @@ public class ExpressionExecutor extends StatementExecutor {
         }
     }
 
-    // Set of arithmetic operator node types.
-    private static final EnumSet<ICodeNodeTypeImpl> ARITH_OP =
-            EnumSet.of(ADD, SUBTRACT, MULTIPLY, FLOAT_DIVIDE, INTEGER_DIVIDE, MOD);
-
     /**
      * Execute a binary operator.
-     * @param node the root node of the expression.
+     *
+     * @param node     the root node of the expression.
      * @param nodeType the node type.
      * @return the computed value of the expression.
      */
@@ -132,21 +132,21 @@ public class ExpressionExecutor extends StatementExecutor {
         Object operand2 = execute(operandNode2);
 
         boolean integerMode = false;
-        boolean characterMode =false;
+        boolean characterMode = false;
         boolean stringMode = false;
 
         if ((operand1 instanceof Integer) && (operand2 instanceof Integer)) {
-             integerMode = true;
-         } else if ( ( (operand1 instanceof Character)
-                || ( (operand1 instanceof String)
-                && (((String) operand1).length() == 1) ))
-                && ( (operand2 instanceof Character)
-                || ( (operand2 instanceof String)
+            integerMode = true;
+        } else if (((operand1 instanceof Character)
+                || ((operand1 instanceof String)
+                && (((String) operand1).length() == 1)))
+                && ((operand2 instanceof Character)
+                || ((operand2 instanceof String)
                 && (((String) operand2).length() == 1)))) {
-             characterMode = true;
-         } else if ((operand1 instanceof String) && (operand2 instanceof String)) {
-             stringMode = true;
-         }
+            characterMode = true;
+        } else if ((operand1 instanceof String) && (operand2 instanceof String)) {
+            stringMode = true;
+        }
 
 
         // Arithmetic operators
@@ -195,10 +195,10 @@ public class ExpressionExecutor extends StatementExecutor {
                     }
                 }
             } else {
-                float value1 = operand1 instanceof  Integer
-                                ? (Integer) operand1
-                                : (Float) operand1;
-                float value2 = operand2 instanceof  Integer
+                float value1 = operand1 instanceof Integer
+                        ? (Integer) operand1
+                        : (Float) operand1;
+                float value2 = operand2 instanceof Integer
                         ? (Integer) operand2
                         : (Float) operand2;
                 switch (nodeType) {
@@ -219,7 +219,7 @@ public class ExpressionExecutor extends StatementExecutor {
                             errorHandler.flag(node, DIVISION_BY_ZERO, this);
                             return 0.0f;
                         }
-                     }
+                    }
                 }
             }
         } else if ((nodeType == AND) || (nodeType == OR)) {
@@ -264,27 +264,39 @@ public class ExpressionExecutor extends StatementExecutor {
             int value1 = operand1 instanceof Character ? (Character) operand1 : ((String) operand1).charAt(0);
             int value2 = operand2 instanceof Character ? (Character) operand2 : ((String) operand2).charAt(0);
             switch (nodeType) {
-                 case EQ: return value1 == value2;
-                 case NE: return value1 != value2;
-                 case LT: return value1 <  value2;
-                 case LE: return value1 <= value2;
-                 case GT: return value1 >  value2;
-                 case GE: return value1 >= value2;
+                case EQ:
+                    return value1 == value2;
+                case NE:
+                    return value1 != value2;
+                case LT:
+                    return value1 < value2;
+                case LE:
+                    return value1 <= value2;
+                case GT:
+                    return value1 > value2;
+                case GE:
+                    return value1 >= value2;
             }
         } else if (stringMode) {
-             String value1 = (String) operand1;
-             String value2 = (String) operand2;
+            String value1 = (String) operand1;
+            String value2 = (String) operand2;
 
-             // String operands.
-             int comp = value1.compareTo(value2);
-             switch (nodeType) {
-                 case EQ: return comp == 0;
-                 case NE: return comp != 0;
-                 case LT: return comp <  0;
-                 case LE: return comp <= 0;
-                 case GT: return comp >  0;
-                 case GE: return comp >= 0;
-             }
+            // String operands.
+            int comp = value1.compareTo(value2);
+            switch (nodeType) {
+                case EQ:
+                    return comp == 0;
+                case NE:
+                    return comp != 0;
+                case LT:
+                    return comp < 0;
+                case LE:
+                    return comp <= 0;
+                case GT:
+                    return comp > 0;
+                case GE:
+                    return comp >= 0;
+            }
         } else {
             // Relational operators for others
             float value1 = operand1 instanceof Integer
@@ -319,6 +331,7 @@ public class ExpressionExecutor extends StatementExecutor {
 
     /**
      * Return a variable's value.
+     *
      * @param node
      * @return
      */
@@ -343,6 +356,7 @@ public class ExpressionExecutor extends StatementExecutor {
 
     /**
      * Execute a variable and return the reference to its cell.
+     *
      * @param node
      * @return
      */

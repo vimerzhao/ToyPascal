@@ -15,37 +15,54 @@ import java.util.EnumSet;
 import static wci.frontend.pascal.PascalErrorCode.*;
 import static wci.frontend.pascal.PascalTokenType.*;
 import static wci.intermediate.typeimpl.TypeFormImpl.ARRAY;
-import static wci.intermediate.typeimpl.TypeFormImpl.ENUMERATION;
-import static wci.intermediate.typeimpl.TypeFormImpl.SUBRANGE;
+import static wci.intermediate.typeimpl.TypeFormImpl.*;
 import static wci.intermediate.typeimpl.TypeKeyImpl.*;
 
 public class ArrayTypeParser extends TypeSpecificationParser {
-    public ArrayTypeParser(PascalParserTD parent) {
-        super(parent);
-    }
-
     // Synchronization set for the [ token.
     private static final EnumSet<PascalTokenType> LEFT_BRACKET_SET =
             SimpleTypeParser.SIMPLE_TYPE_START_SET.clone();
+    // Synchronization set for the ] token.
+    private static final EnumSet<PascalTokenType> RIGHT_BRACKET_SET =
+            EnumSet.of(RIGHT_BRACKET, OF, SEMICOLON);
+    // Synchronization set for OF.
+    private static final EnumSet<PascalTokenType> OF_SET =
+            TypeSpecificationParser.TYPE_START_SET.clone();
+    // Synchronization set to start an index type.
+    private static final EnumSet<PascalTokenType> INDEX_START_SET =
+            SimpleTypeParser.SIMPLE_TYPE_START_SET.clone();
+    // Synchronization set to end an index type.
+    private static final EnumSet<PascalTokenType> INDEX_END_SET =
+            EnumSet.of(RIGHT_BRACKET, OF, SEMICOLON);
+    // Synchronization set to follow an index type.
+    private static final EnumSet<PascalTokenType> INDEX_FOLLOW_SET =
+            INDEX_START_SET.clone();
+
     static {
         LEFT_BRACKET_SET.add(LEFT_BRACKET);
         LEFT_BRACKET_SET.add(RIGHT_BRACKET);
     }
 
-    // Synchronization set for the ] token.
-    private static final EnumSet<PascalTokenType> RIGHT_BRACKET_SET =
-            EnumSet.of(RIGHT_BRACKET, OF, SEMICOLON);
-
-    // Synchronization set for OF.
-    private static final EnumSet<PascalTokenType> OF_SET =
-            TypeSpecificationParser.TYPE_START_SET.clone();
     static {
         OF_SET.add(OF);
         OF_SET.add(SEMICOLON);
     }
 
+    static {
+        INDEX_START_SET.add(COMMA);
+    }
+
+    static {
+        INDEX_FOLLOW_SET.addAll(INDEX_END_SET);
+    }
+
+    public ArrayTypeParser(PascalParserTD parent) {
+        super(parent);
+    }
+
     /**
      * Parse a Pascal array type specification.
+     *
      * @param token the current token.
      * @return the array type specification.
      * @throws Exception if an error occurred.
@@ -85,27 +102,10 @@ public class ArrayTypeParser extends TypeSpecificationParser {
         return arrayType;
     }
 
-    // Synchronization set to start an index type.
-    private static final EnumSet<PascalTokenType> INDEX_START_SET =
-            SimpleTypeParser.SIMPLE_TYPE_START_SET.clone();
-    static {
-        INDEX_START_SET.add(COMMA);
-    }
-
-    // Synchronization set to end an index type.
-    private static final EnumSet<PascalTokenType> INDEX_END_SET =
-            EnumSet.of(RIGHT_BRACKET, OF, SEMICOLON);
-
-    // Synchronization set to follow an index type.
-    private static final EnumSet<PascalTokenType> INDEX_FOLLOW_SET =
-            INDEX_START_SET.clone();
-    static {
-        INDEX_FOLLOW_SET.addAll(INDEX_END_SET);
-    }
-
     /**
      * Parse the list of index type specifications.
-     * @param token the current token.
+     *
+     * @param token     the current token.
      * @param arrayType the current array type specification.
      * @return the element type specification.
      * @throws Exception if an error occurred.
@@ -136,7 +136,8 @@ public class ArrayTypeParser extends TypeSpecificationParser {
                 // Create an ARRAY element type object
                 // for each subsequent index type.
                 TypeSpec newElementType = TypeFactory.createType(ARRAY);
-                elementType.setAttribute(ARRAY_ELEMENT_TYPE, newElementType);;
+                elementType.setAttribute(ARRAY_ELEMENT_TYPE, newElementType);
+                ;
                 elementType = newElementType;
 
                 token = nextToken();    // consume ,
@@ -149,7 +150,8 @@ public class ArrayTypeParser extends TypeSpecificationParser {
 
     /**
      * Parse an index type specification.
-     * @param token the current token.
+     *
+     * @param token     the current token.
      * @param arrayType the current array type specification.
      * @throws Exception if an error occurred.
      */
@@ -184,6 +186,7 @@ public class ArrayTypeParser extends TypeSpecificationParser {
 
     /**
      * Parse the element type specification.
+     *
      * @param token the current token
      * @return the element type specification.
      * @throws Exception if an error occurred.

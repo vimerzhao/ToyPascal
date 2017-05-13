@@ -18,6 +18,7 @@ public class CompoundExecutor extends StatementExecutor {
 
     /**
      * Execute a compound statement.
+     *
      * @param node the root node of the compound statement.
      * @return null.
      */

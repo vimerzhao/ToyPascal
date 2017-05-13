@@ -14,7 +14,7 @@ import static wci.ide.IDEControl.*;
 
 /**
  * GUIDebugger
- *
+ * <p>
  * GUI version of the interactive source-level debugger.
  */
 public class GUIDebugger extends Debugger {

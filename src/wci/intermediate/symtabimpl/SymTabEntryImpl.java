@@ -19,7 +19,8 @@ public class SymTabEntryImpl extends HashMap<SymTabKey, Object> implements SymTa
 
     /**
      * Constructor.
-     * @param name the name of the entry.
+     *
+     * @param name   the name of the entry.
      * @param symTab the symbol table that contains this entry.
      */
     public SymTabEntryImpl(String name, SymTab symTab) {
@@ -30,6 +31,7 @@ public class SymTabEntryImpl extends HashMap<SymTabKey, Object> implements SymTa
 
     /**
      * Getter.
+     *
      * @return the name of the entry.
      */
     @Override
@@ -39,6 +41,7 @@ public class SymTabEntryImpl extends HashMap<SymTabKey, Object> implements SymTa
 
     /**
      * Getter.
+     *
      * @return the symbol table that contain ths entry.
      */
     @Override
@@ -47,16 +50,8 @@ public class SymTabEntryImpl extends HashMap<SymTabKey, Object> implements SymTa
     }
 
     /**
-     * Setter.
-     * @param typeSpec the type specification to set.
-     */
-    public void setTypeSpec(TypeSpec typeSpec)
-    {
-        this.typeSpec = typeSpec;
-    }
-
-    /**
      * Getter.
+     *
      * @return the type specification.
      */
     public TypeSpec getTypeSpec() {
@@ -65,14 +60,16 @@ public class SymTabEntryImpl extends HashMap<SymTabKey, Object> implements SymTa
 
     /**
      * Setter.
-     * @param definition the definition to set.
+     *
+     * @param typeSpec the type specification to set.
      */
-    public void setDefinition(Definition definition) {
-        this.definition = definition;
+    public void setTypeSpec(TypeSpec typeSpec) {
+        this.typeSpec = typeSpec;
     }
 
     /**
      * Getter.
+     *
      * @return the definition.
      */
     public Definition getDefinition() {
@@ -80,7 +77,17 @@ public class SymTabEntryImpl extends HashMap<SymTabKey, Object> implements SymTa
     }
 
     /**
+     * Setter.
+     *
+     * @param definition the definition to set.
+     */
+    public void setDefinition(Definition definition) {
+        this.definition = definition;
+    }
+
+    /**
      * Append a source line number to the entry.
+     *
      * @param lineNumber the line number to append.
      */
     @Override
@@ -95,7 +102,8 @@ public class SymTabEntryImpl extends HashMap<SymTabKey, Object> implements SymTa
 
     /**
      * Set an attribute of the entry.
-     * @param key the attribute key.
+     *
+     * @param key   the attribute key.
      * @param value thr attribute value.
      */
     @Override
@@ -105,6 +113,7 @@ public class SymTabEntryImpl extends HashMap<SymTabKey, Object> implements SymTa
 
     /**
      * Get the value of an attribute of the entry.
+     *
      * @param key the attribute key.
      * @return the attribute value.
      */

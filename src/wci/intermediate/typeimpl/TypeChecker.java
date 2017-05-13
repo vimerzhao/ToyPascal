@@ -10,6 +10,7 @@ import static wci.intermediate.typeimpl.TypeFormImpl.SCALAR;
 public class TypeChecker {
     /**
      * Check if a specification is integer.
+     *
      * @param typeSpec the type specification.
      * @return true if integer, else false.
      */
@@ -19,6 +20,7 @@ public class TypeChecker {
 
     /**
      * Check if both type specification are integer.
+     *
      * @param type1 the first type specification to check.
      * @param type2 the second type specification to check.
      * @return true if both are integer, else false.
@@ -29,6 +31,7 @@ public class TypeChecker {
 
     /**
      * Check if a type specification is real.
+     *
      * @param type the type specification to check.
      * @return true if real, else false.
      */
@@ -38,6 +41,7 @@ public class TypeChecker {
 
     /**
      * Check if a type specification is integer or real.
+     *
      * @param type the type specification to check.
      * @return true if integer or real, else false.
      */
@@ -47,6 +51,7 @@ public class TypeChecker {
 
     /**
      * Check if at least one or two type specifications is real.
+     *
      * @param type1 the first type specification to check.
      * @param type2 the second type specification to check.
      * @return true if at least one is real, else false.
@@ -59,6 +64,7 @@ public class TypeChecker {
 
     /**
      * Check if a type specification is boolean.
+     *
      * @param typeSpec the type specification to check.
      * @return true if boolean, else false.
      */
@@ -68,6 +74,7 @@ public class TypeChecker {
 
     /**
      * Check if both type specification are boolean.
+     *
      * @param type1 the first type specification to check.
      * @param type2 the second type specification to check.
      * @return true if both are boolean, else false.
@@ -78,6 +85,7 @@ public class TypeChecker {
 
     /**
      * Check if a type specification is Char.
+     *
      * @param typeSpec the type specification to check.
      * @return true if char, else false.
      */
@@ -87,12 +95,13 @@ public class TypeChecker {
 
     /**
      * Check if two type specifications are assignment compatible.
+     *
      * @param targetType the target type specification.
-     * @param valueType the value type specification.
+     * @param valueType  the value type specification.
      * @return true if the value can be assigned to the target, else false.
      */
     public static boolean areAssignmentCompatible(TypeSpec targetType, TypeSpec valueType) {
-        if ((targetType == null) || (valueType ==null)) {
+        if ((targetType == null) || (valueType == null)) {
             return false;
         }
 
@@ -114,12 +123,13 @@ public class TypeChecker {
 
     /**
      * Check if two type specifications are comparison compatible.
+     *
      * @param type1 the first type specification to check.
      * @param type2 the second type specification to check.
      * @return true if the types can be compared to each other, else false.
      */
     public static boolean areComparisonCompatible(TypeSpec type1, TypeSpec type2) {
-        if ((type1 == null) || (type2 ==null)) {
+        if ((type1 == null) || (type2 == null)) {
             return false;
         }
 

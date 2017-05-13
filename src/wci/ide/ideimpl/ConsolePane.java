@@ -4,6 +4,7 @@ import javax.swing.*;
 
 public class ConsolePane extends JScrollPane {
     private JTextArea info;
+
     public ConsolePane(JTextArea info) {
         super(info);
         this.info = info;

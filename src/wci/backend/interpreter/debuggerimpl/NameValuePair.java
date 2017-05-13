@@ -2,37 +2,33 @@ package wci.backend.interpreter.debuggerimpl;
 
 import wci.backend.interpreter.Cell;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Variable name and its value string pair used by the debugger.
  */
 public class NameValuePair {
+    private static final int MAX_DISPLAYED_ELEMENTS = 10;
     private String variableName;
     private String valueString;
 
     /**
      * Constructor.
+     *
      * @param variableName the variable's name.
-     * @param value the variable's current value.
+     * @param value        the variable's current value.
      */
     protected NameValuePair(String variableName, Object value) {
         this.variableName = variableName;
         this.valueString = valueString(value);
     }
 
-    public String getVariableName() {
-        return variableName;
-    }
-
-    public String getValueString() {
-        return valueString;
-    }
-
-    private static final int MAX_DISPLAYED_ELEMENTS = 10;
-
     /**
      * Conver a value into a value string.
+     *
      * @param value the value.
      * @return the value string.
      */
@@ -48,7 +44,7 @@ public class NameValuePair {
             arrayValueString((Cell[]) value, buffer);
         } else if (value instanceof HashMap) { // Record value.
             recordValueString((HashMap) value, buffer);
-        } else if (value instanceof  Character) {
+        } else if (value instanceof Character) {
             buffer.append("'").append((Character) value).append("'");
         } else { // Numeric or boolean value.
             buffer.append(value.toString());
@@ -58,7 +54,8 @@ public class NameValuePair {
 
     /**
      * Convert an array value into a value string.
-     * @param array the array.
+     *
+     * @param array  the array.
      * @param buffer the StringBuilder to use.
      */
     private static void arrayValueString(Cell[] array, StringBuilder buffer) {
@@ -84,6 +81,7 @@ public class NameValuePair {
 
     /**
      * Convert a record value into a value string.
+     *
      * @param record the record.
      * @param buffer the StringBuilder to use.
      */
@@ -104,5 +102,13 @@ public class NameValuePair {
             buffer.append(entry.getKey()).append(":").append(valueString(entry.getValue().getValue()));
         }
         buffer.append("}");
+    }
+
+    public String getVariableName() {
+        return variableName;
+    }
+
+    public String getValueString() {
+        return valueString;
     }
 }

@@ -19,6 +19,15 @@ import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.LOOP;
 import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.TEST;
 
 public class WhileStatementParser extends StatementParser {
+    // Synchronization set for DO.
+    private static final EnumSet<PascalTokenType> DO_SET =
+            StatementParser.STMT_START_SET.clone();
+
+    static {
+        DO_SET.add(DO);
+        DO_SET.addAll(StatementParser.STMT_FOLLOW_SET);
+    }
+
     /**
      * Constructor.
      *
@@ -28,16 +37,9 @@ public class WhileStatementParser extends StatementParser {
         super(parent);
     }
 
-    // Synchronization set for DO.
-    private static final EnumSet<PascalTokenType> DO_SET =
-            StatementParser.STMT_START_SET.clone();
-    static {
-        DO_SET.add(DO);
-        DO_SET.addAll(StatementParser.STMT_FOLLOW_SET);
-    }
-
     /**
      * Parse a WHILE statement.
+     *
      * @param token the initial token.
      * @return the root node of the generated parse tree.
      * @throws Exception if an error occurred.

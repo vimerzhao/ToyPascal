@@ -6,6 +6,7 @@ package wci.backend.interpreter;
 public interface RuntimeDisplay {
     /**
      * Get the activation record at a given nesting level.
+     *
      * @param nestingLevel the nesting level.
      * @return the activation record.
      */
@@ -13,13 +14,15 @@ public interface RuntimeDisplay {
 
     /**
      * Update the display for a call to a routine at a given nesting level.
+     *
      * @param nestingLevel the nesting level.
-     * @param ar the activation record for the routine.
+     * @param ar           the activation record for the routine.
      */
     void callUpdate(int nestingLevel, ActivationRecord ar);
 
     /**
      * Update the display for a return from a routine at a given nesting level.
+     *
      * @param nestingLevel
      */
     void returnUpdate(int nestingLevel);

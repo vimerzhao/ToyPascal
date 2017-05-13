@@ -2,7 +2,6 @@ package wci.frontend.pascal.parsers;
 
 import wci.frontend.Token;
 import wci.frontend.TokenType;
-import wci.frontend.pascal.PascalErrorCode;
 import wci.frontend.pascal.PascalParserTD;
 import wci.frontend.pascal.PascalTokenType;
 import wci.intermediate.*;
@@ -16,43 +15,31 @@ import java.util.HashMap;
 
 import static wci.frontend.pascal.PascalErrorCode.*;
 import static wci.frontend.pascal.PascalTokenType.*;
-import static wci.intermediate.icodeimpl.ICodeKeyImpl.ID;
 import static wci.intermediate.icodeimpl.ICodeKeyImpl.VALUE;
 import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.*;
 import static wci.intermediate.symtabimpl.DefinitionImpl.UNDEFINED;
 import static wci.intermediate.symtabimpl.SymTabKeyImpl.CONSTANT_VALUE;
 
 public class ExpressionParser extends StatementParser {
-    /**
-     * Constructor.
-     * @param parent the parent parser.
-     */
-    public ExpressionParser(PascalParserTD parent) {
-        super(parent);
-    }
-
     // Synchronization set for starting an expression.
     static final EnumSet<PascalTokenType> EXPR_START_SET =
             EnumSet.of(PLUS, MINUS, IDENTIFIER, INTEGER, REAL, STRING, PascalTokenType.NOT, LEFT_PAREN);
-
-    /**
-     * Parse an expression.
-     * @param token the initial token.
-     * @return the root node of the generated parse tree.
-     * @throws Exception if an error occurred.
-     */
-    @Override
-    public ICodeNode parse(Token token) throws Exception {
-        return parseExpression(token);
-    }
-
     // Set of of relational operators.
     private static final EnumSet<PascalTokenType> REL_OPS =
             EnumSet.of(EQUALS, NOT_EQUALS, LESS_THAN, LESS_EQUALS,
                     GREATER_EQUALS, GREATER_THAN);
-
     // Map relational operator tokens to node types.
     private static final HashMap<PascalTokenType, ICodeNodeType> REL_OPS_MAP = new HashMap<>();
+    // Set of additive operators.
+    private static final EnumSet<PascalTokenType> ADD_OPS = EnumSet.of(PLUS, MINUS, PascalTokenType.OR);
+    // Map additive operator tokens to node types.
+    private static final HashMap<PascalTokenType, ICodeNodeTypeImpl> ADD_OPS_OPS_MAP = new HashMap<>();
+    // Set of multiplicative operators.
+    private static final EnumSet<PascalTokenType> MULT_OPS =
+            EnumSet.of(STAR, SLASH, DIV, PascalTokenType.MOD, PascalTokenType.AND);
+    // Map multiplicative operator tokens to node types.
+    private static final HashMap<PascalTokenType, ICodeNodeType> MULT_OPS_OPS_MAP = new HashMap<>();
+
     static {
         REL_OPS_MAP.put(EQUALS, EQ);
         REL_OPS_MAP.put(NOT_EQUALS, NE);
@@ -62,8 +49,44 @@ public class ExpressionParser extends StatementParser {
         REL_OPS_MAP.put(GREATER_EQUALS, GE);
     }
 
+    static {
+        ADD_OPS_OPS_MAP.put(PLUS, ADD);
+        ADD_OPS_OPS_MAP.put(MINUS, SUBTRACT);
+        ADD_OPS_OPS_MAP.put(PascalTokenType.OR, ICodeNodeTypeImpl.OR);
+    }
+
+    static {
+        MULT_OPS_OPS_MAP.put(STAR, MULTIPLY);
+        MULT_OPS_OPS_MAP.put(SLASH, FLOAT_DIVIDE);
+        MULT_OPS_OPS_MAP.put(DIV, INTEGER_DIVIDE);
+        MULT_OPS_OPS_MAP.put(PascalTokenType.MOD, ICodeNodeTypeImpl.MOD);
+        MULT_OPS_OPS_MAP.put(PascalTokenType.AND, ICodeNodeTypeImpl.AND);
+    }
+
+    /**
+     * Constructor.
+     *
+     * @param parent the parent parser.
+     */
+    public ExpressionParser(PascalParserTD parent) {
+        super(parent);
+    }
+
     /**
      * Parse an expression.
+     *
+     * @param token the initial token.
+     * @return the root node of the generated parse tree.
+     * @throws Exception if an error occurred.
+     */
+    @Override
+    public ICodeNode parse(Token token) throws Exception {
+        return parseExpression(token);
+    }
+
+    /**
+     * Parse an expression.
+     *
      * @param token the initial token.
      * @return the root of the generated parse subtree.
      * @throws Exception if an error occurred.
@@ -103,8 +126,7 @@ public class ExpressionParser extends StatementParser {
                     : Predefined.undefinedType;
             if (TypeChecker.areComparisonCompatible(resultType, simExprType)) {
                 resultType = Predefined.booleanType;
-            }
-            else {
+            } else {
                 errorHandler.flag(token, INCOMPATIBLE_TYPES, this);
                 resultType = Predefined.undefinedType;
             }
@@ -117,19 +139,9 @@ public class ExpressionParser extends StatementParser {
         return rootNode;
     }
 
-    // Set of additive operators.
-    private static final EnumSet<PascalTokenType> ADD_OPS = EnumSet.of(PLUS, MINUS, PascalTokenType.OR);
-
-    // Map additive operator tokens to node types.
-    private static final HashMap<PascalTokenType, ICodeNodeTypeImpl> ADD_OPS_OPS_MAP = new HashMap<>();
-    static {
-        ADD_OPS_OPS_MAP.put(PLUS, ADD);
-        ADD_OPS_OPS_MAP.put(MINUS, SUBTRACT);
-        ADD_OPS_OPS_MAP.put(PascalTokenType.OR, ICodeNodeTypeImpl.OR);
-    }
-
     /**
      * Parse a simple expression.
+     *
      * @param token the initial token.
      * @return the root of the generated parse subtree.
      * @throws Exception if an error occurred.
@@ -207,9 +219,7 @@ public class ExpressionParser extends StatementParser {
                     else if (TypeChecker.isAtLeastOneReal(resultType,
                             termType)) {
                         resultType = Predefined.realType;
-                    }
-
-                    else {
+                    } else {
                         errorHandler.flag(token, INCOMPATIBLE_TYPES, this);
                     }
 
@@ -220,8 +230,7 @@ public class ExpressionParser extends StatementParser {
                     // Both operands boolean ==> boolean result.
                     if (TypeChecker.areBothBoolean(resultType, termType)) {
                         resultType = Predefined.booleanType;
-                    }
-                    else {
+                    } else {
                         errorHandler.flag(token, INCOMPATIBLE_TYPES, this);
                     }
 
@@ -238,22 +247,9 @@ public class ExpressionParser extends StatementParser {
         return rootNode;
     }
 
-    // Set of multiplicative operators.
-    private static final EnumSet<PascalTokenType> MULT_OPS =
-            EnumSet.of(STAR, SLASH, DIV, PascalTokenType.MOD, PascalTokenType.AND);
-
-    // Map multiplicative operator tokens to node types.
-    private static final HashMap<PascalTokenType, ICodeNodeType> MULT_OPS_OPS_MAP = new HashMap<>();
-    static {
-        MULT_OPS_OPS_MAP.put(STAR, MULTIPLY);
-        MULT_OPS_OPS_MAP.put(SLASH, FLOAT_DIVIDE);
-        MULT_OPS_OPS_MAP.put(DIV, INTEGER_DIVIDE);
-        MULT_OPS_OPS_MAP.put(PascalTokenType.MOD, ICodeNodeTypeImpl.MOD);
-        MULT_OPS_OPS_MAP.put(PascalTokenType.AND, ICodeNodeTypeImpl.AND);
-    }
-
     /**
      * Parse a term.
+     *
      * @param token the initial token.
      * @return the root of the generated parse subtree.
      * @throws Exception if an error occurred.
@@ -303,9 +299,7 @@ public class ExpressionParser extends StatementParser {
                     else if (TypeChecker.isAtLeastOneReal(resultType,
                             factorType)) {
                         resultType = Predefined.realType;
-                    }
-
-                    else {
+                    } else {
                         errorHandler.flag(token, INCOMPATIBLE_TYPES, this);
                     }
 
@@ -316,11 +310,9 @@ public class ExpressionParser extends StatementParser {
                     // All integer and real operand combinations
                     // ==> real result.
                     if (TypeChecker.areBothInteger(resultType, factorType) ||
-                            TypeChecker.isAtLeastOneReal(resultType, factorType))
-                    {
+                            TypeChecker.isAtLeastOneReal(resultType, factorType)) {
                         resultType = Predefined.realType;
-                    }
-                    else {
+                    } else {
                         errorHandler.flag(token, INCOMPATIBLE_TYPES, this);
                     }
 
@@ -332,8 +324,7 @@ public class ExpressionParser extends StatementParser {
                     // Both operands integer ==> integer result.
                     if (TypeChecker.areBothInteger(resultType, factorType)) {
                         resultType = Predefined.integerType;
-                    }
-                    else {
+                    } else {
                         errorHandler.flag(token, INCOMPATIBLE_TYPES, this);
                     }
 
@@ -344,8 +335,7 @@ public class ExpressionParser extends StatementParser {
                     // Both operands boolean ==> boolean result.
                     if (TypeChecker.areBothBoolean(resultType, factorType)) {
                         resultType = Predefined.booleanType;
-                    }
-                    else {
+                    } else {
                         errorHandler.flag(token, INCOMPATIBLE_TYPES, this);
                     }
 
@@ -364,6 +354,7 @@ public class ExpressionParser extends StatementParser {
 
     /**
      * Parse a factor.
+     *
      * @param token the initial token.
      * @return the root of the generated parse subtree.
      * @throws Exception if an error occurred.
@@ -453,8 +444,7 @@ public class ExpressionParser extends StatementParser {
                 token = currentToken();
                 if (token.getType() == RIGHT_PAREN) {
                     token = nextToken();  // consume the )
-                }
-                else {
+                } else {
                     errorHandler.flag(token, MISSING_RIGHT_PAREN, this);
                 }
 
@@ -469,15 +459,16 @@ public class ExpressionParser extends StatementParser {
 
         return rootNode;
     }
+
     /**
      * Parse an identifier.
+     *
      * @param token the current token.
      * @return the root node of the generated parse tree.
      * @throws Exception if an error occurred.
      */
     private ICodeNode parseIdentifier(Token token)
-            throws Exception
-    {
+            throws Exception {
         ICodeNode rootNode = null;
 
         // Look up the identifier in the symbol table stack.
@@ -503,12 +494,10 @@ public class ExpressionParser extends StatementParser {
                 if (value instanceof Integer) {
                     rootNode = ICodeFactory.createICodeNode(INTEGER_CONSTANT);
                     rootNode.setAttribute(VALUE, value);
-                }
-                else if (value instanceof Float) {
+                } else if (value instanceof Float) {
                     rootNode = ICodeFactory.createICodeNode(REAL_CONSTANT);
                     rootNode.setAttribute(VALUE, value);
-                }
-                else if (value instanceof String) {
+                } else if (value instanceof String) {
                     rootNode = ICodeFactory.createICodeNode(STRING_CONSTANT);
                     rootNode.setAttribute(VALUE, value);
                 }

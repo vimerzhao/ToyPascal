@@ -14,7 +14,7 @@ import static wci.intermediate.typeimpl.TypeKeyImpl.ARRAY_ELEMENT_COUNT;
 
 /**
  * AssignmentExecutor
- *
+ * <p>
  * Execute an assignment statement.
  */
 public class AssignmentExecutor extends StatementExecutor {
@@ -29,6 +29,7 @@ public class AssignmentExecutor extends StatementExecutor {
 
     /**
      * Execute an assignment statement.
+     *
      * @param node the root node of the statement.
      * @return null.
      */
@@ -47,7 +48,7 @@ public class AssignmentExecutor extends StatementExecutor {
         Cell targetCell =
                 (Cell) expressionExecutor.executeVariable(variableNode);
         TypeSpec targetType = variableNode.getTypeSpec();
-        TypeSpec valueType  = expressionNode.getTypeSpec().baseType();
+        TypeSpec valueType = expressionNode.getTypeSpec().baseType();
         Object value = expressionExecutor.execute(expressionNode);
 
         assignValue(node, variableId, targetCell, targetType, value, valueType);
@@ -58,21 +59,22 @@ public class AssignmentExecutor extends StatementExecutor {
 
     /**
      * Assign a value to a target cell.
-     * @param node the ancester parse tree node of the assignment.
-     * @param targetId the symbol table entry of the target variable or parm.
+     *
+     * @param node       the ancester parse tree node of the assignment.
+     * @param targetId   the symbol table entry of the target variable or parm.
      * @param targetCell the target cell.
      * @param targetType the target type.
-     * @param value the value to assign.
-     * @param valueType the value type.
+     * @param value      the value to assign.
+     * @param valueType  the value type.
      */
     protected void assignValue(ICodeNode node, SymTabEntry targetId, Cell targetCell,
-            TypeSpec targetType, Object value, TypeSpec valueType) {
+                               TypeSpec targetType, Object value, TypeSpec valueType) {
         // Range check.
         value = checkRange(node, targetType, value);
 
         // Set the target's value.
         // Convert an integer value to real if necessary.
-        if ((targetType == Predefined.realType) && (valueType  == Predefined.integerType)) {
+        if ((targetType == Predefined.realType) && (valueType == Predefined.integerType)) {
             targetCell.setValue(new Float(((Integer) value).intValue()));
         }
 

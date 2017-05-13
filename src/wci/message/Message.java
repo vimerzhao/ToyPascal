@@ -2,7 +2,7 @@ package wci.message;
 
 /**
  * Message
- *
+ * <p>
  * Message format.
  */
 public class Message {
@@ -11,6 +11,7 @@ public class Message {
 
     /**
      * Constructor.
+     *
      * @param type the message type.
      * @param body the message body.
      */
@@ -21,6 +22,7 @@ public class Message {
 
     /**
      * Getter.
+     *
      * @return the message type.
      */
     public MessageType getType() {
@@ -29,6 +31,7 @@ public class Message {
 
     /**
      * Getter.
+     *
      * @return the message body.
      */
     public Object getBody() {

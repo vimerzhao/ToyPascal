@@ -14,7 +14,7 @@ import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_ROUTINES;
 
 /**
  * ParseTreePrinter
- *
+ * <p>
  * Print a parse tree.
  */
 public class ParseTreePrinter {
@@ -30,6 +30,7 @@ public class ParseTreePrinter {
 
     /**
      * Constructor.
+     *
      * @param ps the output print stream.
      */
     public ParseTreePrinter(PrintStream ps) {
@@ -47,6 +48,7 @@ public class ParseTreePrinter {
 
     /**
      * Print the intermediate code as a parse tree.
+     *
      * @param symTabStack the symbol table stack.
      */
     public void print(SymTabStack symTabStack) {
@@ -58,6 +60,7 @@ public class ParseTreePrinter {
 
     /**
      * Print the parse tree for a routine.
+     *
      * @param routineId the routine identifier's symbol table entry.
      */
     private void printRoutine(SymTabEntry routineId) {
@@ -83,6 +86,7 @@ public class ParseTreePrinter {
 
     /**
      * Print a parse tree node.
+     *
      * @param node the parse tree node.
      */
     private void printNode(ICodeNodeImpl node) {
@@ -113,6 +117,7 @@ public class ParseTreePrinter {
 
     /**
      * Print a parse tree node's attributes.
+     *
      * @param node the parse tree node.
      */
     private void printAttributes(ICodeNodeImpl node) {
@@ -133,15 +138,16 @@ public class ParseTreePrinter {
 
     /**
      * Print a node attribute as key="value".
+     *
      * @param keyString the key string.
-     * @param value the value.
+     * @param value     the value.
      */
     private void printAttribute(String keyString, Object value) {
         // If the value is a symbol table entry,use the identifier's name.
         // Else just use the value string.
         boolean isSymTabEntry = value instanceof SymTabEntry;
         String valueString = isSymTabEntry ? ((SymTabEntry) value).getName()
-                                           : value.toString();
+                : value.toString();
 
         String text = keyString.toLowerCase() + "=\"" + valueString + "\"";
         append(" ");
@@ -156,6 +162,7 @@ public class ParseTreePrinter {
 
     /**
      * Print a parse tree node's child nodes.
+     *
      * @param childNodes
      */
     private void printChildNodes(ArrayList<ICodeNode> childNodes) {
@@ -171,6 +178,7 @@ public class ParseTreePrinter {
 
     /**
      * Print a parse tree node's type specification.
+     *
      * @param node
      */
     private void printTypeSpec(ICodeNodeImpl node) {
@@ -196,6 +204,7 @@ public class ParseTreePrinter {
 
     /**
      * Append text to the output line.
+     *
      * @param text the text to append.
      */
     private void append(String text) {

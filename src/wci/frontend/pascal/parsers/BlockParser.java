@@ -20,7 +20,8 @@ public class BlockParser extends PascalParserTD {
 
     /**
      * Parse a block.
-     * @param token  the initial token.
+     *
+     * @param token     the initial token.
      * @param routineId the symbol table entry of the routine name.
      * @throws Exception if an error occurred.
      */

@@ -1,3 +1,4 @@
 package wci.intermediate;
 
-public interface ICodeKey {}
+public interface ICodeKey {
+}

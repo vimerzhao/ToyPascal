@@ -17,7 +17,7 @@ public class AddFolderHandler implements AddHandler {
                 selectNode = parent;
                 folder = parent.getFile();
             }
-            File newFolder = new File(folder.getAbsoluteFile()+File.separator+data);
+            File newFolder = new File(folder.getAbsoluteFile() + File.separator + data);
             if (newFolder.exists()) {
                 JOptionPane.showMessageDialog(addFrame, "目录已经存在");
                 return;

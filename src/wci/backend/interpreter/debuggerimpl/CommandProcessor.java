@@ -28,9 +28,10 @@ public class CommandProcessor {
 
     /**
      * Process a message from the back end.
+     *
      * @param message
      */
-    protected void  processMessage(Message message) {
+    protected void processMessage(Message message) {
         MessageType type = message.getType();
 
         switch (type) {
@@ -94,6 +95,7 @@ public class CommandProcessor {
 
     /**
      * Parse a debugger.
+     *
      * @return
      */
     protected boolean parseCommand() {
@@ -118,6 +120,7 @@ public class CommandProcessor {
 
     /**
      * Execute a debugger command.
+     *
      * @param command the command string.
      * @return
      * @throws
@@ -132,7 +135,8 @@ public class CommandProcessor {
         if (command.equals("break")) {
             Integer lineNumber = debugger.getInteger("Line number expected.");
             checkForSemicolon();
-            debugger.setBreakpoints((Integer) lineNumber);;
+            debugger.setBreakpoints((Integer) lineNumber);
+            ;
             return true;
         }
         if (command.equals("unbreak")) {
@@ -190,7 +194,7 @@ public class CommandProcessor {
         // Starting at the top of stack.
         RuntimeStack runtimeStack = debugger.getRuntimeStack();
         ArrayList<ActivationRecord> arList = runtimeStack.records();
-        for (int i = arList.size()-1; i >= 0; --i) {
+        for (int i = arList.size() - 1; i >= 0; --i) {
             ActivationRecord ar = arList.get(i);
             SymTabEntry routineId = ar.getRoutineId();
             // Add the symbol table entry of the procedure or function;
@@ -208,6 +212,7 @@ public class CommandProcessor {
 
     /**
      * Show the current value of a variable.
+     *
      * @throws Exception
      */
     private void show() throws Exception {
@@ -219,6 +224,7 @@ public class CommandProcessor {
 
     /**
      * Assign a new value to a variable.
+     *
      * @throws Exception
      */
     private void assign() throws Exception {
@@ -230,6 +236,7 @@ public class CommandProcessor {
 
     /**
      * Create a cell-data type pair.
+     *
      * @return the CellTypePair object.
      * @throws Exception
      */
@@ -239,12 +246,12 @@ public class CommandProcessor {
         ActivationRecord ar = null;
         Cell cell = null;
         String variableName = debugger.getWord("Variable name expected.");
-        for (int level = currentLevel; (cell==null) && (level>0); --level) {
+        for (int level = currentLevel; (cell == null) && (level > 0); --level) {
             ar = runtimeStack.getTopmost(level);
             cell = ar.getCell(variableName);
         }
         if (cell == null) {
-            throw new Exception("Undeclared variable name '"+variableName+"'.");
+            throw new Exception("Undeclared variable name '" + variableName + "'.");
         }
         if (cell.getValue() instanceof Cell) {
             cell = (Cell) cell.getValue();
@@ -259,6 +266,7 @@ public class CommandProcessor {
 
     /**
      * Verify that a command end with a semicolon.
+     *
      * @throws Exception
      */
     private void checkForSemicolon() throws Exception {

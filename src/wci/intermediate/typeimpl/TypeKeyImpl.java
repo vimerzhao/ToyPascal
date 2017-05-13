@@ -4,7 +4,7 @@ import wci.intermediate.TypeKey;
 
 /**
  * TypeKeyImpl
- *
+ * <p>
  * Attribute key for a Pascal type specification.
  */
 public enum TypeKeyImpl implements TypeKey {

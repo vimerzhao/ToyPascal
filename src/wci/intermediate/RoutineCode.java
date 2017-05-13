@@ -1,3 +1,4 @@
 package wci.intermediate;
 
-public interface RoutineCode {}
+public interface RoutineCode {
+}

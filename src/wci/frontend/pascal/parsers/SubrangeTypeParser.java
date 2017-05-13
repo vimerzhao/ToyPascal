@@ -12,13 +12,12 @@ import static wci.frontend.pascal.PascalTokenType.DOT_DOT;
 import static wci.frontend.pascal.PascalTokenType.IDENTIFIER;
 import static wci.intermediate.typeimpl.TypeFormImpl.ENUMERATION;
 import static wci.intermediate.typeimpl.TypeFormImpl.SUBRANGE;
-import static wci.intermediate.typeimpl.TypeKeyImpl.SUBRANGE_BASE_TYPE;
-import static wci.intermediate.typeimpl.TypeKeyImpl.SUBRANGE_MAX_VALUE;
-import static wci.intermediate.typeimpl.TypeKeyImpl.SUBRANGE_MIN_VALUE;
+import static wci.intermediate.typeimpl.TypeKeyImpl.*;
 
 public class SubrangeTypeParser extends TypeSpecificationParser {
     /**
      * Constructor.
+     *
      * @param parent the parent parser.
      */
     public SubrangeTypeParser(PascalParserTD parent) {
@@ -27,6 +26,7 @@ public class SubrangeTypeParser extends TypeSpecificationParser {
 
     /**
      * Parse a Pascal subrange type specification.
+     *
      * @param token the current token.
      * @return the subrange type specification.
      * @throws Exception if an error occurred.
@@ -95,9 +95,10 @@ public class SubrangeTypeParser extends TypeSpecificationParser {
 
     /**
      * Check a value of a type specification.
+     *
      * @param token the current token.
      * @param value the value.
-     * @param type the specification.
+     * @param type  the specification.
      * @return the value.
      */
     private Object checkValueType(Token token, Object value, TypeSpec type) {

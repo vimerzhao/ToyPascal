@@ -12,33 +12,36 @@ import static wci.frontend.pascal.PascalTokenType.*;
 import static wci.intermediate.symtabimpl.DefinitionImpl.VARIABLE;
 
 public class DeclarationsParser extends PascalParserTD {
-    public DeclarationsParser(PascalParserTD parent) {
-        super(parent);
-    }
-
     static final EnumSet<PascalTokenType> DECLARATION_START_SET =
             EnumSet.of(CONST, TYPE, VAR, PROCEDURE, FUNCTION, BEGIN);
     static final EnumSet<PascalTokenType> TYPE_START_SET =
             DECLARATION_START_SET.clone();
+    static final EnumSet<PascalTokenType> VAR_START_SET =
+            TYPE_START_SET.clone();
+    static final EnumSet<PascalTokenType> ROUTINE_START_SET =
+            VAR_START_SET.clone();
+
     static {
         TYPE_START_SET.remove(CONST);
     }
-    static final EnumSet<PascalTokenType> VAR_START_SET =
-            TYPE_START_SET.clone();
+
     static {
         VAR_START_SET.remove(TYPE);
     }
 
-    static final EnumSet<PascalTokenType> ROUTINE_START_SET =
-            VAR_START_SET.clone();
     static {
         ROUTINE_START_SET.remove(VAR);
+    }
+
+    public DeclarationsParser(PascalParserTD parent) {
+        super(parent);
     }
 
     /**
      * Parse declarations.
      * To be overridden by the specialized declarations parser subclass.
-     * @param token the initial token.
+     *
+     * @param token    the initial token.
      * @param parentId the symbol table entry of the parent routine's name
      * @return null
      * @throws Exception if an error occurred.

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  * CommandLineDebugger
- *
+ * <p>
  * Command line version of the interactive source-level debugger.
  */
 public class CommandLineDebugger extends Debugger {
@@ -20,7 +20,7 @@ public class CommandLineDebugger extends Debugger {
     /**
      * Constructor.
      *
-     * @param backend the back end.
+     * @param backend      the back end.
      * @param runtimeStack the runtime stack.
      */
     public CommandLineDebugger(Backend backend, RuntimeStack runtimeStack) {
@@ -45,29 +45,31 @@ public class CommandLineDebugger extends Debugger {
 
     @Override
     public void atStatement(Integer lineNumber) {
-        System.out.println("\nAt line"+lineNumber);
+        System.out.println("\nAt line" + lineNumber);
     }
 
     @Override
     public void atBreakpoint(Integer lineNumber) {
-        System.out.println("\nBreakpoint at line "+lineNumber);
+        System.out.println("\nBreakpoint at line " + lineNumber);
     }
 
     @Override
     public void atWatchpointValue(Integer lineNumber, String name, Object value) {
-        System.out.println("\nAt line "+ lineNumber+":"+name+": "+value.toString());
+        System.out.println("\nAt line " + lineNumber + ":" + name + ": " + value.toString());
     }
 
     @Override
     public void atWatchpointAssignment(Integer lineNumber, String name, Object value) {
-        System.out.println("\nAt line "+lineNumber+": "+name + ":= "+value.toString());
+        System.out.println("\nAt line " + lineNumber + ": " + name + ":= " + value.toString());
     }
 
     @Override
-    public void callRoutine(Integer lineNumber, String routineName) {}
+    public void callRoutine(Integer lineNumber, String routineName) {
+    }
 
     @Override
-    public void returnRoutine(Integer lineNumber, String routineName) {}
+    public void returnRoutine(Integer lineNumber, String routineName) {
+    }
 
     @Override
     public void displayValue(String valueString) {
@@ -84,10 +86,10 @@ public class CommandLineDebugger extends Debugger {
                 int level = routineId.getSymTab().getNestingLevel();
                 Definition definition = routineId.getDefinition();
 
-                System.out.println(level+": " + definition.getText().toUpperCase() + " " + routineName);
+                System.out.println(level + ": " + definition.getText().toUpperCase() + " " + routineName);
             } else if (item instanceof NameValuePair) { // Variable name-value pair.
                 NameValuePair pair = (NameValuePair) item;
-                System.out.print(" "+ pair.getVariableName()+": ");
+                System.out.print(" " + pair.getVariableName() + ": ");
                 displayValue(pair.getValueString());
             }
         }

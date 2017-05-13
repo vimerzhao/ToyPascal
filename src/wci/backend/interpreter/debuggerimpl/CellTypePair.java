@@ -23,14 +23,17 @@ import static wci.intermediate.typeimpl.TypeKeyImpl.*;
  * Memory cell and data type pair used by the debugger.
  */
 public class CellTypePair {
+    // Synchronization set for variable modifiers.
+    protected static final EnumSet<PascalTokenType> MODIFIER_SET = EnumSet.of(LEFT_BRACKET, DOT);
     private Cell cell;          // memory cell
     private TypeSpec type;  // data type
     private Debugger debugger;  // parent debugger.
 
     /**
      * Constructor.
-     * @param type the data type.
-     * @param cell the memory cell.
+     *
+     * @param type     the data type.
+     * @param cell     the memory cell.
      * @param debugger the parent debugger.
      * @throws Exception if an error occurred.
      */
@@ -41,6 +44,7 @@ public class CellTypePair {
 
         parseVariable();
     }
+
     public Cell getCell() {
         return cell;
     }
@@ -49,11 +53,9 @@ public class CellTypePair {
         return type;
     }
 
-    // Synchronization set for variable modifiers.
-    protected static final EnumSet<PascalTokenType> MODIFIER_SET = EnumSet.of(LEFT_BRACKET, DOT);
-
     /**
      * Parse a variable in the command to obtain its memory cell.
+     *
      * @throws Exception
      */
     protected void parseVariable() throws Exception {
@@ -74,6 +76,7 @@ public class CellTypePair {
 
     /**
      * Parse an array variable.
+     *
      * @param array the array variable.
      * @throws Exception
      */
@@ -88,7 +91,7 @@ public class CellTypePair {
         if (indexType.getForm() == SUBRANGE) {
             minValue = (Integer) indexType.getAttribute(SUBRANGE_MIN_VALUE);
         }
-        cell = array[index-minValue];
+        cell = array[index - minValue];
         if (debugger.currentToken().getType() == RIGHT_BRACKET) {
             debugger.nextToken();
         } else {
@@ -98,6 +101,7 @@ public class CellTypePair {
 
     /**
      * Parse a record variable.
+     *
      * @param record the record variable.
      * @throws Exception
      */
@@ -116,17 +120,18 @@ public class CellTypePair {
 
     /**
      * Set the value of the cell.
+     *
      * @param value the value.
      * @throws Exception
      */
     protected void setValue(Object value) throws Exception {
-        if ( ( (type.baseType() == Predefined.integerType)
+        if (((type.baseType() == Predefined.integerType)
                 && (value instanceof Integer))
-                || (    (type == Predefined.realType)
+                || ((type == Predefined.realType)
                 && (value instanceof Float))
-                || (    (type == Predefined.booleanType)
+                || ((type == Predefined.booleanType)
                 && (value instanceof Boolean))
-                || (    (type == Predefined.charType)
+                || ((type == Predefined.charType)
                 && (value instanceof Character))) {
             if (type.baseType() == Predefined.integerType) {
                 rangeCheck((Integer) value, type, "Value out of range.");
@@ -140,8 +145,9 @@ public class CellTypePair {
 
     /**
      * Do a range check on an integer value.
-     * @param value the value.
-     * @param type the data type.
+     *
+     * @param value        the value.
+     * @param type         the data type.
      * @param errorMessage
      * @throws Exception
      */
@@ -156,7 +162,7 @@ public class CellTypePair {
         } else if (form == ENUMERATION) {
             ArrayList<SymTabEntry> constants = (ArrayList<SymTabEntry>) type.getAttribute(ENUMERATION_CONSTANTS);
             minValue = 0;
-            maxValue = constants.size()-1;
+            maxValue = constants.size() - 1;
         }
         if ((minValue != null) && ((value < minValue) || (value > maxValue))) {
             throw new Exception(errorMessage);

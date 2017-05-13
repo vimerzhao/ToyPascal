@@ -13,6 +13,7 @@ public class RuntimeStackImpl extends ArrayList<ActivationRecord> implements Run
     public RuntimeStackImpl() {
         display = MemoryFactory.createRuntimeDisplay();
     }
+
     @Override
     public ArrayList<ActivationRecord> records() {
         return this;

@@ -15,18 +15,17 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-import static wci.backend.interpreter.RuntimeErrorCode.UNIMPLEMENTED_FEATURE;
-import static wci.backend.interpreter.RuntimeErrorCode.UNINITIALIZED_VALUE;
-import static wci.backend.interpreter.RuntimeErrorCode.VALUE_RANGE;
+import static wci.backend.interpreter.RuntimeErrorCode.*;
 import static wci.intermediate.icodeimpl.ICodeKeyImpl.LINE;
 import static wci.intermediate.typeimpl.TypeFormImpl.SUBRANGE;
 import static wci.intermediate.typeimpl.TypeKeyImpl.SUBRANGE_MAX_VALUE;
 import static wci.intermediate.typeimpl.TypeKeyImpl.SUBRANGE_MIN_VALUE;
 import static wci.message.MessageType.*;
 
-public class StatementExecutor extends Executor{
+public class StatementExecutor extends Executor {
     /**
      * Constructor.
+     *
      * @param parent executor.
      */
     public StatementExecutor(Executor parent) {
@@ -36,6 +35,7 @@ public class StatementExecutor extends Executor{
     /**
      * Execute a statement.
      * To be overridden by specialized statement executor subclass.
+     *
      * @param node the root node of the statement.
      * @return null
      */
@@ -83,6 +83,7 @@ public class StatementExecutor extends Executor{
 
     /**
      * Send a message about the current source line.
+     *
      * @param node the statement node.
      */
     private void sendSourceLineMessage(ICodeNode node) {
@@ -96,8 +97,9 @@ public class StatementExecutor extends Executor{
 
     /**
      * Convert a Java string to a Pascal string or character.
+     *
      * @param targetType the target type specification.
-     * @param javaValue the java string.
+     * @param javaValue  the java string.
      * @return the Pascal string or char.
      */
     protected Object toPascal(TypeSpec targetType, Object javaValue) {
@@ -123,12 +125,13 @@ public class StatementExecutor extends Executor{
 
     /**
      * Convert a Pascal string to a Java string.
+     *
      * @param targetType
      * @param pascalValue
      * @return
      */
     protected Object toJava(TypeSpec targetType, Object pascalValue) {
-        if ((pascalValue instanceof Cell[]) && (((Cell[]) pascalValue)[0].getValue() instanceof  Character)) {
+        if ((pascalValue instanceof Cell[]) && (((Cell[]) pascalValue)[0].getValue() instanceof Character)) {
             Cell[] charCells = (Cell[]) pascalValue;
             StringBuilder string = new StringBuilder(charCells.length);
 
@@ -146,19 +149,19 @@ public class StatementExecutor extends Executor{
         Object copy = null;
 
         if (value instanceof Integer) {
-         copy = new Integer((Integer) value);
+            copy = new Integer((Integer) value);
         } else if (value instanceof Float) {
-         copy = new Float((Float) value);
+            copy = new Float((Float) value);
         } else if (value instanceof Character) {
-         copy = new Character((Character) value);
+            copy = new Character((Character) value);
         } else if (value instanceof Boolean) {
-         copy = new Boolean((Boolean) value);
+            copy = new Boolean((Boolean) value);
         } else if (value instanceof String) {
-         copy = new String((String) value);
+            copy = new String((String) value);
         } else if (value instanceof HashMap) {
-         copy = copyRecord((HashMap<String, Object>) value, node);
+            copy = copyRecord((HashMap<String, Object>) value, node);
         } else {
-         copy = copyArray((Cell[]) value, node);
+            copy = copyArray((Cell[]) value, node);
         }
 
         return copy;
@@ -166,6 +169,7 @@ public class StatementExecutor extends Executor{
 
     /**
      * Return a copy of a Pascal record.
+     *
      * @param value
      * @param node
      * @return
@@ -192,6 +196,7 @@ public class StatementExecutor extends Executor{
 
     /**
      * Return a copy of a Pascal array.
+     *
      * @param valueCells
      * @param node
      * @return
@@ -236,6 +241,7 @@ public class StatementExecutor extends Executor{
 
     /**
      * Send a message about an assignment operation.
+     *
      * @param node
      * @param variableName
      * @param value
@@ -250,6 +256,7 @@ public class StatementExecutor extends Executor{
 
     /**
      * Send a message about a value fetch operation.
+     *
      * @param node
      * @param variableName
      * @param value
@@ -274,7 +281,7 @@ public class StatementExecutor extends Executor{
         Object lineNumber = getLineNumber(node);
 
         if (lineNumber != null) {
-            sendMessage(new Message(RETURN, new Object[] {lineNumber, routineName}));
+            sendMessage(new Message(RETURN, new Object[]{lineNumber, routineName}));
         }
     }
 

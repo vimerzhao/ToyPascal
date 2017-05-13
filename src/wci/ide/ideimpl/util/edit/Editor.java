@@ -24,31 +24,8 @@ import java.util.*;
 import static wci.frontend.pascal.PascalTokenType.COMMENT;
 
 public class Editor extends JTextPane {
-    protected StyledDocument doc;
-    private SimpleAttributeSet lineAttr = new SimpleAttributeSet();
-    protected SyntaxFormatter formatter = new SyntaxFormatter("colorscheme/pascal.stx");
-    private int curStart = 0;
-    private IDEFrame ideFrame;
-    private boolean isContainRead;
-    public Editor(File file, IDEFrame ideFrame) {
-        this.ideFrame = ideFrame;
-        this.setText(FileUtil.readFile(file));
-        this.setBackground(new Color(0xDB, 0xDB, 0xDB));
-        this.setForeground(new Color(0xFF, 0x00, 0x00));
-        this.setFont(new Font(Font.MONOSPACED, Font.BOLD, 15));
-        this.doc = getStyledDocument();
-
-        this.setMargin(new Insets(3, 50, 0, 0));
-        syntaxParse();
-        addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                syntaxParse();
-            }
-        });
-    }
-
     private static final Set<String> PREDEFINED = new HashSet<>();
+
     static {
         PREDEFINED.add("integer");
         PREDEFINED.add("real");
@@ -79,13 +56,38 @@ public class Editor extends JTextPane {
         PREDEFINED.add("trunc");
     }
 
+    protected StyledDocument doc;
+    protected SyntaxFormatter formatter = new SyntaxFormatter("colorscheme/pascal.stx");
+    private SimpleAttributeSet lineAttr = new SimpleAttributeSet();
+    private int curStart = 0;
+    private IDEFrame ideFrame;
+    private boolean isContainRead;
+
+    public Editor(File file, IDEFrame ideFrame) {
+        this.ideFrame = ideFrame;
+        this.setText(FileUtil.readFile(file));
+        this.setBackground(new Color(0xDB, 0xDB, 0xDB));
+        this.setForeground(new Color(0xFF, 0x00, 0x00));
+        this.setFont(new Font(Font.MONOSPACED, Font.BOLD, 15));
+        this.doc = getStyledDocument();
+
+        this.setMargin(new Insets(3, 50, 0, 0));
+        syntaxParse();
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                syntaxParse();
+            }
+        });
+    }
+
     public void syntaxParse() {
         try {
             Element root = doc.getDefaultRootElement();// content of doc
 
             // note : this is a low effective solution
             // render the modified part if you want to render faster.
-            String s = doc.getText(root.getStartOffset(), root.getEndOffset()-1);
+            String s = doc.getText(root.getStartOffset(), root.getEndOffset() - 1);
             curStart = 0;
 
             // reuse the code of frontend package
@@ -104,7 +106,7 @@ public class Editor extends JTextPane {
                 renderComment(s);
                 String token = parser.currentToken().getText();
                 PascalTokenType tokenType = (PascalTokenType) parser.currentToken().getType();
-                int tokenPos =  s.indexOf(token, curStart);
+                int tokenPos = s.indexOf(token, curStart);
                 if (PREDEFINED.contains(token.toLowerCase())) {
                     tokenType = PascalTokenType.PREDEFINED;
                 }
@@ -114,7 +116,7 @@ public class Editor extends JTextPane {
                 }
 
                 formatter.setHighLight(doc, tokenType, tokenPos, token.length());
-                curStart = tokenPos+token.length();
+                curStart = tokenPos + token.length();
 
             }
             renderComment(s);
@@ -128,13 +130,13 @@ public class Editor extends JTextPane {
         }
     }
 
-    private void renderComment(String s){
+    private void renderComment(String s) {
         // attention: parser cannot find comment.
         // so diy your own comment render !
         while ((curStart < s.length()) &&
-                (s.charAt(curStart)==' ' || s.charAt(curStart)=='\t'
-                        ||s.charAt(curStart)=='\n' || s.charAt(curStart)=='{')){
-            if (curStart<s.length() && s.charAt(curStart) == '{') {
+                (s.charAt(curStart) == ' ' || s.charAt(curStart) == '\t'
+                        || s.charAt(curStart) == '\n' || s.charAt(curStart) == '{')) {
+            if (curStart < s.length() && s.charAt(curStart) == '{') {
                 int commentStart = curStart;
                 int len = 1;
                 while (s.charAt(curStart) != '}') {
@@ -157,14 +159,15 @@ public class Editor extends JTextPane {
         g.fillRect(0, 0, this.getMargin().left, getSize().height);
         g.setColor(new Color(40, 40, 40));
         for (int count = 0, j = 1; count <= line; ++count, ++j) {
-            g.drawString( String.format("%4d", j), 3, (int)((count+1)*1.4999* StyleConstants.getFontSize(lineAttr)));
+            g.drawString(String.format("%4d", j), 3, (int) ((count + 1) * 1.4999 * StyleConstants.getFontSize(lineAttr)));
         }
     }
 }
 
 class SyntaxFormatter {
-    private Map<SimpleAttributeSet, ArrayList> attrMap = new HashMap<>();
     SimpleAttributeSet normalAttr = new SimpleAttributeSet();
+    private Map<SimpleAttributeSet, ArrayList> attrMap = new HashMap<>();
+
     public SyntaxFormatter(String syntaxFile) {
         StyleConstants.setForeground(normalAttr, Color.black);
         try {
@@ -199,7 +202,7 @@ class SyntaxFormatter {
 
     public void setHighLight(StyledDocument doc, PascalTokenType tokenType, int start, int length) {
         SimpleAttributeSet currentAttrSet = null;
-        outer :
+        outer:
         for (SimpleAttributeSet attr : attrMap.keySet()) {
             ArrayList patterns = attrMap.get(attr);
             for (Object pattern : patterns) {

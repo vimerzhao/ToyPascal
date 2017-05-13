@@ -6,12 +6,13 @@ import wci.intermediate.symtabimpl.SymTabStackImpl;
 
 /**
  * SymTabFactory
- *
+ * <p>
  * A factory for create objects that implement the symbol table.
  */
 public class SymTabFactory {
     /**
      * Create and return a symbol table stack implementation.
+     *
      * @return the symbol table implementation
      */
     public static SymTabStack createSymTabStack() {
@@ -20,6 +21,7 @@ public class SymTabFactory {
 
     /**
      * Create and return a symbol table implementation.
+     *
      * @param nestingLevel the nesting level.
      * @return the symbol table implementation.
      */
