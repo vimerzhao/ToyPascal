@@ -1,4 +1,4 @@
-PROGRAM VarOrValue;
+PROGRAM RefOrValue;
 VAR
     x, y : integer;
 
