@@ -1,8 +1,9 @@
 package wci.intermediate;
 
 /**
- * <h1>SymTabStack</h1>
- * <p>The interface for the symbol table stack.</p>
+ * SymTabStack
+ *
+ * The interface for the symbol table stack.
  */
 public interface SymTabStack {
     /**

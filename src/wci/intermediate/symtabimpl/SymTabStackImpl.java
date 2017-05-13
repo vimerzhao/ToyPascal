@@ -8,9 +8,9 @@ import wci.intermediate.SymTabStack;
 import java.util.ArrayList;
 
 /**
- * <h1>SymTabStack</h1>
+ * SymTabStack
  *
- * <p>An implementation of the symbol table stack.</p>
+ * An implementation of the symbol table stack.
  */
 public class SymTabStackImpl extends ArrayList<SymTab> implements SymTabStack {
     private SymTabEntry programId;  // entry for the main program id

@@ -1,6 +1,5 @@
 package wci.backend.interpreter;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import wci.backend.Backend;
 import wci.frontend.Scanner;
 import wci.frontend.Source;

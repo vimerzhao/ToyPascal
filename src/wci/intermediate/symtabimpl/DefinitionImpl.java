@@ -3,9 +3,9 @@ package wci.intermediate.symtabimpl;
 import wci.intermediate.Definition;
 
 /**
- * <h1>DefinitionImpl</h1>
+ * DefinitionImpl
  *
- * <p>How a Pascal symbol table entry is defined.</p>
+ * How a Pascal symbol table entry is defined.
  */
 public enum  DefinitionImpl implements Definition {
     CONSTANT,

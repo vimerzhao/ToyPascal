@@ -3,9 +3,9 @@ package wci.frontend.pascal;
 import wci.frontend.*;
 
 /**
- * <h1>PascalToken</h1>
+ * PascalToken
  *
- * <p>Base class for Pascal token classes.</p>
+ * Base class for Pascal token classes.
  */
 public class PascalToken extends Token {
     /**

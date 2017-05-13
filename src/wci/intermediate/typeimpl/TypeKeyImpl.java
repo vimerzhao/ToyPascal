@@ -3,9 +3,9 @@ package wci.intermediate.typeimpl;
 import wci.intermediate.TypeKey;
 
 /**
- * <h1>TypeKeyImpl</h1>
+ * TypeKeyImpl
  *
- * <p>Attribute key for a Pascal type specification.</p>
+ * Attribute key for a Pascal type specification.
  */
 public enum TypeKeyImpl implements TypeKey {
     // Enumeration

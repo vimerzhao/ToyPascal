@@ -7,10 +7,10 @@ import wci.intermediate.SymTabStack;
 import wci.message.*;
 
 /**
- * <h1>Parser</h1>
+ * Parser
  *
- * <p>A language-independent framework class.  This abstract parser class
- * will be implemented by language-specific subclasses.</p>
+ * A language-independent framework class.  This abstract parser class
+ * will be implemented by language-specific subclasses.
  */
 public abstract class Parser implements MessageProducer {
     protected static SymTabStack symTabStack;                  // generated symbol table

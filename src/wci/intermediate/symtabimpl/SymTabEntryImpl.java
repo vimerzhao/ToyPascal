@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * <h1>SymTabImpl</h1>
+ * SymTabImpl
  *
- * <p>An implementation of a symbol table entry.</p>
+ * An implementation of a symbol table entry.
  */
 public class SymTabEntryImpl extends HashMap<SymTabKey, Object> implements SymTabEntry {
     private String name;                    // entry name

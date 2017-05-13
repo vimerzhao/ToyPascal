@@ -1,9 +1,9 @@
 package wci.message;
 
 /**
- * <h1>MessageListener</h1>
+ * MessageListener
  *
- * <p>All classes that listen to messages must implement this interface.</p>
+ * All classes that listen to messages must implement this interface.
  */
 public interface MessageListener {
     /**

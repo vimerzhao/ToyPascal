@@ -5,9 +5,9 @@ import wci.intermediate.*;
 import java.util.*;
 
 /**
- * <h1>ICodeNodeImpl</h1>
+ * ICodeNodeImpl
  *
- * <p>An implementation of a node of the intermediate code.</p>
+ * An implementation of a node of the intermediate code.
  */
 public class ICodeNodeImpl extends HashMap<ICodeKey, Object> implements ICodeNode {
     private ICodeNodeType type;             // node type

@@ -23,9 +23,9 @@ import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.NO_OP;
 import static wci.intermediate.symtabimpl.DefinitionImpl.UNDEFINED;
 
 /**
- * <h1>StatementParser</h1>
+ * StatementParser
  *
- * <p>Parse a Pascal statement.</p>
+ * Parse a Pascal statement.
  */
 public class StatementParser extends PascalParserTD {
     /**

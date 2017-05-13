@@ -9,9 +9,6 @@ import wci.intermediate.SymTabEntry;
 import static wci.intermediate.icodeimpl.ICodeKeyImpl.ID;
 import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.CALL;
 
-/**
- * Created by zhaoyu on 17-3-15.
- */
 public class CallDeclaredParser extends CallParser {
     /**
      * Constructor.

@@ -1,6 +1,5 @@
 package wci.frontend.pascal.parsers;
 
-import com.sun.org.apache.bcel.internal.generic.IFGE;
 import wci.frontend.Token;
 import wci.frontend.TokenType;
 import wci.frontend.pascal.PascalParserTD;
@@ -15,9 +14,7 @@ import java.util.EnumSet;
 
 import static wci.frontend.pascal.PascalErrorCode.*;
 import static wci.frontend.pascal.PascalTokenType.*;
-import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.INTEGER_CONSTANT;
-import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.PARAMETERS;
-import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.WRITE_PARM;
+import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.*;
 import static wci.intermediate.symtabimpl.DefinitionImpl.VAR_PARM;
 import static wci.intermediate.symtabimpl.RoutineCodeImpl.DECLARED;
 import static wci.intermediate.symtabimpl.RoutineCodeImpl.FORWARD;
@@ -26,9 +23,6 @@ import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_PARMS;
 import static wci.intermediate.typeimpl.TypeFormImpl.SCALAR;
 import static wci.intermediate.typeimpl.TypeFormImpl.SUBRANGE;
 
-/**
- * Created by zhaoyu on 17-3-15.
- */
 public class CallParser extends StatementParser {
     /**
      * Constructor.

@@ -6,9 +6,7 @@ import java.util.HashSet;
 import wci.frontend.TokenType;
 
 /**
- * <h1>PascalTokenType</h1>
- *
- * <p>Pascal token types.</p>
+ * PascalTokenType
  */
 public enum PascalTokenType implements TokenType
 {

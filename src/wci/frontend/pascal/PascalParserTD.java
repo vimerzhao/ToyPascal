@@ -21,9 +21,9 @@ import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_SYMTAB;
 import static wci.message.MessageType.*;
 
 /**
- * <h1>PascalParserTD</h1>
+ * PascalParserTD
  *
- * <p>The top-down Pascal parser.</p>
+ * The top-down Pascal parser.
  */
 public class PascalParserTD extends Parser {
     protected static PascalErrorHandler errorHandler = new PascalErrorHandler();

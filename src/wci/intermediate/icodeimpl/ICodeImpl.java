@@ -4,9 +4,9 @@ import wci.intermediate.ICode;
 import wci.intermediate.ICodeNode;
 
 /**
- * <h1>ICodeImpl</h1>
+ * ICodeImpl
  *
- * <p>An implementation of the intermediate code as a parse tree.</p>
+ * An implementation of the intermediate code as a parse tree.
  */
 public class ICodeImpl implements ICode {
     private ICodeNode root;    // root node

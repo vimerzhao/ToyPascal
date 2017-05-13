@@ -1,9 +1,9 @@
 package wci.message;
 
 /**
- * <h1>Message</h1>
+ * Message
  *
- * <p>Message format.</p>
+ * Message format.
  */
 public class Message {
     private MessageType type;

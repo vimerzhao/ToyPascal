@@ -3,9 +3,9 @@ package wci.intermediate.icodeimpl;
 import wci.intermediate.ICodeNodeType;
 
 /**
- * <h1>ICodeNodeType</h1>
+ * ICodeNodeType
  *
- * <p>Node types of the intermediate code parse tree.</p>
+ * Node types of the intermediate code parse tree.
  */
 public enum ICodeNodeTypeImpl implements ICodeNodeType {
     // Program structure

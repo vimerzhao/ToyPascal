@@ -13,9 +13,9 @@ import static wci.intermediate.icodeimpl.ICodeKeyImpl.ID;
 import static wci.intermediate.typeimpl.TypeKeyImpl.ARRAY_ELEMENT_COUNT;
 
 /**
- * <h1>AssignmentExecutor</h1>
+ * AssignmentExecutor
  *
- * <p>Execute an assignment statement.</p>
+ * Execute an assignment statement.
  */
 public class AssignmentExecutor extends StatementExecutor {
     /**

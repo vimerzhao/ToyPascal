@@ -3,7 +3,7 @@ package wci.intermediate;
 import wci.intermediate.typeimpl.TypeSpecImpl;
 
 /**
- * <h1>Create a type specification of a given form.</h1>
+ * Create a type specification of a given form.
  */
 public class TypeFactory {
     /**

@@ -13,9 +13,9 @@ import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_ICODE;
 import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_ROUTINES;
 
 /**
- * <h1>ParseTreePrinter</h1>
+ * ParseTreePrinter
  *
- * <p>Print a parse tree.</p>
+ * Print a parse tree.
  */
 public class ParseTreePrinter {
     public static final String BEGIN_ICODE = "!BEGIN===== INTERMEDIATE CODE =====";

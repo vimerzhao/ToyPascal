@@ -3,9 +3,9 @@ package wci.intermediate;
 import java.util.ArrayList;
 
 /**
- * <h1>SymTabEntry</h1>
+ * SymTabEntry
  *
- * <p>The interface for a symbol table entry.</p>
+ * The interface for a symbol table entry.
  */
 public interface SymTabEntry {
     /**

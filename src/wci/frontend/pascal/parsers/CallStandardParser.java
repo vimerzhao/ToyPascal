@@ -6,7 +6,6 @@ import wci.intermediate.*;
 import wci.intermediate.symtabimpl.Predefined;
 import wci.intermediate.symtabimpl.RoutineCodeImpl;
 
-import static java.lang.Enum.valueOf;
 import static wci.frontend.pascal.PascalErrorCode.INVALID_TYPE;
 import static wci.frontend.pascal.PascalErrorCode.WRONG_NUMBER_OF_PARMS;
 import static wci.intermediate.icodeimpl.ICodeKeyImpl.ID;

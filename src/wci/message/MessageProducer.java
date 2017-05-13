@@ -1,9 +1,9 @@
 package wci.message;
 
 /**
- * <h1>MessageProducer</h1>
+ * MessageProducer
  *
- * <p>All classes that produce messages must implement this interface.</p>
+ * All classes that produce messages must implement this interface.
  */
 public interface MessageProducer {
     /**

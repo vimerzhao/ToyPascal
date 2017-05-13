@@ -6,9 +6,9 @@ import wci.intermediate.SymTabStack;
 import wci.message.*;
 
 /**
- * <h1>Backend</h1>
+ * Backend
  *
- * <p>The framework class that represents the back end component.</p>
+ * The framework class that represents the back end component.
  */
 public abstract class Backend implements MessageProducer {
     protected static MessageHandler messageHandler;     // message handler delegate

@@ -4,9 +4,9 @@ import wci.frontend.pascal.PascalParserTD;
 import wci.frontend.pascal.PascalScanner;
 
 /**
- * <h1>FrontendFactory</h1>
+ * FrontendFactory
  *
- * <p>A factory class that creates parsers for specific source languages.</p>
+ * A factory class that creates parsers for specific source languages.
  */
 public class FrontendFactory {
     /**

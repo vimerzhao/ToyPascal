@@ -6,8 +6,8 @@ import wci.frontend.pascal.*;
 import static wci.frontend.pascal.PascalTokenType.*;
 
 /**
- * <h1>PascalErrorToken</h1>
- * <p>Pascal error token.</p>
+ * PascalErrorToken
+ *
  */
 public class PascalErrorToken extends PascalToken {
     /**

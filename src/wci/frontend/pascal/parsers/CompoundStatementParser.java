@@ -10,9 +10,9 @@ import static wci.frontend.pascal.PascalTokenType.END;
 import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.COMPOUND;
 
 /**
- * <h1>CompoundStatementParser</h1>
+ * CompoundStatementParser
  *
- * <p>Parse a Pascal compound statement.</p>
+ * Parse a Pascal compound statement.
  */
 public class CompoundStatementParser extends StatementParser {
     /**

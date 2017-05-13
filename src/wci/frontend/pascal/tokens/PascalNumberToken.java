@@ -7,9 +7,9 @@ import static wci.frontend.pascal.PascalTokenType.*;
 import static wci.frontend.pascal.PascalErrorCode.*;
 
 /**
- * <h1>PascalNumberToken</h1>
+ * PascalNumberToken
  *
- * <p>Pascal number tokens (integer and real).</p>
+ * Pascal number tokens (integer and real).
  */
 public class PascalNumberToken extends PascalToken
 {

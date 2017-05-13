@@ -8,9 +8,7 @@ import static wci.frontend.pascal.PascalErrorCode.*;
 import static wci.message.MessageType.SYNTAX_ERROR;
 
 /**
- * <h1>PascalErrorHandler</h1>
- *
- * <p>Error handler Pascal syntax errors.</p>
+ * PascalErrorHandler
  */
 public class PascalErrorHandler {
     private static final int MAX_ERRORS = 25;

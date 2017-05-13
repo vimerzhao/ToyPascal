@@ -3,9 +3,9 @@ package wci.intermediate;
 import java.util.ArrayList;
 
 /**
- * <h1>SymTab</h1>
+ * SymTab
  *
- * <p>The framework interface that represents the symbol table.</p>
+ * The framework interface that represents the symbol table.
  */
 public interface SymTab {
     /**

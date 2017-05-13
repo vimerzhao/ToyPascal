@@ -3,9 +3,9 @@ package wci.intermediate.typeimpl;
 import wci.intermediate.TypeForm;
 
 /**
- * <h1>TypeFormImpl</h1>
+ * TypeFormImpl
  *
- * <p>Type forms for a Pascal type specification.</p>
+ * Type forms for a Pascal type specification.
  */
 public enum TypeFormImpl implements TypeForm {
     SCALAR,

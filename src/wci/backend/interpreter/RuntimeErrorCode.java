@@ -1,9 +1,9 @@
 package wci.backend.interpreter;
 
 /**
- * <h1>RuntimeErrorCode</h1>
+ * RuntimeErrorCode
  *
- * <p>Runtime error codes.</p>
+ * Runtime error codes.
  */
 public enum  RuntimeErrorCode {
     UNINITIALIZED_VALUE("Uninitialized value"),

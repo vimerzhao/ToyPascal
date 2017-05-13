@@ -8,9 +8,9 @@ import wci.message.Message;
 import static wci.message.MessageType.COMPILER_SUMMARY;
 
 /**
- * <h1>CodeGenerator</h1>
+ * CodeGenerator
  *
- * <p>The code generator for a compiler back end.</p>
+ * The code generator for a compiler back end.</p>
  */
 public class CodeGenerator extends Backend {
     /**

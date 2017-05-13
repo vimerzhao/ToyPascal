@@ -10,9 +10,9 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 /**
- * <h1>SymTabImpl</h1>
+ * SymTabImpl
  *
- * <p>An implementation of the symbol table.</p>
+ * An implementation of the symbol table.
  */
 public class SymTabImpl extends TreeMap<String, SymTabEntry> implements SymTab {
     private int nestingLevel;

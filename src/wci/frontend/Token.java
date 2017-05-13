@@ -1,9 +1,9 @@
 package wci.frontend;
 
 /**
- * <h1>Token</h1>
+ * Token
  *
- * <p>The framework class that represents a token returned by the scanner.</p>
+ * The framework class that represents a token returned by the scanner.
  */
 public class Token {
     protected TokenType type;  // language-specific token type

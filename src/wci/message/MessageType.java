@@ -1,9 +1,9 @@
 package wci.message;
 
 /**
- * <h1>MessageType</h1>
+ * MessageType
  *
- * <p>Message types.</p>
+ * Message types.
  */
 public enum MessageType {
     SOURCE_LINE,

@@ -7,9 +7,9 @@ import wci.message.*;
 import static wci.message.MessageType.SOURCE_LINE;
 
 /**
- * <h1>Source</h1>
+ * Source
  *
- * <p>The framework class that represents the source program.</p>
+ * The framework class that represents the source program.
  */
 public class Source implements MessageProducer {
     public static final char EOL = '\n';      // end-of-line character

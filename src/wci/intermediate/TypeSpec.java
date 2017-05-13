@@ -1,9 +1,9 @@
 package wci.intermediate;
 
 /**
- * <h1>TypeSpec</h1>
+ * TypeSpec
  *
- * <p>The interface for a type specification.</p>
+ * The interface for a type specification.
  */
 public interface TypeSpec {
     /**

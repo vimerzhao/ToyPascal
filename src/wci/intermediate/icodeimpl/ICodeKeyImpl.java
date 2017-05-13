@@ -3,9 +3,9 @@ package wci.intermediate.icodeimpl;
 import wci.intermediate.ICodeKey;
 
 /**
- * <h1>ICodeKeyImpl</h1>
+ * ICodeKeyImpl
  *
- * <p>Attribute keys for an intermediate code node.</p>
+ * Attribute keys for an intermediate code node.
  */
 public enum ICodeKeyImpl implements ICodeKey{
     LINE, ID, VALUE;

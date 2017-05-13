@@ -5,9 +5,9 @@ import wci.intermediate.symtabimpl.SymTabImpl;
 import wci.intermediate.symtabimpl.SymTabStackImpl;
 
 /**
- * <h1>SymTabFactory</h1>
+ * SymTabFactory
  *
- * <p>A factory for create objects that implement the symbol table.</p>
+ * A factory for create objects that implement the symbol table.
  */
 public class SymTabFactory {
     /**

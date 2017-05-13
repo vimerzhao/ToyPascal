@@ -1,9 +1,9 @@
 package wci.frontend.pascal;
 
 /**
- * <h1>PascalErrorCode</h1>
+ * PascalErrorCode
  *
- * <p>Pascal translation error codes.</p>
+ * Pascal translation error codes.
  */
 public enum PascalErrorCode {
     ALREADY_FORWARDED("Already specified in FORWARD"),

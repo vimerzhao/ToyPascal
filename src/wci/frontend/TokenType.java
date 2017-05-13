@@ -1,9 +1,9 @@
 package wci.frontend;
 
 /**
- * <h1>TokenType</h1>
+ * TokenType
  *
- * <p>The token type interface.</p>
+ * The token type interface.
  */
 public interface TokenType {
 }

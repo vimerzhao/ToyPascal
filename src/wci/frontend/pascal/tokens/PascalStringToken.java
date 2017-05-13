@@ -9,9 +9,7 @@ import static wci.frontend.pascal.PascalTokenType.*;
 import static wci.frontend.pascal.PascalErrorCode.*;
 
 /**
- * <h1>PascalStringToken</h1>
- *
- * <p> Pascal string tokens.</p>
+ * PascalStringToken
  */
 public class PascalStringToken extends PascalToken {
     /**

@@ -14,10 +14,10 @@ import static wci.intermediate.typeimpl.TypeFormImpl.SCALAR;
 import static wci.intermediate.typeimpl.TypeKeyImpl.ENUMERATION_CONSTANTS;
 
 /**
- * <h1>Predefined</h1>
+ * Predefined
  *
- * <p>Enter the predefined Pascal types, identifiers, and constants
- * into the symbol table.</p>
+ * Enter the predefined Pascal types, identifiers, and constants
+ * into the symbol table.
  */
 public class Predefined {
     // Predefined types.

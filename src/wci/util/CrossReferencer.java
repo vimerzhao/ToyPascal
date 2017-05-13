@@ -12,9 +12,9 @@ import static wci.intermediate.symtabimpl.SymTabKeyImpl.ROUTINE_SYMTAB;
 import static wci.intermediate.typeimpl.TypeKeyImpl.*;
 
 /**
- * <h1>CrossReferencer</h1>
+ * CrossReferencer
  *
- * <p>Generate a cross-reference listing.</p>
+ * Generate a cross-reference listing.
  */
 public class CrossReferencer {
     private static final int NAME_WIDTH = 16;

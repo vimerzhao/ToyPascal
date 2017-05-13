@@ -2,7 +2,63 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b0bcd18-8558-4ebf-8523-9ff242b9203a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/VarOrValue.pas" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/backend/Backend.java" afterPath="$PROJECT_DIR$/src/wci/backend/Backend.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/backend/compiler/CodeGenerator.java" afterPath="$PROJECT_DIR$/src/wci/backend/compiler/CodeGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/backend/interpreter/Debugger.java" afterPath="$PROJECT_DIR$/src/wci/backend/interpreter/Debugger.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/backend/interpreter/RuntimeDisplay.java" afterPath="$PROJECT_DIR$/src/wci/backend/interpreter/RuntimeDisplay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/backend/interpreter/RuntimeErrorCode.java" afterPath="$PROJECT_DIR$/src/wci/backend/interpreter/RuntimeErrorCode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/backend/interpreter/debuggerimpl/GUIDebugger.java" afterPath="$PROJECT_DIR$/src/wci/backend/interpreter/debuggerimpl/GUIDebugger.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/backend/interpreter/executors/AssignmentExecutor.java" afterPath="$PROJECT_DIR$/src/wci/backend/interpreter/executors/AssignmentExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/backend/interpreter/executors/ExpressionExecutor.java" afterPath="$PROJECT_DIR$/src/wci/backend/interpreter/executors/ExpressionExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/EofToken.java" afterPath="$PROJECT_DIR$/src/wci/frontend/EofToken.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/FrontendFactory.java" afterPath="$PROJECT_DIR$/src/wci/frontend/FrontendFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/Parser.java" afterPath="$PROJECT_DIR$/src/wci/frontend/Parser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/Scanner.java" afterPath="$PROJECT_DIR$/src/wci/frontend/Scanner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/Source.java" afterPath="$PROJECT_DIR$/src/wci/frontend/Source.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/Token.java" afterPath="$PROJECT_DIR$/src/wci/frontend/Token.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/TokenType.java" afterPath="$PROJECT_DIR$/src/wci/frontend/TokenType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/PascalErrorCode.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/PascalErrorCode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/PascalErrorHandler.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/PascalErrorHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/PascalParserTD.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/PascalParserTD.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/PascalScanner.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/PascalScanner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/PascalToken.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/PascalToken.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/PascalTokenType.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/PascalTokenType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/AssignmentStatementParser.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/AssignmentStatementParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/CallDeclaredParser.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/CallDeclaredParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/CallParser.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/CallParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/CallStandardParser.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/CallStandardParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/CompoundStatementParser.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/CompoundStatementParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/StatementParser.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/StatementParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/tokens/PascalErrorToken.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/tokens/PascalErrorToken.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/tokens/PascalNumberToken.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/tokens/PascalNumberToken.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/tokens/PascalSpecialSymbolToken.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/tokens/PascalSpecialSymbolToken.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/tokens/PascalStringToken.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/tokens/PascalStringToken.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/frontend/pascal/tokens/PascalWordToken.java" afterPath="$PROJECT_DIR$/src/wci/frontend/pascal/tokens/PascalWordToken.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/SymTab.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/SymTab.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/SymTabEntry.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/SymTabEntry.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/SymTabFactory.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/SymTabFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/SymTabStack.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/SymTabStack.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/TypeFactory.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/TypeFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/TypeSpec.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/TypeSpec.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/icodeimpl/ICodeImpl.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/icodeimpl/ICodeImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/icodeimpl/ICodeKeyImpl.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/icodeimpl/ICodeKeyImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/icodeimpl/ICodeNodeImpl.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/icodeimpl/ICodeNodeImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/icodeimpl/ICodeNodeTypeImpl.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/icodeimpl/ICodeNodeTypeImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/symtabimpl/DefinitionImpl.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/symtabimpl/DefinitionImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/symtabimpl/Predefined.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/symtabimpl/Predefined.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/symtabimpl/SymTabEntryImpl.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/symtabimpl/SymTabEntryImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/symtabimpl/SymTabImpl.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/symtabimpl/SymTabImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/symtabimpl/SymTabStackImpl.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/symtabimpl/SymTabStackImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/typeimpl/TypeFormImpl.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/typeimpl/TypeFormImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/typeimpl/TypeKeyImpl.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/typeimpl/TypeKeyImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/intermediate/typeimpl/TypeSpecImpl.java" afterPath="$PROJECT_DIR$/src/wci/intermediate/typeimpl/TypeSpecImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/message/Message.java" afterPath="$PROJECT_DIR$/src/wci/message/Message.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/message/MessageHandler.java" afterPath="$PROJECT_DIR$/src/wci/message/MessageHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/message/MessageListener.java" afterPath="$PROJECT_DIR$/src/wci/message/MessageListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/message/MessageProducer.java" afterPath="$PROJECT_DIR$/src/wci/message/MessageProducer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/message/MessageType.java" afterPath="$PROJECT_DIR$/src/wci/message/MessageType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/util/CrossReferencer.java" afterPath="$PROJECT_DIR$/src/wci/util/CrossReferencer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wci/util/ParseTreePrinter.java" afterPath="$PROJECT_DIR$/src/wci/util/ParseTreePrinter.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,7 +76,7 @@
     <favorites_list name="ToyPascal" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -71,57 +127,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/add/AddFileHandler.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/add/AddHandler.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/add/AddFrame.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/add/AddFolderHandler.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit/Editor.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit/EditFile.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit/TabListener.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit/IFrameListener.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit/EditDocumentListener.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit/listener/EditDocumentListener.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit/listener/IFrameListener.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/handler/edit/listener/TabListener.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/util/edit/listener/TabListener.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/util/open/WorkSpace.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/util/open/SpaceFrame.java" />
-        <option value="$PROJECT_DIR$/colorscheme/monokai.stx" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/util/edit/TextLineNumber.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/util/RenderToken.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/Executor.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/BackendFactory.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/RuntimeErrorHandler.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/DebuggerProcess.java" />
-        <option value="$PROJECT_DIR$/src/wci/util/ParseTreePrinter.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/OutputPane.java" />
-        <option value="$PROJECT_DIR$/src/Pascal.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/ConsolePane.java" />
+        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/executors/ExpressionExecutor.java" />
+        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/RuntimeErrorCode.java" />
+        <option value="$PROJECT_DIR$/src/wci/backend/Backend.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/AssignmentStatementParser.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/CallDeclaredParser.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/CallParser.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/CompoundStatementParser.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/StatementParser.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/tokens/PascalErrorToken.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/tokens/PascalNumberToken.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/tokens/PascalSpecialSymbolToken.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/tokens/PascalStringToken.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/tokens/PascalWordToken.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/PascalErrorCode.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/PascalErrorHandler.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/PascalParserTD.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/PascalScanner.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/PascalToken.java" />
         <option value="$PROJECT_DIR$/src/wci/frontend/pascal/PascalTokenType.java" />
-        <option value="$PROJECT_DIR$/colorscheme/pascal.stx" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/ICodePane.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/EofToken.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/FrontendFactory.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/Parser.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/Scanner.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/Source.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/TokenType.java" />
+        <option value="$PROJECT_DIR$/src/wci/frontend/Token.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/icodeimpl/ICodeImpl.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/icodeimpl/ICodeKeyImpl.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/icodeimpl/ICodeNodeTypeImpl.java" />
         <option value="$PROJECT_DIR$/src/wci/intermediate/icodeimpl/ICodeNodeImpl.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/FileBrowserPane.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/util/Info/WorkSpace.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/tree/TreeCreator.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/tree/TreeCreatorImpl.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/tree/ProjectTreeSelectionListener.java" />
-        <option value="$PROJECT_DIR$/src/PascalIDE.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/util/run/RunProcess.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/util/edit/Editor.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/EditPane.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/SpaceFrame.java" />
-        <option value="$PROJECT_DIR$/src/wci/frontend/pascal/parsers/ConstantDefinitionsParser.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/ideimpl/util/add/AddFrame.java" />
-        <option value="$PROJECT_DIR$/doc/pascal/examples/test.pas" />
-        <option value="$PROJECT_DIR$/src/wci/ide/IDEControl.java" />
-        <option value="$PROJECT_DIR$/src/wci/ide/IDEFrame.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/debuggerimpl/GUIDebugger.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/RuntimeDisplay.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/memoryimpl/RuntimeDisplayImpl.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/memoryimpl/RuntimeStackImpl.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/memoryimpl/MemoryMapImpl.java" />
-        <option value="$PROJECT_DIR$/src/wci/backend/interpreter/debuggerimpl/CommandProcessor.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/symtabimpl/Predefined.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/symtabimpl/SymTabEntryImpl.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/symtabimpl/SymTabImpl.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/symtabimpl/SymTabStackImpl.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/symtabimpl/DefinitionImpl.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/typeimpl/TypeFormImpl.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/typeimpl/TypeKeyImpl.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/typeimpl/TypeSpecImpl.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/TypeSpec.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/TypeFactory.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/SymTabStack.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/SymTabFactory.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/SymTabEntry.java" />
+        <option value="$PROJECT_DIR$/src/wci/intermediate/SymTab.java" />
+        <option value="$PROJECT_DIR$/src/wci/util/ParseTreePrinter.java" />
+        <option value="$PROJECT_DIR$/src/wci/util/CrossReferencer.java" />
+        <option value="$PROJECT_DIR$/src/wci/message/MessageType.java" />
+        <option value="$PROJECT_DIR$/src/wci/message/MessageProducer.java" />
+        <option value="$PROJECT_DIR$/src/wci/message/MessageListener.java" />
+        <option value="$PROJECT_DIR$/src/wci/message/MessageHandler.java" />
+        <option value="$PROJECT_DIR$/src/wci/message/Message.java" />
       </list>
     </option>
   </component>
@@ -212,7 +268,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -293,8 +348,85 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToyPascal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToyPascal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToyPascal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToyPascal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToyPascal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToyPascal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="message" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToyPascal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToyPascal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -598,7 +730,6 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3213166" sideWeight="0.4969743" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -610,7 +741,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22541603" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22844176" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -624,6 +755,7 @@
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.94917786" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="simpleUML" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46296296" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3213166" sideWeight="0.4969743" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.62539184" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
@@ -669,364 +801,410 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/ICodeNode.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/frontend/EofToken.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        <state relative-caret-position="115">
+          <caret line="5" column="32" lean-forward="false" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/SymTabFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/frontend/FrontendFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="115">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/parsers/WhileStatementParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/parsers/VariableParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/parsers/VariableDeclarationsParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/parsers/TypeSpecificationParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/symtabimpl/DefinitionImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/parsers/TypeDefinitionsParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-503">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="92">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/edit/EditFile.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/parsers/SubrangeTypeParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state relative-caret-position="92">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/colorscheme/pascal.stx">
+    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/parsers/SimpleTypeParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="66" column="6" lean-forward="false" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
+        <state relative-caret-position="92">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/OutputPane.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/frontend/TokenType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="13" column="34" lean-forward="false" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        <state relative-caret-position="69">
+          <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/ConsolePane.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/frontend/Token.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="35" lean-forward="false" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        <state relative-caret-position="115">
+          <caret line="5" column="70" lean-forward="false" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/ICodePane.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/icodeimpl/ICodeImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="161">
+          <caret line="8" column="61" lean-forward="false" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/icodeimpl/ICodeNodeTypeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/wci/intermediate/icodeimpl/ICodeNodeImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="96" column="34" lean-forward="false" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
+        <state relative-caret-position="115">
+          <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/icodeimpl/ICodeKeyImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/wci/intermediate/symtabimpl/Predefined.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        <state relative-caret-position="115">
+          <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/symtabimpl/SymTabEntryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/symtabimpl/SymTabImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="14" column="40" lean-forward="false" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/symtabimpl/SymTabStackImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/symtabimpl/DefinitionImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="45" lean-forward="false" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/typeimpl/TypeFormImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/typeimpl/TypeKeyImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/wci/intermediate/typeimpl/TypeSpecImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="161">
+          <caret line="17" column="45" lean-forward="false" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/tree/ProjectTreeNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/tree/ProjectTreeModel.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/typeimpl/TypeChecker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/add/AddFolderHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/symtabimpl/RoutineCodeImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-46">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="92">
+          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/tree/TreeCreator.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/symtabimpl/SymTabKeyImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
-          <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/Info/WorkSpace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/tree/TreeCreatorImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="42" column="26" lean-forward="false" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/FileBrowserPane.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/Definition.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/tree/ProjectTreeSelectionListener.java">
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/ICode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="20" column="57" lean-forward="false" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
+        <state relative-caret-position="161">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/ICodeFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/ICodeKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/ICodeNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/ICodeNodeType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/TypeSpec.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="41" lean-forward="false" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/TypeKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/TypeForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/TypeFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="46" lean-forward="false" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/SymTabStack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="43" lean-forward="false" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/SymTabKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/SymTabFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="9" column="63" lean-forward="false" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/SymTabEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="41" lean-forward="false" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/SymTab.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="59" lean-forward="false" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/intermediate/RoutineCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/util/CrossReferencer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="16" column="37" lean-forward="false" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/util/ParseTreePrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/message/MessageType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/message/MessageProducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="66" lean-forward="false" selection-start-line="5" selection-start-column="66" selection-end-line="5" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/message/MessageListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="68" lean-forward="false" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/message/MessageHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wci/message/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="9" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PascalIDE.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="8" column="51" lean-forward="false" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/EditPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="54" column="30" lean-forward="false" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/edit/Editor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="124" column="56" lean-forward="false" selection-start-line="124" selection-start-column="56" selection-end-line="124" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/SpaceFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/PascalTokenType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="31" column="14" lean-forward="false" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/PascalErrorHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="39" column="67" lean-forward="false" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/parsers/ConstantDefinitionsParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="71" column="61" lean-forward="false" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/parsers/DeclarationsParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-184">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/frontend/pascal/PascalErrorCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/RuntimeErrorCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/RuntimeErrorHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="42" column="52" lean-forward="false" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/add/AddFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="33" column="37" lean-forward="false" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/pascal/examples/test.pas">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/ideimpl/util/run/RunProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="44" lean-forward="false" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/Executor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/memoryimpl/ActivationRecordImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/executors/StatementExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="245" column="0" lean-forward="false" selection-start-line="245" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/executors/CallExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/executors/CallStandardExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/executors/ExpressionExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/executors/CompoundExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/executors/AssignmentExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/executors/CallDeclaredExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/IDEControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/ide/IDEFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="126" column="61" lean-forward="false" selection-start-line="126" selection-start-column="61" selection-end-line="126" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/memoryimpl/RuntimeDisplayImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/memoryimpl/RuntimeStackImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="42" column="25" lean-forward="false" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/RuntimeDisplay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/memoryimpl/MemoryMapImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="63" column="22" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/debuggerimpl/GUIDebugger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="189" column="30" lean-forward="false" selection-start-line="189" selection-start-column="30" selection-end-line="189" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wci/backend/interpreter/debuggerimpl/CommandProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+        <state relative-caret-position="46">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Pascal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        <state relative-caret-position="161">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
           <folding />
         </state>
       </provider>

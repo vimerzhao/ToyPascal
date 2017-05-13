@@ -13,12 +13,9 @@ import java.util.ArrayList;
 import static wci.ide.IDEControl.*;
 
 /**
- * <h1>GUIDebugger</h1>
- * <p>
- * <p>GUI version of the interactive source-level debugger.</p>
- * <p>
- * <p>Copyright (c) 2009 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
+ * GUIDebugger
+ *
+ * GUI version of the interactive source-level debugger.
  */
 public class GUIDebugger extends Debugger {
     private CommandProcessor commandProcessor;

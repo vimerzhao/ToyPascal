@@ -21,9 +21,9 @@ import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.ASSIGN;
 import static wci.intermediate.icodeimpl.ICodeNodeTypeImpl.VARIABLE;
 
 /**
- * <h1>AssignmentStatementParser</h1>
+ * AssignmentStatementParser
  *
- * <p>Parse a Pascal assignment statement.</p>
+ * Parse a Pascal assignment statement.
  */
 public class AssignmentStatementParser extends StatementParser {
     /**

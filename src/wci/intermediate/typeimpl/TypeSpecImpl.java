@@ -13,9 +13,9 @@ import static wci.intermediate.typeimpl.TypeFormImpl.SUBRANGE;
 import static wci.intermediate.typeimpl.TypeKeyImpl.*;
 
 /**
- * <h1>TypeSpecImpl</h1>
+ * TypeSpecImpl
  *
- * <p>A Pascal type specification implementation.</p>
+ * A Pascal type specification implementation.
  */
 public class TypeSpecImpl extends HashMap<TypeKey, Object> implements TypeSpec {
     private TypeForm form;          // type form

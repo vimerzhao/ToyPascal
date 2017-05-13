@@ -1,10 +1,10 @@
 package wci.frontend;
 
 /**
- * <h1>Scanner</h1>
+ * Scanner
  *
- * <p>A language-independent framework class.  This abstract scanner class
- * will be implemented by language-specific subclasses.</p>
+ * A language-independent framework class.  This abstract scanner class
+ * will be implemented by language-specific subclasses.
  */
 public abstract class Scanner {
     protected Source source;     // source

@@ -1,9 +1,9 @@
 package wci.frontend;
 
 /**
- * <h1>EofToken</h1>
+ * EofToken
  *
- * <p>The generic end-of-file token.</p>
+ * The generic end-of-file token.
  */
 public class EofToken extends Token {
     /**

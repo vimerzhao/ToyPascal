@@ -8,9 +8,7 @@ import static wci.frontend.pascal.PascalTokenType.*;
 import static wci.frontend.pascal.PascalErrorCode.*;
 
 /**
- * <h1>PascalScanner</h1>
- *
- * <p>The Pascal scanner.</p>
+ * PascalScanner
  */
 public class PascalScanner extends Scanner {
     /**

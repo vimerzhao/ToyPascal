@@ -25,9 +25,9 @@ import static wci.intermediate.typeimpl.TypeKeyImpl.ARRAY_INDEX_TYPE;
 import static wci.intermediate.typeimpl.TypeKeyImpl.SUBRANGE_MIN_VALUE;
 
 /**
- * <h1>ExpressionExecutor</h1>
+ * ExpressionExecutor
  *
- * <p>Executor an expression.</p>
+ * Executor an expression.
  */
 public class ExpressionExecutor extends StatementExecutor {
     /**

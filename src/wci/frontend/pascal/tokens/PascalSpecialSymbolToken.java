@@ -7,9 +7,7 @@ import static wci.frontend.pascal.PascalTokenType.*;
 import static wci.frontend.pascal.PascalErrorCode.*;
 
 /**
- * <h1>PascalSpecialSymbolToken</h1>
- *
- * <p> Pascal special symbol tokens.</p>
+ * PascalSpecialSymbolToken
  */
 public class PascalSpecialSymbolToken extends PascalToken
 {

@@ -3,10 +3,10 @@ package wci.message;
 import java.util.ArrayList;
 
 /**
- * <h1>MessageHandler</h1>
+ * MessageHandler
  *
- * <p>A helper class to which message producer classes delegate the task of
- * maintaining and notifying listeners.</p>
+ * A helper class to which message producer classes delegate the task of
+ * maintaining and notifying listeners.
  */
 public class MessageHandler {
     private Message message;                       // message

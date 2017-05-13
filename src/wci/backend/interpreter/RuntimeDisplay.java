@@ -1,7 +1,5 @@
 package wci.backend.interpreter;
 
-import wci.backend.interpreter.ActivationRecord;
-
 /**
  * Interface for the interpreter's runtime display.
  */

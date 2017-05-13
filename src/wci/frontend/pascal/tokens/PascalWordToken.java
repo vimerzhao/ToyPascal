@@ -6,9 +6,9 @@ import wci.frontend.pascal.*;
 import static wci.frontend.pascal.PascalTokenType.*;
 
 /**
- * <h1>PascalWordToken</h1>
+ * PascalWordToken
  *
- * <p>Pascal word tokens(identifiers and reserved words).</p>
+ * Pascal word tokens(identifiers and reserved words).
  */
 public class PascalWordToken extends PascalToken {
     /**
